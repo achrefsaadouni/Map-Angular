@@ -32,7 +32,7 @@ $(document).ready(function() {
     /* Formatting function for row details - modify as you need */
     function format ( d ) {
         // `d` is the original data object for the row
-        return '<table class="table table-striped" cellpadding="5" style="padding-left:50px;">'+
+        return '<table Models="table table-striped" cellpadding="5" style="padding-left:50px;">'+
             '<tr>'+
             '<td>User name:</td>'+
             '<td>'+d.UserName+'</td>'+

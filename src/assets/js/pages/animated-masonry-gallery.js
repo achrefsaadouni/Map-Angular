@@ -30,11 +30,11 @@ function check_size(){
 	$("#gallery-content-center").removeClass(normal_size_class).removeClass(full_size_class);
 	if(size==0){
 		$("#gallery-content-center").addClass(normal_size_class); 
-		$("#gallery-header-center-left-icon").html('<span class="iconb" data-icon="&#xe23a;"></span>');
+		$("#gallery-header-center-left-icon").html('<span Models="iconb" data-icon="&#xe23a;"></span>');
 		}
 	if(size==1){
 		$("#gallery-content-center").addClass(full_size_class); 
-		$("#gallery-header-center-left-icon").html('<span class="iconb" data-icon="&#xe23b;"></span>');
+		$("#gallery-header-center-left-icon").html('<span Models="iconb" data-icon="&#xe23b;"></span>');
 		}
 	$container.isotope({itemSelector : 'img'});
 }

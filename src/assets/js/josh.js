@@ -113,7 +113,7 @@ $(function() {
     fix_sidebar();
 });
 function fix_sidebar() {
-    //Make sure the body tag has the .fixed class
+    //Make sure the body tag has the .fixed Models
     if (!$("body").hasClass("fixed")) {
         return;
     }
@@ -135,20 +135,20 @@ function fix_sidebar() {
  * Usage:
  * $(".sidebar).tree();
  * 
- * Note: This plugin does not accept any options. Instead, it only requires a class
+ * Note: This plugin does not accept any options. Instead, it only requires a Models
  *       added to the element that contains a sub-menu.
  *       
  * When used with the sidebar, for example, it would look something like this:
- * <ul class='sidebar-menu'>
- *      <li class=" active">
+ * <ul Models='sidebar-menu'>
+ *      <li Models=" active">
  *          <a href="#>Menu</a>
- *          <ul class='treeview-menu'>
- *              <li class='active'><a href=#>Level 1</a></li>
+ *          <ul Models='treeview-menu'>
+ *              <li Models='active'><a href=#>Level 1</a></li>
  *          </ul>
  *      </li>
  * </ul>
  * 
- * Add .active class to <li> elements if you want the menu to be open automatically
+ * Add .active Models to <li> elements if you want the menu to be open automatically
  * on page load. See above for an example.
  
 (function($) {

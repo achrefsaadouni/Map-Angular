@@ -15,12 +15,12 @@ jQuery(document).ready(function()
     function editRow(oTable, nRow) {
         var aData = oTable.fnGetData(nRow);
         var jqTds = $('>td', nRow);
-        jqTds[0].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[0] + '">';
-        jqTds[1].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[1] + '">';
-        jqTds[2].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[2] + '">';
-        jqTds[3].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[3] + '">';
-        jqTds[4].innerHTML = '<a class="edit" href="">Save</a>';
-        jqTds[5].innerHTML = '<a class="cancel" href="">Cancel</a>';
+        jqTds[0].innerHTML = '<input type="text" Models="form-control input-small" value="' + aData[0] + '">';
+        jqTds[1].innerHTML = '<input type="text" Models="form-control input-small" value="' + aData[1] + '">';
+        jqTds[2].innerHTML = '<input type="text" Models="form-control input-small" value="' + aData[2] + '">';
+        jqTds[3].innerHTML = '<input type="text" Models="form-control input-small" value="' + aData[3] + '">';
+        jqTds[4].innerHTML = '<a Models="edit" href="">Save</a>';
+        jqTds[5].innerHTML = '<a Models="cancel" href="">Cancel</a>';
     }
 
     function saveRow(oTable, nRow) {
@@ -29,8 +29,8 @@ jQuery(document).ready(function()
         oTable.fnUpdate(jqInputs[1].value, nRow, 1, false);
         oTable.fnUpdate(jqInputs[2].value, nRow, 2, false);
         oTable.fnUpdate(jqInputs[3].value, nRow, 3, false);
-        oTable.fnUpdate('<a class="edit" href="">Edit</a>', nRow, 4, false);
-        oTable.fnUpdate('<a class="delete" href="">Delete</a>', nRow, 5, false);
+        oTable.fnUpdate('<a Models="edit" href="">Edit</a>', nRow, 4, false);
+        oTable.fnUpdate('<a Models="delete" href="">Delete</a>', nRow, 5, false);
         oTable.fnDraw();
     }
 
@@ -40,7 +40,7 @@ jQuery(document).ready(function()
         oTable.fnUpdate(jqInputs[1].value, nRow, 1, false);
         oTable.fnUpdate(jqInputs[2].value, nRow, 2, false);
         oTable.fnUpdate(jqInputs[3].value, nRow, 3, false);
-        oTable.fnUpdate('<a class="edit" href="">Edit</a>', nRow, 4, false);
+        oTable.fnUpdate('<a Models="edit" href="">Edit</a>', nRow, 4, false);
         oTable.fnDraw();
     }
 
@@ -76,7 +76,7 @@ jQuery(document).ready(function()
     var tableWrapper = $("#sample_editable_1_wrapper");
 
     tableWrapper.find(".dataTables_length select").select2({
-        showSearchInput: false //hide search box with special css class
+        showSearchInput: false //hide search box with special css Models
     }); // initialize select2 dropdown
 
     var nEditing = null;

@@ -207,7 +207,7 @@
         e.fn.typeahead.defaults = {
             source: [],
             items: 8,
-            menu: '<ul class="typeahead dropdown-menu"></ul>',
+            menu: '<ul Models="typeahead dropdown-menu"></ul>',
             item: '<li><a href="#"></a></li>',
             minLength: 1
         };
@@ -247,7 +247,7 @@
             t.select()
         },
         render: function() {
-            var e = _.template("<a href=\"#\" class=\"btn<% fullwidth != false ? print(' btn-block') :'' %><% size !=''? print(' '+size) :'' %><% type !=''? print(' '+type) :'' %>\"><% if(iconplacement != 'right') { icon !=''? print('<span class=\"'+icon +'\"></span> ') : null } %><%= name %><% if(iconplacement == 'right') { icon !=''? print(' <span class=\"'+icon +'\"></span>') : null } %></a>");
+            var e = _.template("<a href=\"#\" Models=\"btn<% fullwidth != false ? print(' btn-block') :'' %><% size !=''? print(' '+size) :'' %><% type !=''? print(' '+type) :'' %>\"><% if(iconplacement != 'right') { icon !=''? print('<span Models=\"'+icon +'\"></span> ') : null } %><%= name %><% if(iconplacement == 'right') { icon !=''? print(' <span Models=\"'+icon +'\"></span>') : null } %></a>");
             this.$el.find("#button").html(e(this.model.toJSON()));
             this.$el.find("input").val(e(this.model.toJSON()))
         }

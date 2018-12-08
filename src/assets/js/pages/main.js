@@ -49,7 +49,7 @@ $(function () {
                 url: 'server/php',
                 type: 'HEAD'
             }).fail(function () {
-                $('<div class="alert alert-danger"/>')
+                $('<div Models="alert alert-danger"/>')
                     .text('Upload server currently unavailable - ' +
                         new Date())
                     .appendTo('#fileupload');

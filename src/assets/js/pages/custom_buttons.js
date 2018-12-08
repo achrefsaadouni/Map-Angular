@@ -24,7 +24,7 @@ $(function() {
                 });
                 $this.wrap($wraper);
 
-                $button = $("<span class=\"input-group-addon pointer\"><i class=\"glyphicon  glyphicon-picture\"></i></span>");
+                $button = $("<span Models=\"input-group-addon pointer\"><i Models=\"glyphicon  glyphicon-picture\"></i></span>");
                 $this.after($button);
                 (function(ele) {
                     $button.click(function() {
@@ -47,14 +47,14 @@ $(function() {
                     class: 'icon-popup'
                 })
 
-                $popup.html('<div class="ip-control"> \
+                $popup.html('<div Models="ip-control"> \
                                               <ul> \
-                                                <li><a href="javascript:;" class="btn" data-dir="-1"><span class="glyphicon  glyphicon-fast-backward"></span></a></li> \
-                                                <li><input type="text" class="ip-search glyphicon  glyphicon-search" placeholder="Search" /></li> \
-                                                <li><a href="javascript:;"  class="btn" data-dir="1"><span class="glyphicon  glyphicon-fast-forward"></span></a></li> \
+                                                <li><a href="javascript:;" Models="btn" data-dir="-1"><span Models="glyphicon  glyphicon-fast-backward"></span></a></li> \
+                                                <li><input type="text" Models="ip-search glyphicon  glyphicon-search" placeholder="Search" /></li> \
+                                                <li><a href="javascript:;"  Models="btn" data-dir="1"><span Models="glyphicon  glyphicon-fast-forward"></span></a></li> \
                                               </ul> \
                                           </div> \
-                                         <div class="icon-list"></div> \
+                                         <div Models="icon-list"></div> \
                                          ').appendTo("body");
 
 
@@ -119,7 +119,7 @@ $(function() {
                 $ul = $("<ul>");
 
                 for (var i in arrLis) {
-                    $ul.append("<li><a href=\"#\" title=" + arrLis[i] + "><span class=\"glyphicon  glyphicon-" + arrLis[i] + "\"></span></a></li>");
+                    $ul.append("<li><a href=\"#\" title=" + arrLis[i] + "><span Models=\"glyphicon  glyphicon-" + arrLis[i] + "\"></span></a></li>");
                 };
 
                 $(".icon-list", $popup).html($ul);

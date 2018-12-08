@@ -45,7 +45,7 @@ $('input.line').each(function() {
         checkboxClass: 'icheckbox_line-red',
         radioClass: 'iradio_line-red',
         increaseArea: '20%',
-        insert: '<div class="icheck_line-icon"></div>' + label_text
+        insert: '<div Models="icheck_line-icon"></div>' + label_text
     });
 });
 

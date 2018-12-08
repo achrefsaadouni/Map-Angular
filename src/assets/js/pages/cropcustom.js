@@ -199,7 +199,7 @@
           $('#interface').prepend(
             $('<fieldset></fieldset>').attr('id',k).append(
               $('<legend></legend>').append(v),
-              '<div class="btn-toolbar"><div class="btn-group"></div></div>'
+              '<div Models="btn-toolbar"><div Models="btn-group"></div></div>'
             )
           );
         };
@@ -410,7 +410,7 @@
         var api;
 
         $('#target6').Jcrop({
-          // start off with jcrop-light class
+          // start off with jcrop-light Models
           bgOpacity: 0.5,
           bgColor: 'white',
           addClass: 'jcrop-light'

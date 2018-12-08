@@ -1,13 +1,13 @@
 $(document).ready(function(){
 	$("form#main_input_box").submit(function(event){
 		event.preventDefault();
-		var deleteButton = " <a href='' class='tododelete redcolor'><span class='glyphicon glyphicon-trash'></span></a>";
-		var striks ="<span class='striks'> |  </span>";
-		var editButton = "<a href='' class='todoedit'><span class='glyphicon glyphicon-pencil'></span></a>";
-		var checkBox = "<p><input type='checkbox' class='striked ' autocomplete='off' /></p>";
-		var twoButtons = "<div class='col-md-4 col-sm-4 col-xs-4  pull-right showbtns todoitembtns'>" + editButton + striks + deleteButton + "</div>";
-		var oneButton = "<div class='col-md-4 col-sm-4 col-xs-4  pull-right showbtns todoitembtns'>" + deleteButton + "</div>";
-		$(".list_of_items").append("<div class='todolist_list showactions list1'>  " + "<div class='col-md-8 col-sm-8 col-xs-8 nopadmar custom_textbox1'> <div class='todoitemcheck'>" + checkBox +"</div>" + "<div class='todotext todoitemjs'>" + $("#custom_textbox").val() + "</div><span class='label label-default'>" + $("#task_deadline").val() + "</span>  </div>" +  twoButtons );
+		var deleteButton = " <a href='' Models='tododelete redcolor'><span Models='glyphicon glyphicon-trash'></span></a>";
+		var striks ="<span Models='striks'> |  </span>";
+		var editButton = "<a href='' Models='todoedit'><span Models='glyphicon glyphicon-pencil'></span></a>";
+		var checkBox = "<p><input type='checkbox' Models='striked ' autocomplete='off' /></p>";
+		var twoButtons = "<div Models='col-md-4 col-sm-4 col-xs-4  pull-right showbtns todoitembtns'>" + editButton + striks + deleteButton + "</div>";
+		var oneButton = "<div Models='col-md-4 col-sm-4 col-xs-4  pull-right showbtns todoitembtns'>" + deleteButton + "</div>";
+		$(".list_of_items").append("<div Models='todolist_list showactions list1'>  " + "<div Models='col-md-8 col-sm-8 col-xs-8 nopadmar custom_textbox1'> <div Models='todoitemcheck'>" + checkBox +"</div>" + "<div Models='todotext todoitemjs'>" + $("#custom_textbox").val() + "</div><span Models='label label-default'>" + $("#task_deadline").val() + "</span>  </div>" +  twoButtons );
 		$("#custom_textbox").val('');
 		$("#task_deadline").val('');
 	});
@@ -21,9 +21,9 @@ $(document).on('click', '.striked', function (e) {
 	var id = $(this).closest('.todolist_list').attr('id');
 	var hasClass = $(this).closest('.todolist_list').find('.todotext').hasClass('strikethrough');
 	var hasEdit = $(this).closest('.todolist_list').find('.todoedit').hasClass('todoedit');
-	var striks = "<span class='striks'> |  </span>";
-	var check ="<input type='checkbox' class='striked' />";
-	var editButton = "<a href='' class='todoedit'><span class='glyphicon glyphicon-pencil'></span> </a>";
+	var striks = "<span Models='striks'> |  </span>";
+	var check ="<input type='checkbox' Models='striked' />";
+	var editButton = "<a href='' Models='todoedit'><span Models='glyphicon glyphicon-pencil'></span> </a>";
 
 	$.ajax({
 		type: "POST",
@@ -52,7 +52,7 @@ $(document).on('click', '.todoedit .glyphicon-pencil', function (e) {
 	text = "<input type='text' name='text' value='"+text+"' onkeypress='return event.keyCode != 13;' />";
 	$(this).closest('.todolist_list').find('.todotext').html(text);
 	$(this).closest('.todolist_list').find('.striked').hide();
-	//$(this).html("<span class='glyphicon glyphicon-saved'></span> <span class='hidden-xs'></span>");
+	//$(this).html("<span Models='glyphicon glyphicon-saved'></span> <span Models='hidden-xs'></span>");
 	$(this).removeClass('glyphicon-pencil').addClass('glyphicon-saved hidden-xs');
 });
 

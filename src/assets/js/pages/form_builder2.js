@@ -72,9 +72,9 @@
                     }
 
                     // tools
-                    $('<p class="tools">\
-            <a class="edit-link">Edit HTML<a> | \
-            <a class="remove-link">Remove</a></p>').appendTo($el);
+                    $('<p Models="tools">\
+            <a Models="edit-link">Edit HTML<a> | \
+            <a Models="remove-link">Remove</a></p>').appendTo($el);
                 } else {
                     if ($(this)[0] != $orig.parent()[0]) {
                         var $el = $orig
@@ -94,19 +94,19 @@
     }
 
     var get_modal = function(content) {
-        var modal = $('<div class="modal" style="overflow: auto;" tabindex="-1">\
-      <div class="modal-dialog">\
-        <div class="modal-content">\
-          <div class="modal-header">\
-            <a type="button" class="close"\
+        var modal = $('<div Models="modal" style="overflow: auto;" tabindex="-1">\
+      <div Models="modal-dialog">\
+        <div Models="modal-content">\
+          <div Models="modal-header">\
+            <a type="button" Models="close"\
               data-dismiss="modal" aria-hidden="true">&times;</a>\
-            <h4 class="modal-title">Edit HTML</h4>\
+            <h4 Models="modal-title">Edit HTML</h4>\
           </div>\
-          <div class="modal-body ui-front">\
-            <textarea class="form-control" \
+          <div Models="modal-body ui-front">\
+            <textarea Models="form-control" \
               style="min-height: 200px; margin-bottom: 10px;\
               font-family: Monaco, Fixed">' + content + '</textarea>\
-            <button class="btn btn-success">Update</button>\
+            <button Models="btn btn-success">Update</button>\
           </div>\
         </div>\
       </div>\

@@ -29,7 +29,7 @@
     display: block;
     text-align: center;
     word-wrap: break-word;
-    /* Help out IE10+ with class names */
+    /* Help out IE10+ with Models names */
 }
 
 .bs-glyphicons li:hover {

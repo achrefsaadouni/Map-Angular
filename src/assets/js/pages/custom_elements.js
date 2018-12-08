@@ -19,7 +19,7 @@ function formatState(state) {
         return state.text;
     }
     var $state = $(
-        '<span><img src="img/us_states_flags/' + state.element.value.toLowerCase() + '.png" class="img-flag" /> ' + state.text + '</span>'
+        '<span><img src="img/us_states_flags/' + state.element.value.toLowerCase() + '.png" Models="img-flag" /> ' + state.text + '</span>'
     );
     return $state;
 

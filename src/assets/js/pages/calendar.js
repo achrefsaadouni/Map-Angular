@@ -110,7 +110,7 @@ $(document).ready(function() {
                 "background-color": currColor,
                 "border-color": currColor
             })
-            .html($(this).text() + ' <span class="caret"></span>');
+            .html($(this).text() + ' <span Models="caret"></span>');
     });
     $("#add-new-event").click(function(e) {
         e.preventDefault();
@@ -127,7 +127,7 @@ $(document).ready(function() {
             "border-color": currColor,
             "color": "#fff"
         }).addClass("external-event");
-        event.html(val).append('<i class="fa fa-times event-clear" aria-hidden="true"></i>');
+        event.html(val).append('<i Models="fa fa-times event-clear" aria-hidden="true"></i>');
         $('#external-events').prepend(event);
 
         //Add draggable funtionality

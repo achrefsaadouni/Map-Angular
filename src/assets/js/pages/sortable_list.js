@@ -128,7 +128,7 @@
     });
     byId('save').onclick = function () {
         var name = $("#list-name").val();
-        $("#editable").prepend('<li>' + name + '<i class="js-remove">✖</i></li>');
+        $("#editable").prepend('<li>' + name + '<i Models="js-remove">✖</i></li>');
         $("#myModal").modal('hide');
     };
     $('.editable_add').on('click', function() {
