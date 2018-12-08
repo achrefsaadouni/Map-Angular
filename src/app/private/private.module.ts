@@ -1,0 +1,14 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import {LayoutComponent} from './layout/layout.component';
+import {AllMandateComponent} from './mandate/all-mandate/all-mandate.component';
+import {RouteModuleRoutingModule} from '../route-module/route-module-routing.module';
+
+@NgModule({
+  imports: [
+    CommonModule,
+    RouteModuleRoutingModule
+  ],
+  declarations: [LayoutComponent, AllMandateComponent]
+})
+export class PrivateModule { }
