@@ -1,11 +1,13 @@
+import {Resourceskill} from './Resourceskill';
+
 export class Resource {
-    id: number;
-   seniority: string;
-   workProfil: string;
-    salary: number
-   picture: string;
-   moyenneSkill: number;
-   jobType: string;
+  id: number;
+  seniority: string;
+  workProfil: string;
+  salary: number;
+  picture: string;
+  moyenneSkill: number;
+  jobType: string;
   cv: string;
   businessSector: string;
   availability: string;
@@ -13,4 +15,5 @@ export class Resource {
   lastName: string;
   email: string;
   archived: boolean;
+  resourceSkills: Resourceskill[];
 }

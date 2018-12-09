@@ -3,10 +3,11 @@ import { Observable } from 'rxjs/Observable';
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Injectable, Injector } from '@angular/core';
 import 'rxjs/add/operator/do';
+import {Router} from '@angular/router';
 
 @Injectable()
 export class AddAuthenticationHeaderInterceptor implements HttpInterceptor {
-  constructor(private inj: Injector) { }
+  constructor(private inj: Injector, private router: Router) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     console.log('Intertcepting request ..');
@@ -25,7 +26,7 @@ export class AddAuthenticationHeaderInterceptor implements HttpInterceptor {
         if (err instanceof HttpErrorResponse) {
           console.log(err);
           if (err.status === 401) {
-            console.log('sending Auth request again!!!!!');
+           return  this.router.navigateByUrl('login');
           }
         }
       }
