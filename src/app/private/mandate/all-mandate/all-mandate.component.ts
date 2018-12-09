@@ -15,7 +15,6 @@ mandates: Mandate[];
       data => {
         this.mandates = data;
       });
-    console.log(this.mandates);
   }
 
   ngOnInit() {

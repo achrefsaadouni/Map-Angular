@@ -17,8 +17,8 @@ import {PrivateModule} from './private/private.module';
   ],
   imports: [
     BrowserModule,
-    PublicModule,
     PrivateModule,
+    PublicModule,
     RouteModuleRoutingModule,
     FormsModule,
     ReactiveFormsModule,

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {MandateService} from './private/mandate/Services/mandate.service';
 
 @Component({
   selector: 'app-root',

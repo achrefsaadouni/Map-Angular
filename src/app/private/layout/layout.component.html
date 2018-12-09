@@ -24,7 +24,7 @@
                 <i class="pull-right" data-toggle="tooltip" data-placement="top" title="Mark as Read"><span class="pull-right ol livicon" data-n="adjust" data-s="10" data-c="#287b0b"></span></i>
                 <img src="assets/img/authors/avatar.jpg" class="img-responsive message-image" alt="icon" />
                 <div class="message-body">
-                  <strong>@Session["lastName"] @Session["firstName"]</strong>
+                  <strong>{{ name }}</strong>
                   <br>Hello, You there?
                   <br> <small>8 minutes ago</small>
                 </div>
@@ -146,7 +146,7 @@
             <img src="assets/img/authors/user.png" width="35" class="img-circle img-responsive pull-left" height="35" alt="riot">
             <div class="riot">
               <div>
-                @Session["lastName"]
+                {{ name }}
                 <span>
                                         <i class="caret"></i>
                                     </span>
@@ -157,7 +157,7 @@
             <!-- User image -->
             <li class="user-header bg-light-blue">
               <img src="assets/img/authors/user.png" width="90" class="img-circle img-responsive" height="90" alt="User Image" />
-              <p class="topprofiletext">@Session["lastName"] @Session["firstName"]</p>
+              <p class="topprofiletext">{{name}}</p>
             </li>
             <!-- Menu Body -->
             <li>
@@ -170,7 +170,7 @@
             <!-- Menu Footer-->
             <li class="user-footer">
               <div class="pull-right">
-                <a href="/Home/Logout"> <i class="livicon" data-name="sign-out" data-s="18"></i> Logout </a>
+                <a href="/login" (click)="logout()"> <i class="livicon" data-name="sign-out" data-s="18"></i> Logout </a>
               </div>
             </li>
           </ul>
@@ -246,10 +246,19 @@
               <span class="title">Mandates</span>
               <span class="fa arrow"></span>
             </a>
-
-
-
-
+            <ul class="sub-menu">
+              <li>
+                <a routerLink="/auth/mandate" routerLinkActive="active">
+                  <i class="fa fa-angle-double-right"></i> All Mandates
+                </a>
+              </li>
+              <li>
+                <a routerLink="/auth/request" routerLinkActive="active">
+                  <i class="fa fa-angle-double-right"></i> All Requests
+                </a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </div>
     </section>
