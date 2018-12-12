@@ -6,6 +6,7 @@ import {MandateService} from './mandate/Services/mandate.service';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {AddAuthenticationHeaderInterceptor} from './shared/add-authentication-header-interceptor';
 import {MandateModule} from './mandate/mandate.module';
+import { JobrequestComponent } from './jobrequest/jobrequest.component';
 
 
 @NgModule({
@@ -14,7 +15,7 @@ import {MandateModule} from './mandate/mandate.module';
     RouteModuleRoutingModule,
     MandateModule
   ],
-  declarations: [LayoutComponent],
+  declarations: [LayoutComponent, JobrequestComponent],
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: AddAuthenticationHeaderInterceptor,

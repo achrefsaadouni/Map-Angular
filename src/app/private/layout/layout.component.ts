@@ -10,9 +10,9 @@ import {Router} from '@angular/router';
 export class LayoutComponent implements OnInit {
   name: string;
   constructor( private router: Router) {if (localStorage.length === 0) {
-      this.router.navigate(['login']); }
-    this.name = localStorage.getItem('firstName') + ' ' + localStorage.getItem('lastName');
-  }
+       this.router.navigate(['login']); }
+     this.name = localStorage.getItem('firstName') + ' ' + localStorage.getItem('lastName');
+   }
 
   ngOnInit() {
   }

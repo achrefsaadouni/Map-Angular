@@ -22,14 +22,14 @@ export class LoginComponent implements OnInit {
   loginIn() {
    this.service.authenticateMe(this.login, this.password).subscribe(data => {
     localStorage.setItem('token', data.token);
-     localStorage.setItem('id', data.id.toString());
-     localStorage.setItem('firstName', data.firstName);
-     localStorage.setItem('lastName', data.lastName);
+     localStorage.setItem('firstName', data.firstName);     localStorage.setItem('id', data.id.toString());
+
+       localStorage.setItem('lastName', data.lastName);
      localStorage.setItem('role', data.roleT);
-       window.location.replace('/auth/mandate');
+       window.location.replace('/auth/jobrequest');
     }, err => {
       if (err.status === 200) {
-          this.route.navigate(['auth/mandate']);
+          this.route.navigate(['auth/jobrequest']);
       } else {
           this.Error = false;
       }
