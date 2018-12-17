@@ -7,15 +7,19 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {AddAuthenticationHeaderInterceptor} from './shared/add-authentication-header-interceptor';
 import {MandateModule} from './mandate/mandate.module';
 import { JobrequestComponent } from './jobrequest/jobrequest.component';
+import { TestCategoryComponent } from './test-category/test-category.component';
+import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
   imports: [
     CommonModule,
     RouteModuleRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     MandateModule
   ],
-  declarations: [LayoutComponent, JobrequestComponent],
+  declarations: [LayoutComponent, JobrequestComponent, TestCategoryComponent],
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: AddAuthenticationHeaderInterceptor,

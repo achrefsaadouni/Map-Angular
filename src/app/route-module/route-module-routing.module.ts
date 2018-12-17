@@ -5,6 +5,7 @@ import {LayoutComponent} from '../private/layout/layout.component';
 import {AllMandateComponent} from '../private/mandate/all-mandate/all-mandate.component';
 import {AllRequestComponent} from '../private/mandate/all-request/all-request.component';
 import {JobrequestComponent} from '../private/jobrequest/jobrequest.component';
+import {TestCategoryComponent} from '../private/test-category/test-category.component';
 const routes: Routes = [
   {path: '' , redirectTo: 'login' , pathMatch: 'full' },
   {path: 'login' , component: LoginComponent},
@@ -12,6 +13,7 @@ const routes: Routes = [
       {path: 'mandate' , component: AllMandateComponent},
       {path: 'request' , component: AllRequestComponent},
       {path : 'jobrequest' , component: JobrequestComponent},
+      {path : 'category' , component: TestCategoryComponent}
 
     ]}
 ];
