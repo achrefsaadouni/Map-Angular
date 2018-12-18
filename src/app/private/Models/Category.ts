@@ -1,7 +1,7 @@
 import {Modules} from './Modules';
 
 export  class Category {
-  id: number;
+  id: any;
   name: string;
   modules: Modules;
 }

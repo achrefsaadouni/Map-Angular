@@ -9,6 +9,7 @@ import {MandateModule} from './mandate/mandate.module';
 import { JobrequestComponent } from './jobrequest/jobrequest.component';
 import { TestCategoryComponent } from './test-category/test-category.component';
 import { FormsModule , ReactiveFormsModule} from '@angular/forms';
+import { ModulesComponent } from './modules/modules.component';
 
 
 @NgModule({
@@ -19,7 +20,7 @@ import { FormsModule , ReactiveFormsModule} from '@angular/forms';
     ReactiveFormsModule,
     MandateModule
   ],
-  declarations: [LayoutComponent, JobrequestComponent, TestCategoryComponent],
+  declarations: [LayoutComponent, JobrequestComponent, TestCategoryComponent, ModulesComponent],
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: AddAuthenticationHeaderInterceptor,

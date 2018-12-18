@@ -1,0 +1,86 @@
+<aside class="right-side">
+  <section class="content-header">
+    <h1>Category Modules</h1>
+    <ol class="breadcrumb">
+      <li>
+        <a href="index.html">
+          <i class="livicon" data-name="home" data-size="16" data-color="#000"></i> Dashboard
+        </a>
+      </li>
+      <li>
+        <a href="#">Category Modules</a>
+      </li>
+      <li class="active"> Category Modules</li>
+    </ol>
+  </section>
+
+
+  <section class="content paddingleft_right15">
+    <button class="btn btn-success" (click)="showForm()"> {{ hiddenForm ? 'Set a new Module' : ' Cancel Set'}}</button>
+    <div [hidden]="hiddenForm">
+      <div class="panel panel-info" id="hidepanel2">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <i class="livicon" data-name="help" data-size="16" data-loop="true" data-c="#fff" data-hc="white"></i>
+            Module Form
+          </h3>
+
+        </div>
+        <div class="panel-body">
+          <form class="form-horizontal" (ngSubmit)="AddModule()">
+            <fieldset>
+              <!-- Name input-->
+              <div class="form-group">
+                <label class="col-md-3 control-label" for="name1">Enter The new Module</label>
+                <div class="col-md-9">
+                  <input  name="title" type="text" placeholder="Enter The new Module" class="form-control" [(ngModel)]="NewModule.title"></div>
+              </div>
+              <!-- Form actions -->
+              <div class="form-group">
+                <div class="col-md-12 text-right">
+                  <button type="submit" class="btn btn-responsive btn-info btn-sm">Set</button>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+
+      <div class="row" >
+
+
+        <div class="col-lg-3 col-md-6 col-sm-6 margin_10 animated fadeInLeftBig" *ngFor="let m of modules">
+          <!-- Trans label pie charts strats here-->
+          <div class="lightbluebg no-radius">
+            <div class="panel-body squarebox square_boxs">
+              <div class="col-xs-12 pull-left nopadmar">
+                <div class="row">
+                  <div class="square_box col-xs-7 text-right">
+                    <span>Module's name</span>
+                    <div class="number" >{{m.title}}</div>
+                  </div>
+                </div>
+                <div class="row" style="margin-top: 5px">
+                  <div class="col-xs-6">
+                    <small class="stat-label"><button type="button" class="btn btn-responsive button-alignment btn-success" style="margin-bottom:7px;" >Questions</button></small>
+                    <h4 id="myTargetElement1.1"></h4>
+                  </div>
+                  <div class="col-xs-6 text-right">
+                    <small class="stat-label"><button type="button" class="btn btn-responsive button-alignment btn-warning" style="margin-bottom:7px;" ><a href="auth/category">Back</a></button></small>
+                    <h4 id="myTargetElement1.2"></h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+  </section>
+</aside>
+
