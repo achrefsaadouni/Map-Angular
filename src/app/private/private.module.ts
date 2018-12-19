@@ -9,6 +9,10 @@ import {MandateModule} from './mandate/mandate.module';
 import { JobrequestComponent } from './jobrequest/jobrequest.component';
 import { TestCategoryComponent } from './test-category/test-category.component';
 import { FormsModule , ReactiveFormsModule} from '@angular/forms';
+import { ModulesComponent } from './modules/modules.component';
+import { QuestionComponent } from './question/question.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { ChoicesComponent } from './question/choices/choices.component';
 
 
 @NgModule({
@@ -17,9 +21,10 @@ import { FormsModule , ReactiveFormsModule} from '@angular/forms';
     RouteModuleRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    MandateModule
+    MandateModule,
+    NgxPaginationModule
   ],
-  declarations: [LayoutComponent, JobrequestComponent, TestCategoryComponent],
+  declarations: [LayoutComponent, JobrequestComponent, TestCategoryComponent, ModulesComponent, QuestionComponent, ChoicesComponent],
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: AddAuthenticationHeaderInterceptor,

@@ -12,12 +12,7 @@ import {User} from '../../Models/User';
 export class TestserviceService {
 
   constructor(private http: HttpClient) {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json',
-        'Authorization': 'my-auth-token'
-      })
-    };
+
   }
 
   public AddCategory(category: Category) {

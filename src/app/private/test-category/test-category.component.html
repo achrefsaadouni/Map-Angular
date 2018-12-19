@@ -45,7 +45,7 @@
 
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="button" #btnClose class="btn btn-danger" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary" [disabled]="FormValidtation.invalid">Save changes</button>
               </div>
               </form>
@@ -58,23 +58,29 @@
 
       </div>
 
-      <div  *ngFor="let cat of categories" class="col-md-6">
+      <div  *ngFor="let cat of categories " class="col-md-6">
 
       <div class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">
             <i class="livicon" data-name="stopwatch" data-size="16" data-loop="true" data-c="#fff" data-hc="white"></i> {{cat.name}}
           </h3>
-          <span class="pull-right clickable">
-                                    <i class="glyphicon glyphicon-chevron-up"></i>
-                                </span>
+
         </div>
-        <div class="panel-body ">
-          <div *ngFor="let module of cat.modules">
+        <div class="panel-body " style="height: 130px">
+          <div class="row">
+            <div *ngFor="let module of cat.modules | slice :0 :6" class="col-md-3" style="margin-top: 3px">
 
-            <button type="button" class="btn btn-warning">{{module.title}}</button>
+              <button type="button" class="btn btn-warning"><a href="auth/category/{{cat.id}}">#{{module.title}}</a></button>
+
+            </div>
           </div>
+          <div class="row" style="margin-top: 5px">
+          <button type="button" class="btn " ><a href="auth/category/{{cat.id}}" >
+            Add a new Module
+          </a></button>
 
+          </div>
         </div>
       </div>
 
