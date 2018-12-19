@@ -17,6 +17,7 @@ export class ModuleService {
       body,
     );
   }
+
   getModulesByCat(id: string) {
     return this.http.get<Modules[]>(ApiUri.URI + 'modules/show/' + id );
   }

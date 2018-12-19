@@ -1,0 +1,61 @@
+
+  <div class="row">
+
+    <div class="panel panel-info">
+      </div>
+      <div class="panel-body">
+
+
+      <div class="panel panel-warning">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <i class="livicon" data-name="help" data-size="16" data-loop="true" data-c="#fff" data-hc="white"></i> List of Choices
+          </h3>
+          <span class="pull-right clickable">
+                                    <i class="glyphicon glyphicon-chevron-up"></i>
+                                </span>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-6">
+              <div *ngFor="let choice of choices">
+                <div class="row ">
+                  <div class="alert alert-success" >
+                    <p>
+                      {{choice.title}}
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="col-md-6">
+              <form class="form-horizontal" (submit)="Addchoice(title,correct)">
+                <fieldset>
+                  <!-- Name input-->
+                  <div class="form-group">
+                    <label class="col-md-3 control-label">Choice</label>
+                    <div class="col-md-9">
+                      <input  name="title" type="text" placeholder="Enter your Choice" class="form-control" #title></div>
+                  </div>
+                  <div class="checkbox" style="margin-left:130px;">
+                    <label>
+                      <input type="checkbox" [checked]="check" name="correct" #correct>&nbsp; Correct</label>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-md-12 text-right">
+                      <button type="submit" class="btn btn-responsive btn-success ">Add Choice</button>
+                    </div>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
