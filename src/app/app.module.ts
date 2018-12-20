@@ -7,6 +7,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouteModuleRoutingModule} from './route-module/route-module-routing.module';
+import {PublicModule} from './Public/public.module';
+import {PrivateModule} from './private/private.module';
 
 
 @NgModule({
@@ -15,11 +17,14 @@ import {RouteModuleRoutingModule} from './route-module/route-module-routing.modu
   ],
   imports: [
     BrowserModule,
+    PrivateModule,
+    PublicModule,
     RouteModuleRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

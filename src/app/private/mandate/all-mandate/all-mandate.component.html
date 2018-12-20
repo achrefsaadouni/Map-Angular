@@ -1,0 +1,64 @@
+<aside class="right-side">
+  <section class="content-header">
+    <h1>Mandates</h1>
+    <ol class="breadcrumb">
+      <li>
+        <a href="index.html">
+          <i class="livicon" data-name="home" data-size="16" data-color="#000"></i> Dashboard
+        </a>
+      </li>
+      <li>
+        <a href="#">Mandates</a>
+      </li>
+      <li class="active">All Mandates</li>
+    </ol>
+  </section>
+
+
+  <section class="content paddingleft_right15">
+
+
+    <div class="row">
+      <div class="panel panel-warning ">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <i class="livicon" data-name="users-remove" data-size="18" data-c="#ffffff" data-hc="#ffffff"></i> Deleted Users List
+          </h4>
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+
+
+
+            <table class="table table-bordered">
+              <thead>
+              <tr>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Project Name</th>
+                <th>Resource Name</th>
+                <th>Fees</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let m of mandates">
+                <td>{{ m.mandateId.dateDebut }}</td>
+                <td>{{ m.mandateId.dateFin }}</td>
+                <td>{{ m.projet.projectName }}</td>
+                <td>{{ m.ressource.firstName }} {{ m.ressource.lastName }}</td>
+                <td>{{ m.montant }}</td>
+              </tr>
+              </tbody>
+            </table>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </section>
+</aside>
+
