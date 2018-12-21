@@ -10,6 +10,7 @@ import {ModulesComponent} from '../private/modules/modules.component';
 import {QuestionComponent} from '../private/question/question.component';
 import {ListJobrequestComponent} from '../private/list-jobrequest/list-jobrequest.component';
 import {TestComponent} from '../private/test/test.component';
+import {ProjectComponent} from '../private/project/project.component';
 const routes: Routes = [
   {path: '' , redirectTo: 'login' , pathMatch: 'full' },
   {path: 'login' , component: LoginComponent},
@@ -22,7 +23,8 @@ const routes: Routes = [
       {path : 'category/:id' , component: ModulesComponent},
       {path : 'category/:id/:idm' , component: QuestionComponent},
       {path: 'jrlist' , component: ListJobrequestComponent},
-      {path: 'jrlist/:idc' , component: TestComponent}
+      {path: 'jrlist/:idc' , component: TestComponent},
+      {path: 'project' , component: ProjectComponent}
     ]}
 ];
 
