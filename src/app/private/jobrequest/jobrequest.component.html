@@ -1,6 +1,7 @@
 <aside class="right-side">
+
   <section class="content-header">
-    <h1>Mandates</h1>
+    <h1>Set Your job Request</h1>
     <ol class="breadcrumb">
       <li>
         <a href="index.html">
@@ -8,54 +9,122 @@
         </a>
       </li>
       <li>
-        <a href="#">Mandates</a>
+        <a href="#">job Request</a>
       </li>
-      <li class="active">All Mandates</li>
+      <li class="active"> job Request</li>
     </ol>
   </section>
 
 
-  <section class="content paddingleft_right15">
-
-
-    <div class="row">
-      <div class="panel panel-warning ">
+  <section class="content paddingleft_right15" >
+    <div [hidden]="Request">
+      <div class="panel panel-default">
         <div class="panel-heading">
-          <h4 class="panel-title">
-            <i class="livicon" data-name="users-remove" data-size="18" data-c="#ffffff" data-hc="#ffffff"></i> Deleted Users List
-          </h4>
+          <h3 class="panel-title">
+            <i class="livicon" data-name="leaf" data-size="16" data-loop="true" data-c="#fff" data-hc="white"></i>
+            Job request set
+          </h3>
+
         </div>
-        <div class="panel-body">
-          <div class="table-responsive">
+        <div class="panel-body" >
+          <form (submit)="Set(speciality)" >
+            <fieldset >
+              <div class="form-group">
+                <label>Select Your speciality</label>
+                <select class="form-control" #speciality>
+                  <option *ngFor="let cat of Specialities">{{cat.name}}</option>
+                </select>
+              </div>
 
-
-
-            <table class="table table-bordered">
-              <thead>
-              <tr>
-                <th>Start Date</th>
-                <th>End Date</th>
-                <th>Project Name</th>
-                <th>Resource Name</th>
-                <th>Fees</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr *ngFor="let m of mandates">
-                <td>{{ m.mandateId.dateDebut }}</td>
-                <td>{{ m.mandateId.dateFin }}</td>
-                <td>{{ m.projet.projectName }}</td>
-                <td>{{ m.ressource.firstName }} {{ m.ressource.lastName }}</td>
-                <td>{{ m.montant }}</td>
-              </tr>
-              </tbody>
-            </table>
-
-
-          </div>
+              <button type="submit" class="btn btn-responsive ">Submit You Requset</button>
+            </fieldset>
+          </form>
         </div>
       </div>
+
     </div>
+
+    <div [hidden]="!Request">
+
+
+
+      <!--section ends-->
+
+        <div class="row">
+          <div class="col-lg-12">
+
+            <div class="tab-content mar-top">
+              <div id="tab1" class="tab-pane fade active in">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="panel">
+                      <div class="panel-heading">
+                        <div class="alert alert-info">
+                          <p>
+                            You have Submitted you request Correctly
+                          </p>
+                        </div>
+                      </div>
+                      <div class="panel-body">
+                        <div class="col-md-4">
+                          <div class="text-center">
+                            <div class="fileinput fileinput-new" data-provides="fileinput">
+                              <div class="fileinput-new thumbnail img-file">
+                                <img src="https://scontent.ftun3-1.fna.fbcdn.net/v/t1.15752-9/46104335_566236880469066_7613629109041627136_n.png?_nc_cat=110&_nc_ht=scontent.ftun3-1.fna&oh=02f8768cb9204d29522938df0c7f2f8c&oe=5CA436DA" width="200" class="img-responsive" height="150" alt="riot">
+                              </div>
+                              <div>
+                                <a href="" class="btn btn-danger fileinput-exists" data-dismiss="fileinput">Cancel You Request</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-8">
+                          <div class="panel-body">
+                            <div class="table-responsive">
+                              <table class="table table-bordered table-striped" *ngFor="let mine of MyJobRequest">
+                                <tr>
+                                  <td> Name</td>
+                                  <td>
+                                    <a href="#" data-pk="1" class="editable" data-title="Edit User Name">{{MyName}}</a>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td> Speciality</td>
+                                  <td>
+                                    <a href="" data-pk="1" class="editable" data-title="Edit User Name">{{mine.speciality}}</a>
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td>State Type</td>
+                                  <td>
+                                    <a href="#" id="status" data-type="select" data-pk="1" data-value="1" data-title="Status">{{mine.stateType}}</a>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>Sent At</td>
+                                  <td>
+                                    {{mine.sentdate}}
+                                  </td>
+                                </tr>
+
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+    </div>
+
 
 
 
