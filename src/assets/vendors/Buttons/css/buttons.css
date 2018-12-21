@@ -36,7 +36,7 @@
 * We provide a prefix to the Sass Variables to
 * prevent namespace collisions that could occur if
 * you import buttons as part of your Sass build process.
-* We kindly ask you not to use the prefix $ubtn in your project
+* We kindly ask you not to use the prefix $ubtn in your listProject
 * in order to avoid possilbe name conflicts. Thanks!
 */
 /*

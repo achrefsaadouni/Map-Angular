@@ -15,7 +15,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import {ChoicesComponent} from './question/choices/choices.component';
 import {ListJobrequestComponent} from './list-jobrequest/list-jobrequest.component';
 import {TestComponent} from './test/test.component';
-import {ProjectComponent} from './project/project.component';
+import {ProjectModule} from './project/project.module';
+import {ProjectService} from './project/service/project.service';
 
 
 @NgModule({
@@ -25,14 +26,19 @@ import {ProjectComponent} from './project/project.component';
     FormsModule,
     ReactiveFormsModule,
     MandateModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    ProjectModule
   ],
-  declarations: [LayoutComponent, JobrequestComponent, TestCategoryComponent, ModulesComponent, QuestionComponent, ChoicesComponent, ListJobrequestComponent, TestComponent, ProjectComponent],
+  declarations: [
+    LayoutComponent, JobrequestComponent,
+    TestCategoryComponent, ModulesComponent,
+    QuestionComponent, ChoicesComponent,
+    ListJobrequestComponent, TestComponent],
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: AddAuthenticationHeaderInterceptor,
     multi: true
-  }, MandateService]
+  }, MandateService , ProjectService]
 })
 export class PrivateModule {
 }
