@@ -22,7 +22,7 @@ export class ListJobrequestComponent implements OnInit {
 
 
   }
-  AcceptCandidate(id: string) {
+  AcceptCandidate(id: number) {
   this.ls.acceptjobrequest(id).subscribe();
   }
 

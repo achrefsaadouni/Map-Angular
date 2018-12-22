@@ -21,8 +21,8 @@ const routes: Routes = [
       {path : 'category' , component: TestCategoryComponent},
       {path : 'category/:id' , component: ModulesComponent},
       {path : 'category/:id/:idm' , component: QuestionComponent},
-      {path: 'jrlist' , component: ListJobrequestComponent},
-      {path: 'jrlist/:idc' , component: TestComponent}
+      {path: 'list' , component: ListJobrequestComponent},
+      {path: 'list/:idc' , component: TestComponent}
     ]}
 ];
 

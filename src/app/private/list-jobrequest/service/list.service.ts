@@ -12,7 +12,7 @@ export class ListService {
   getalljobRequest() {
     return this.http.get<Jobrequest[]>(ApiUri.URI + 'jobrequest');
   }
-  acceptjobrequest(id: string) {
+  acceptjobrequest(id: number) {
     return this.http.get(ApiUri.URI + 'jobrequest/Accept/' + id);
   }
 

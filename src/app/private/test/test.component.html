@@ -17,7 +17,7 @@
 
 
   <section class="content paddingleft_right15" >
-  <div class="row">
+  <div class="row" [hidden]="!show">
     <div class="panel panel-success" id="hidepanel6">
       <div class="panel-heading">
         <h3 class="panel-title">
@@ -27,7 +27,7 @@
 
       </div>
       <div class="panel-body">
-    <form>
+    <form >
       <div class="col-md-7">
         <div class="form-group">
           <label>Deadline</label>
@@ -35,11 +35,11 @@
             <div class="input-group-addon">
               <i class="livicon" data-name="laptop" data-size="14" data-loop="true"></i>
             </div>
-            <input type="date" class="form-control" id="rangepicker4" />
+            <input type="date" class="form-control" name="deadline" #deadline/>
           </div>
           <!-- /.input group -->
         </div>
-        <button type="submit" class="btn btn-responsive btn-default">Submit</button>
+        <button type="submit" (click)="Addtest(deadline)" class="btn btn-responsive btn-default">Submit</button>
 
       </div>
       <div class="col-md-5">
@@ -56,6 +56,25 @@
     </div>
 
   </div>
+
+
+    <div class="col-md-5" style="margin-left: 200px" [hidden]="show">
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <i class="livicon" data-name="rocket" data-size="16" data-loop="true" data-c="#fff" data-hc="white"></i> Do you confirm
+          </h3>
+
+        </div>
+        <div class="panel-body">
+
+          <button class="btn btn-success" (click)="confirmTest()"> confirm</button>
+          <button class="btn btn-warning"> cancel</button>
+
+        </div>
+      </div>
+    </div>
+
 
 
   </section>
