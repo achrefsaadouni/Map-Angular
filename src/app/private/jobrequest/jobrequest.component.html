@@ -98,8 +98,11 @@
                                 <tr>
                                   <td>State Type</td>
                                   <td>
-                                    <a href="#" id="status" data-type="select" data-pk="1" data-value="1" data-title="Status">{{mine.stateType}}</a>
+
+                                    <a href="auth/jobrequest/test/{{CurrentId}}" *ngIf="mine.stateType === 'accepted'" data-type="select" data-pk="1" data-value="1" data-title="Status"><i class="fa fa-check-circle" style="color: green"></i> Checkout Your Test</a>
+                                    <a href="#" *ngIf="mine.stateType !== 'accepted'" data-type="select" data-pk="1" data-value="1" data-title="Status">{{mine.stateType}}</a>
                                   </td>
+
                                 </tr>
                                 <tr>
                                   <td>Sent At</td>

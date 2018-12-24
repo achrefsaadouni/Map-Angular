@@ -15,6 +15,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { ChoicesComponent } from './question/choices/choices.component';
 import { ListJobrequestComponent } from './list-jobrequest/list-jobrequest.component';
 import { TestComponent } from './test/test.component';
+import { TestPassComponent } from './test-pass/test-pass.component';
 
 
 @NgModule({
@@ -26,7 +27,7 @@ import { TestComponent } from './test/test.component';
     MandateModule,
     NgxPaginationModule
   ],
-  declarations: [LayoutComponent, JobrequestComponent, TestCategoryComponent, ModulesComponent, QuestionComponent, ChoicesComponent, ListJobrequestComponent, TestComponent],
+  declarations: [LayoutComponent, JobrequestComponent, TestCategoryComponent, ModulesComponent, QuestionComponent, ChoicesComponent, ListJobrequestComponent, TestComponent, TestPassComponent],
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: AddAuthenticationHeaderInterceptor,

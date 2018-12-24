@@ -10,6 +10,7 @@ import {ModulesComponent} from '../private/modules/modules.component';
 import {QuestionComponent} from '../private/question/question.component';
 import {ListJobrequestComponent} from '../private/list-jobrequest/list-jobrequest.component';
 import {TestComponent} from '../private/test/test.component';
+import {TestPassComponent} from '../private/test-pass/test-pass.component';
 const routes: Routes = [
   {path: '' , redirectTo: 'login' , pathMatch: 'full' },
   {path: 'login' , component: LoginComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
       {path: 'mandate' , component: AllMandateComponent},
       {path: 'request' , component: AllRequestComponent},
       {path : 'jobrequest' , component: JobrequestComponent},
+      {path : 'jobrequest/test/:idc' , component: TestPassComponent},
       {path : 'category' , component: TestCategoryComponent},
       {path : 'category/:id' , component: ModulesComponent},
       {path : 'category/:id/:idm' , component: QuestionComponent},
