@@ -14,7 +14,7 @@ export class QuestionComponent implements OnInit {
 
   ShowChild = true;
 
-  ٍShowchild = true;
+  Showchild = true;
 
   CurrentId: number;
   showadd = true;

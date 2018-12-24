@@ -15,6 +15,13 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { ChoicesComponent } from './question/choices/choices.component';
 import { ListJobrequestComponent } from './list-jobrequest/list-jobrequest.component';
 import { TestComponent } from './test/test.component';
+import { ResourceComponent } from './resource/resource/resource.component';
+import { AddResourceComponent } from './resource/resource/add-resource/add-resource.component';
+import { DetailsResourceComponent } from './resource/resource/details-resource/details-resource.component';
+import { AffectSkillToResourceComponent } from './skill/affect-skill-to-resource/affect-skill-to-resource.component';
+import { AddSkillsComponent } from './skill/add-skills/add-skills.component';
+import { ListSkillsComponent } from './skill/list-skills/list-skills.component';
+import { SkillsByResourceComponent } from './skill/skills-by-resource/skills-by-resource.component';
 
 
 @NgModule({
@@ -26,7 +33,7 @@ import { TestComponent } from './test/test.component';
     MandateModule,
     NgxPaginationModule
   ],
-  declarations: [LayoutComponent, JobrequestComponent, TestCategoryComponent, ModulesComponent, QuestionComponent, ChoicesComponent, ListJobrequestComponent, TestComponent],
+  declarations: [LayoutComponent, JobrequestComponent, TestCategoryComponent, ModulesComponent, QuestionComponent, ChoicesComponent, ListJobrequestComponent, TestComponent, ResourceComponent, AddResourceComponent, DetailsResourceComponent, AffectSkillToResourceComponent, AddSkillsComponent, ListSkillsComponent, SkillsByResourceComponent],
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: AddAuthenticationHeaderInterceptor,
