@@ -10,11 +10,14 @@ import {ModulesComponent} from '../private/modules/modules.component';
 import {QuestionComponent} from '../private/question/question.component';
 import {ListJobrequestComponent} from '../private/list-jobrequest/list-jobrequest.component';
 import {TestComponent} from '../private/test/test.component';
+
 import {ResourceComponent} from "../private/resource/resource/resource.component";
 import {DetailsResourceComponent} from "../private/resource/resource/details-resource/details-resource.component";
 import {ListSkillsComponent} from "../private/skill/list-skills/list-skills.component";
 import {AddSkillsComponent} from "../private/skill/add-skills/add-skills.component";
-import {AddResourceComponent} from "../private/resource/resource/add-resource/add-resource.component";
+
+import {TestPassComponent} from '../private/test-pass/test-pass.component';
+
 const routes: Routes = [
   {path: '' , redirectTo: 'login' , pathMatch: 'full' },
   {path: 'login' , component: LoginComponent},
@@ -23,6 +26,7 @@ const routes: Routes = [
       {path: 'mandate' , component: AllMandateComponent},
       {path: 'request' , component: AllRequestComponent},
       {path : 'jobrequest' , component: JobrequestComponent},
+      {path : 'jobrequest/test/:idc' , component: TestPassComponent},
       {path : 'category' , component: TestCategoryComponent},
       {path : 'category/:id' , component: ModulesComponent},
       {path : 'category/:id/:idm' , component: QuestionComponent},

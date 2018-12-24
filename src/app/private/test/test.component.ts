@@ -33,7 +33,7 @@ export class TestComponent implements OnInit {
     'testDeadLine': deadline.value,
     'module' : null
   };
-    this.ts.AddTest(this.NewTest).subscribe(
+    this.ts.AddTest(this.NewTest , this.CandidateId).subscribe(
       data => {
         this.ResponseTest = data ;
       }

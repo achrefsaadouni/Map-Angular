@@ -13,11 +13,11 @@ export class TestserviceService {
   getmodules() {
     return this.http.get<Modules[]>(ApiUri.URI + 'modules'  );
   }
-  public AddTest(test: Test ) {
+  public AddTest(test: Test , idc: string) {
     const body = { testDeadLine: test.testDeadLine};
     console.log('Sending Authorization request ..');
     return  this.http.post<Test>(
-      ApiUri.URI + 'test/new/',
+      ApiUri.URI + 'test/new/' + idc,
       body,
     );
   }
