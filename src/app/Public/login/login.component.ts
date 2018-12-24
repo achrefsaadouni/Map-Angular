@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
       if (err.status === 200) {
           this.route.navigate(['auth/jobrequest']);
       } else {
-          this.Error = false;
+          this.Error = !this.Error;
       }
      }
 

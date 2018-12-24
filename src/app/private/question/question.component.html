@@ -85,7 +85,7 @@
               <tr *ngFor="let question of questions | paginate: { itemsPerPage: 5, currentPage: p }">
                 <td>{{question.title}}</td>
                 <td>{{question.description}}</td>
-                <td><button class="btn btn-block" (click)="setCurrent(question.id)"> view Choices</button></td>
+                <td><button class="btn btn-block" (click)="setCurrent(question.id)" > view Choices</button></td>
               </tr>
               <tr>
                 <td></td>
@@ -104,7 +104,7 @@
       </div>
     </div>
 
-<app-choices [idQuestion]="CurrentId"></app-choices>
+<app-choices [idQuestion]="CurrentId" [ShowMe]="Showchild"></app-choices>
 
   </section>
 </aside>

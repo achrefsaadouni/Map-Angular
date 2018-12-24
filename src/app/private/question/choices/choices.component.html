@@ -1,5 +1,5 @@
 
-  <div class="row">
+  <div class="row" [hidden]="ShowMe">
 
     <div class="panel panel-info">
       </div>
@@ -12,15 +12,28 @@
             <i class="livicon" data-name="help" data-size="16" data-loop="true" data-c="#fff" data-hc="white"></i> List of Choices
           </h3>
           <span class="pull-right clickable">
-                                    <i class="glyphicon glyphicon-chevron-up"></i>
+
+                                    <i class="glyphicon glyphicon-remove" ></i>
                                 </span>
         </div>
         <div class="panel-body">
           <div class="row">
+            <div class="alert alert-warning"  [hidden]="Error">
+              <p>
+                You have no choices
+              </p>
+            </div>
+          </div>
+          <div class="row">
             <div class="col-md-6">
               <div *ngFor="let choice of choices">
                 <div class="row ">
-                  <div class="alert alert-success" >
+                  <div class="alert alert-success" *ngIf="choice.correct == true">
+                    <p>
+                      {{choice.title}}
+                    </p>
+                  </div>
+                  <div class="alert alert-danger" *ngIf="choice.correct == false" >
                     <p>
                       {{choice.title}}
                     </p>
@@ -40,7 +53,7 @@
                   </div>
                   <div class="checkbox" style="margin-left:130px;">
                     <label>
-                      <input type="checkbox" [checked]="check" name="correct" #correct>&nbsp; Correct</label>
+                      <input type="checkbox" [(ngModel)]="ischecked" [ngModelOptions]="{standalone: true}" name="correct" #correct>&nbsp; Correct</label>
                   </div>
                   <div class="form-group">
                     <div class="col-md-12 text-right">

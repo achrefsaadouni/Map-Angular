@@ -11,7 +11,11 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class QuestionComponent implements OnInit {
   questions: Question[];
+
   ShowChild = true;
+
+  ٍShowchild = true;
+
   CurrentId: number;
   showadd = true;
   NewQuestion: Question = new Question();
@@ -55,7 +59,7 @@ export class QuestionComponent implements OnInit {
   }
   setCurrent(id) {
     this.CurrentId = id;
-    this.ShowChild = false;
+    this.Showchild = false;
   }
   ngOnInit() {
 

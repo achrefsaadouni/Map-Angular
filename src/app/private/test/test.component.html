@@ -1,0 +1,82 @@
+<aside class="right-side">
+
+  <section class="content-header">
+    <h1>Set Test</h1>
+    <ol class="breadcrumb">
+      <li>
+        <a href="index.html">
+          <i class="livicon" data-name="home" data-size="16" data-color="#000"></i> Dashboard
+        </a>
+      </li>
+      <li>
+        <a href="#">job Request</a>
+      </li>
+      <li class="active"> Test</li>
+    </ol>
+  </section>
+
+
+  <section class="content paddingleft_right15" >
+  <div class="row" [hidden]="!show">
+    <div class="panel panel-success" id="hidepanel6">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <i class="livicon" data-name="share" data-size="16" data-loop="true" data-c="#fff" data-hc="white"></i>
+          Set Test
+        </h3>
+
+      </div>
+      <div class="panel-body">
+    <form >
+      <div class="col-md-7">
+        <div class="form-group">
+          <label>Deadline</label>
+          <div class="input-group">
+            <div class="input-group-addon">
+              <i class="livicon" data-name="laptop" data-size="14" data-loop="true"></i>
+            </div>
+            <input type="date" class="form-control" name="deadline" #deadline/>
+          </div>
+          <!-- /.input group -->
+        </div>
+        <button type="submit" (click)="Addtest(deadline)" class="btn btn-responsive btn-default">Submit</button>
+
+      </div>
+      <div class="col-md-5">
+        <div class="form-group">
+          <label>Test Category</label>
+          <select multiple class="form-control" style="height: 150px">
+            <option *ngFor="let module of modules" (click)="getid(module.id)">{{module.title}}</option>
+
+          </select>
+        </div>
+      </div>
+    </form>
+      </div>
+    </div>
+
+  </div>
+
+
+    <div class="col-md-5" style="margin-left: 200px" [hidden]="show">
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <i class="livicon" data-name="rocket" data-size="16" data-loop="true" data-c="#fff" data-hc="white"></i> Do you confirm
+          </h3>
+
+        </div>
+        <div class="panel-body">
+
+          <button class="btn btn-success" (click)="confirmTest()"> confirm</button>
+          <button class="btn btn-warning"> cancel</button>
+
+        </div>
+      </div>
+    </div>
+
+
+
+  </section>
+</aside>
+

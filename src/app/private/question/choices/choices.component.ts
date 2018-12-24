@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
 import {ChoicesService} from './service/choices.service';
 import {Choice} from '../../Models/Choice';
 import {stringify} from 'querystring';
@@ -14,19 +14,22 @@ export class ChoicesComponent implements OnInit , OnChanges {
   choices: Choice[];
   @Input()
   idQuestion: string;
-  check: string;
+  @Input()
+  ShowMe: boolean;
+  @Output()
+  Send = new EventEmitter(this.ShowMe);
+  ischecked: boolean;
   NewChoice: Choice = new Choice();
+  Error = true;
   constructor( private  cs: ChoicesService) {
 
   }
 
   Addchoice(title, correct) {
-    console.log(this.check);
-
   this.NewChoice = {
     'id': null,
     'title': title.value,
-    'correct': true
+    'correct': this.ischecked
   };
   this.cs.AddChoiceToQuest(this.NewChoice, this.idQuestion).subscribe(
     data => {
@@ -37,15 +40,27 @@ export class ChoicesComponent implements OnInit , OnChanges {
   correct.value = null;
   }
   ngOnInit() {
+
+  }
+  HideChoices() {
+
+    this.ShowMe = !this.ShowMe;
   }
 
-
   ngOnChanges() {
+    this.choices = null ;
     if (this.idQuestion) {
       this.cs.getChoicessById(this.idQuestion).subscribe(
         data => {
           this.choices = data;
 
+        },
+        error1 => {
+          if (error1.status !== 200)  {
+            this.Error = false;
+          } else {
+            this.Error = !this.Error;
+          }
         }
       );
     }
