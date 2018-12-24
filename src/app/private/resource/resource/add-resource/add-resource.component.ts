@@ -30,7 +30,7 @@ export class AddResourceComponent implements OnInit {
 
     addResource() {
         this.http.post('assets/imagesResources',this.selectedFile).subscribe(res=>console.log(res));
-        this.newResource.picture = this.selectedFile.name;
+        this.newResource.picture = this.selectedFile.name.substr(0,this.selectedFile.name.length -4);
         this.rs.AddResource(this.newResource).subscribe(
             resource => this.Resources.push(this.newResource),
             error => {

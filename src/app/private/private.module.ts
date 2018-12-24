@@ -39,6 +39,7 @@ import { TestPassComponent } from './test-pass/test-pass.component';
   ],
 
   declarations: [LayoutComponent,
+      TestPassComponent,
       JobrequestComponent,
       TestCategoryComponent,
       ModulesComponent,

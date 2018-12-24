@@ -17,6 +17,7 @@ import {ListSkillsComponent} from "../private/skill/list-skills/list-skills.comp
 import {AddSkillsComponent} from "../private/skill/add-skills/add-skills.component";
 
 import {TestPassComponent} from '../private/test-pass/test-pass.component';
+import {AddResourceComponent} from "../private/resource/resource/add-resource/add-resource.component";
 
 const routes: Routes = [
   {path: '' , redirectTo: 'login' , pathMatch: 'full' },
