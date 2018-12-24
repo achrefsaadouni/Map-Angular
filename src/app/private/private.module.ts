@@ -38,9 +38,23 @@ import { TestPassComponent } from './test-pass/test-pass.component';
     NgxPaginationModule
   ],
 
-  declarations: [LayoutComponent, JobrequestComponent, TestCategoryComponent, ModulesComponent, QuestionComponent, ChoicesComponent, ListJobrequestComponent, TestComponent, ResourceComponent, AddResourceComponent, DetailsResourceComponent, AffectSkillToResourceComponent, AddSkillsComponent, ListSkillsComponent, SkillsByResourceComponent],
+  declarations: [LayoutComponent,
+      JobrequestComponent,
+      TestCategoryComponent,
+      ModulesComponent,
+      QuestionComponent,
+      ChoicesComponent,
+      ListJobrequestComponent,
+      TestComponent,
+      ResourceComponent,
+      AddResourceComponent,
+      DetailsResourceComponent,
+      AffectSkillToResourceComponent,
+      AddSkillsComponent,
+      ListSkillsComponent,
+      SkillsByResourceComponent],
 
-  declarations: [LayoutComponent, JobrequestComponent, TestCategoryComponent, ModulesComponent, QuestionComponent, ChoicesComponent, ListJobrequestComponent, TestComponent, TestPassComponent],
+
 
   providers: [{
     provide: HTTP_INTERCEPTORS,
