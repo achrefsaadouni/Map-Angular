@@ -11,10 +11,9 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class QuestionComponent implements OnInit {
   questions: Question[];
-
+  ٍShowchild = true;
   CurrentId: number;
   showadd = true;
-  Showchild = true;
   NewQuestion: Question = new Question();
   idm: string;
   p = 1;
