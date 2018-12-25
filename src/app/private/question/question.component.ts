@@ -59,7 +59,7 @@ export class QuestionComponent implements OnInit {
   }
   setCurrent(id) {
     this.CurrentId = id;
-    this.Showchild = false;
+    this.ShowChild = false;
   }
   ngOnInit() {
 

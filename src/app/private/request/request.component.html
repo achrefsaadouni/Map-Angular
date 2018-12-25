@@ -1,0 +1,101 @@
+
+
+<aside class="right-side">
+<section class="content paddingleft_right15">
+  <div class="row">
+    <div class="panel panel-primary ">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <i class="livicon" data-name="user" data-size="16" data-loop="true" data-c="#fff" data-hc="white"></i> Request List
+        </h4>
+      </div>
+      <br />
+      <div class="panel-body">
+        <table class="table table-bordered " id="table">
+          <thead>
+          <tr class="filters">
+            <th>requestedProfil</th>
+            <th>experienceYear</th>
+            <th>
+              educationScolarity
+            </th>
+            <td>startDateMondate</td>
+            <td>endDateMondate</td>
+            <td>manager</td>
+            <td>Days mandate</td>
+            <th>Actions</th>
+          </tr>
+
+          </thead>
+          <tbody>
+<!--for-->
+          <tr>
+            <td>java</td>
+            <td>10</td>
+            <td>
+              esprit
+            </td>
+            <td>10/10/2018</td>
+            <td>
+              12/10/2018
+            </td>
+            <td>
+              karim
+            </td>
+            <td>
+              2
+            </td>
+            <td>
+              <!--si refuser
+              <button type="button" class="btn btn-labeled btn-success">
+                <a class="btn-label pull-left" href="@Url.Action("AcceptRequest", "Request",new { id=item.id })">
+                <i class="livicon" data-name="thumbs-up" data-size="16" data-loop="true" data-c="#fff"
+                   data-hc="white"></i>
+                </a>
+                <span class="label-text">A</span>
+              </button>-->
+
+              <!--si accepter
+              <button type="button" class="btn btn-labeled btn-danger">
+                <a class="btn-label pull-left" href="@Url.Action("RefuseRequest", "Request",new { id=item.id })">
+                <i class="livicon" data-name="thumbs-down" data-size="16" data-loop="true" data-c="#fff"
+                   data-hc="white"></i>
+                </a>
+                <span class="label-text">R</span>
+              </button>-->
+
+            </td>
+          </tr>
+
+          </tbody>
+        </table>
+        <!-- Modal for showing delete confirmation -->
+        <div class="modal fade" id="delete_confirm" tabindex="-1" role="dialog" aria-labelledby="user_delete_confirm_title" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="user_delete_confirm_title">
+                  Delete User
+                </h4>
+              </div>
+              <div class="modal-body">
+                Are you sure to delete this user? This operation is irreversible.
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <a href="deleted_users.html" class="btn btn-danger">
+                  Delete
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- row-->
+</section>
+</aside>
+
+

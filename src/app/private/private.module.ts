@@ -25,6 +25,9 @@ import { ListSkillsComponent } from './skill/list-skills/list-skills.component';
 import { SkillsByResourceComponent } from './skill/skills-by-resource/skills-by-resource.component';
 
 import { TestPassComponent } from './test-pass/test-pass.component';
+import { RequestComponent } from './request/request.component';
+import { MessagesComponent } from './messages/messages.component';
+import { ChatComponent } from './chat/chat.component';
 
 
 
@@ -37,6 +40,7 @@ import { TestPassComponent } from './test-pass/test-pass.component';
     MandateModule,
     NgxPaginationModule
   ],
+
 
   declarations: [LayoutComponent,
       TestPassComponent,
@@ -53,8 +57,11 @@ import { TestPassComponent } from './test-pass/test-pass.component';
       AffectSkillToResourceComponent,
       AddSkillsComponent,
       ListSkillsComponent,
-      SkillsByResourceComponent],
-
+      SkillsByResourceComponent,
+      TestPassComponent,
+      RequestComponent,
+      MessagesComponent,
+      ChatComponent],
 
 
   providers: [{
