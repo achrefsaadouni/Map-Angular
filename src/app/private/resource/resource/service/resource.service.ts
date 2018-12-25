@@ -21,6 +21,9 @@ export class ResourceService {
     GetResourceById(id:number){
         return this.http.get<Resource>(ApiUri.URI + 'Resources/resourceById?resourceId='+id);
     }
+    moyenneResource(id:number){
+        return this.http.put<Resource>(ApiUri.URI + 'Resources/moyenneResource?resourceId='+id, null);
+    }
 
     AddResource(r: Resource) {
         const body = {

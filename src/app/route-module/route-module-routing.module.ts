@@ -15,10 +15,11 @@ import {RequestComponent} from '../private/request/request.component';
 import {MessagesComponent} from '../private/messages/messages.component';
 import {ChatComponent} from '../private/chat/chat.component';
 
-
-
-import {TestPassComponent} from '../private/test-pass/test-pass.component';
 import {AddResourceComponent} from "../private/resource/resource/add-resource/add-resource.component";
+import {ResourceComponent} from "../private/resource/resource/resource.component";
+import {DetailsResourceComponent} from "../private/resource/resource/details-resource/details-resource.component";
+import {ListSkillsComponent} from "../private/skill/list-skills/list-skills.component";
+import {AddSkillsComponent} from "../private/skill/add-skills/add-skills.component";
 
 
 
@@ -40,7 +41,12 @@ const routes: Routes = [
       {path: 'messages' , component: MessagesComponent},
       {path: 'chat' , component: ChatComponent},
       {path: 'list/:idc' , component: TestComponent},
-      {path: 'request' , component: AllRequestComponent}
+      {path: 'request' , component: AllRequestComponent},
+      {path : 'resource' , component: ResourceComponent},
+      {path : 'resourceById/:id' , component: DetailsResourceComponent},
+      {path : 'listSkills' , component: ListSkillsComponent},
+      {path : 'AddSkill' , component: AddSkillsComponent},
+      {path : 'AddResource' , component: AddResourceComponent},
 
     ]}
 ];
