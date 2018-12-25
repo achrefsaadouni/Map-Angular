@@ -11,6 +11,10 @@ import {QuestionComponent} from '../private/question/question.component';
 import {ListJobrequestComponent} from '../private/list-jobrequest/list-jobrequest.component';
 import {TestComponent} from '../private/test/test.component';
 import {TestPassComponent} from '../private/test-pass/test-pass.component';
+import {RequestComponent} from '../private/request/request.component';
+import {MessagesComponent} from '../private/messages/messages.component';
+import {ChatComponent} from '../private/chat/chat.component';
+
 const routes: Routes = [
   {path: '' , redirectTo: 'login' , pathMatch: 'full' },
   {path: 'login' , component: LoginComponent},
@@ -24,6 +28,9 @@ const routes: Routes = [
       {path : 'category/:id' , component: ModulesComponent},
       {path : 'category/:id/:idm' , component: QuestionComponent},
       {path: 'list' , component: ListJobrequestComponent},
+      {path: 'requestAdmin' , component: RequestComponent},
+      {path: 'messages' , component: MessagesComponent},
+      {path: 'chat' , component: ChatComponent},
       {path: 'list/:idc' , component: TestComponent}
     ]}
 ];
