@@ -15,7 +15,10 @@ import {RequestComponent} from '../private/request/request.component';
 import {MessagesComponent} from '../private/messages/messages.component';
 import {ChatComponent} from '../private/chat/chat.component';
 
+
+
 const routes: Routes = [
+
   {path: '' , redirectTo: 'login' , pathMatch: 'full' },
   {path: 'login' , component: LoginComponent},
 
@@ -31,7 +34,9 @@ const routes: Routes = [
       {path: 'requestAdmin' , component: RequestComponent},
       {path: 'messages' , component: MessagesComponent},
       {path: 'chat' , component: ChatComponent},
-      {path: 'list/:idc' , component: TestComponent}
+      {path: 'list/:idc' , component: TestComponent},
+      {path: 'request' , component: AllRequestComponent}
+
     ]}
 ];
 

@@ -15,10 +15,20 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { ChoicesComponent } from './question/choices/choices.component';
 import { ListJobrequestComponent } from './list-jobrequest/list-jobrequest.component';
 import { TestComponent } from './test/test.component';
+
+import { ResourceComponent } from './resource/resource/resource.component';
+import { AddResourceComponent } from './resource/resource/add-resource/add-resource.component';
+import { DetailsResourceComponent } from './resource/resource/details-resource/details-resource.component';
+import { AffectSkillToResourceComponent } from './skill/affect-skill-to-resource/affect-skill-to-resource.component';
+import { AddSkillsComponent } from './skill/add-skills/add-skills.component';
+import { ListSkillsComponent } from './skill/list-skills/list-skills.component';
+import { SkillsByResourceComponent } from './skill/skills-by-resource/skills-by-resource.component';
+
 import { TestPassComponent } from './test-pass/test-pass.component';
 import { RequestComponent } from './request/request.component';
 import { MessagesComponent } from './messages/messages.component';
 import { ChatComponent } from './chat/chat.component';
+
 
 
 @NgModule({
@@ -30,7 +40,29 @@ import { ChatComponent } from './chat/chat.component';
     MandateModule,
     NgxPaginationModule
   ],
-  declarations: [LayoutComponent, JobrequestComponent, TestCategoryComponent, ModulesComponent, QuestionComponent, ChoicesComponent, ListJobrequestComponent, TestComponent, TestPassComponent, RequestComponent, MessagesComponent, ChatComponent],
+
+
+  declarations: [LayoutComponent,
+      JobrequestComponent,
+      TestCategoryComponent,
+      ModulesComponent,
+      QuestionComponent,
+      ChoicesComponent,
+      ListJobrequestComponent,
+      TestComponent,
+      ResourceComponent,
+      AddResourceComponent,
+      DetailsResourceComponent,
+      AffectSkillToResourceComponent,
+      AddSkillsComponent,
+      ListSkillsComponent,
+      SkillsByResourceComponent,
+      TestPassComponent,
+      RequestComponent,
+      MessagesComponent,
+      ChatComponent],
+
+
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: AddAuthenticationHeaderInterceptor,
