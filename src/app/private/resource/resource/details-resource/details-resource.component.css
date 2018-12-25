@@ -1,0 +1,31 @@
+#imageProfile{
+    margin-top: 20px;
+
+}
+
+.title{
+    font-size: 30px;
+    color: orangered;
+    text-align: center;
+
+}
+
+.buttons{
+    display: flex;
+    flex-direction: column;
+
+}
+
+#btn1{
+    width: 250px;
+    margin-top: 10px;
+}
+#btn2{
+    width: 250px;
+    margin-top: 10px;
+}
+#btn3{
+    width: 250px;
+    margin-top: 10px;
+}
+
