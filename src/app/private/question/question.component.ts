@@ -13,7 +13,7 @@ export class QuestionComponent implements OnInit {
   questions: Question[];
 
 
-  ShowChild = true;
+  Showchild = true;
 
 
   CurrentId: number;

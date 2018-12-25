@@ -28,6 +28,7 @@ export class ResourceService {
             lastName: r.lastName,
             email: r.email,
             password: r.password,
+            login:r.login,
             seniority: r.seniority,
             workProfil: r.workProfil,
             salary: r.salary,

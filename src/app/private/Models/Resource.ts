@@ -7,6 +7,7 @@ export class Resource {
     salary: number;
     picture: string;
     moyenneSkill: number;
+    login:string;
     password: string;
     nombreAlerte: number;
     nombreConge: number;
