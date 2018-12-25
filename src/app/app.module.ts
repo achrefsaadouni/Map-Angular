@@ -9,6 +9,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouteModuleRoutingModule} from './route-module/route-module-routing.module';
 import {PublicModule} from './Public/public.module';
 import {PrivateModule} from './private/private.module';
+import {HttpModule} from '@angular/http';
+
 
 
 @NgModule({
@@ -23,7 +25,8 @@ import {PrivateModule} from './private/private.module';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    HttpClientModule,
+    HttpModule,
+    HttpClientModule
 
   ],
   providers: [],

@@ -11,12 +11,14 @@ import {ListJobrequestComponent} from '../private/list-jobrequest/list-jobreques
 import {TestComponent} from '../private/test/test.component';
 import {LoginComponent} from '../Public/login/login.component';
 import {ListProjectComponent} from '../private/project/list-project/list-project.component';
+import {DetailsProjectComponent} from '../private/project/details-project/details-project.component';
+import {AddClientComponent} from '../private/client/add-client/add-client.component';
+import {ProfilClientComponent} from '../private/client/profil-client/profil-client.component';
+import {AdvancedProfilComponent} from '../private/client/advanced-profil/advanced-profil.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
    {path: 'login' , component: LoginComponent},
-  // {path: 'listProject', component: ListProjectComponent},
-
   {
     path: 'auth', component: LayoutComponent, children: [
       {path: 'mandate', component: AllMandateComponent},
@@ -27,7 +29,12 @@ const routes: Routes = [
       {path: 'category/:id/:idm', component: QuestionComponent},
       {path: 'jrlist', component: ListJobrequestComponent},
       {path: 'jrlist/:idc', component: TestComponent},
-      {path: 'listProject', component: ListProjectComponent}
+      {path: 'listProject', component: ListProjectComponent},
+      {path: 'detailsProject/:idProject', component: DetailsProjectComponent},
+      {path: 'addClient', component: AddClientComponent},
+      {path: 'addClient', component: AddClientComponent},
+      {path: 'profilClient/:idClient', component: ProfilClientComponent},
+      {path: 'advancedProfilClient', component: AdvancedProfilComponent}
     ]
   }
 ];

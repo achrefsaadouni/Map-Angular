@@ -17,6 +17,7 @@ import {ListJobrequestComponent} from './list-jobrequest/list-jobrequest.compone
 import {TestComponent} from './test/test.component';
 import {ProjectModule} from './project/project.module';
 import {ProjectService} from './project/service/project.service';
+import {ClientModule} from './client/client.module';
 
 
 @NgModule({
@@ -27,13 +28,14 @@ import {ProjectService} from './project/service/project.service';
     ReactiveFormsModule,
     MandateModule,
     NgxPaginationModule,
-    ProjectModule
+    ProjectModule,
+    ClientModule
   ],
   declarations: [
     LayoutComponent, JobrequestComponent,
     TestCategoryComponent, ModulesComponent,
     QuestionComponent, ChoicesComponent,
-    ListJobrequestComponent, TestComponent],
+    ListJobrequestComponent, TestComponent ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: AddAuthenticationHeaderInterceptor,

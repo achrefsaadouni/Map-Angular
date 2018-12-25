@@ -31,10 +31,6 @@ export class JobrequestComponent implements OnInit {
         this.Specialities = data;
       }
     );
-
-
-
-
   }
   Set(speciality) {
     this.NewJobRequest = {
