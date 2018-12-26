@@ -4,6 +4,7 @@ import {Resource} from '../../../Models/Resource';
 import {HttpClient} from '@angular/common/http';
 import {Router} from "@angular/router";
 import {ResourceService} from "../service/resource.service";
+import {AlertService} from "../../../alert/alert.service";
 
 
 @Component({
@@ -17,7 +18,10 @@ export class AddResourceComponent implements OnInit {
     newResource: Resource = new Resource();
     Resources: Resource[];
     selectedFile: File;
-    constructor(private rs: ResourceService , private http: HttpClient , private route: Router) {
+    constructor(private rs: ResourceService ,
+                private http: HttpClient ,
+                private route: Router ,
+                private alertService: AlertService) {
         this.rs.GetAllResourcesNoArchived().subscribe(data=>{this.Resources = data;});
     }
 
@@ -36,10 +40,19 @@ export class AddResourceComponent implements OnInit {
             error => {
                 if (error.status === 200) {
                     setTimeout(() => {
+                        this.alertService.success("added with success");
                         this.route.navigate(['/auth/resource']);
-                    }, 2000);
+                    }, 60);
+                }else{
+                    if (error.status != 200) {
+                        setTimeout(() => {
+                            this.alertService.error("can't be added");
+
+                        }, 60);
+
                 }
-            });
+            }});
+
 
     }
 

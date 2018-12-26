@@ -28,6 +28,8 @@ import { TestPassComponent } from './test-pass/test-pass.component';
 import { RequestComponent } from './request/request.component';
 import { MessagesComponent } from './messages/messages.component';
 import { ChatComponent } from './chat/chat.component';
+import { AlertComponent } from './alert/alert/alert.component';
+import {AlertService} from "./alert/alert.service";
 
 
 
@@ -61,13 +63,14 @@ import { ChatComponent } from './chat/chat.component';
       TestPassComponent,
       RequestComponent,
       MessagesComponent,
-      ChatComponent],
+      ChatComponent,
+      AlertComponent],
 
 
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: AddAuthenticationHeaderInterceptor,
     multi: true
-  }, MandateService]
+  }, MandateService , AlertService]
 })
 export class PrivateModule { }
