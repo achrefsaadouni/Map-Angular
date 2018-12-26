@@ -19,7 +19,20 @@ import {ProjectModule} from './project/project.module';
 import {ProjectService} from './project/service/project.service';
 import {ClientModule} from './client/client.module';
 import {NgOrganizationChartModule} from './ng-organization-chart/ng-organization-chart.module';
+import { ResourceComponent } from './resource/resource/resource.component';
+import { AddResourceComponent } from './resource/resource/add-resource/add-resource.component';
+import { DetailsResourceComponent } from './resource/resource/details-resource/details-resource.component';
+import { AffectSkillToResourceComponent } from './skill/affect-skill-to-resource/affect-skill-to-resource.component';
+import { AddSkillsComponent } from './skill/add-skills/add-skills.component';
+import { ListSkillsComponent } from './skill/list-skills/list-skills.component';
+import { SkillsByResourceComponent } from './skill/skills-by-resource/skills-by-resource.component';
 
+import { TestPassComponent } from './test-pass/test-pass.component';
+import { RequestComponent } from './request/request.component';
+import { MessagesComponent } from './messages/messages.component';
+import { ChatComponent } from './chat/chat.component';
+import { AlertComponent } from './alert/alert/alert.component';
+import {AlertService} from "./alert/alert.service";
 @NgModule({
   imports: [
     CommonModule,
@@ -32,7 +45,27 @@ import {NgOrganizationChartModule} from './ng-organization-chart/ng-organization
     ClientModule,
     NgOrganizationChartModule
   ],
-  declarations: [LayoutComponent, JobrequestComponent, TestCategoryComponent, ModulesComponent, QuestionComponent, ChoicesComponent, ListJobrequestComponent, TestComponent],
+  declarations: [LayoutComponent,
+    TestPassComponent,
+    JobrequestComponent,
+    TestCategoryComponent,
+    ModulesComponent,
+    QuestionComponent,
+    ChoicesComponent,
+    ListJobrequestComponent,
+    TestComponent,
+    ResourceComponent,
+    AddResourceComponent,
+    DetailsResourceComponent,
+    AffectSkillToResourceComponent,
+    AddSkillsComponent,
+    ListSkillsComponent,
+    SkillsByResourceComponent,
+    TestPassComponent,
+    RequestComponent,
+    MessagesComponent,
+    ChatComponent,
+    AlertComponent],
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: AddAuthenticationHeaderInterceptor,

@@ -3,6 +3,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {Skill} from "../Skill";
 import {SkillService} from "../service/skill.service";
+import {AlertService} from "../../alert/alert.service";
 
 @Component({
     selector: 'app-affect-skill-to-resource',
@@ -15,7 +16,9 @@ export class AffectSkillToResourceComponent implements OnInit {
     @Input()
     resourceId:number;
 
-    constructor(private ss:SkillService, private router: Router ) { this.ss.getAllSkills().subscribe(data =>{console.log(data),
+    constructor(private ss:SkillService,
+                private router: Router,
+                private alertService: AlertService) { this.ss.getAllSkills().subscribe(data =>{console.log(data),
         this.skills = data}
     );}
 
@@ -30,7 +33,8 @@ export class AffectSkillToResourceComponent implements OnInit {
             error => {
                 if (error.status === 200) {
                     setTimeout(() => {
-                        this.router.navigate(['/auth/resource']);
+                        this.alertService.success("added with success");
+                        location.reload();
                     }, 2000);
                 }
             });
