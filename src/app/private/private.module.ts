@@ -30,6 +30,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { ChatComponent } from './chat/chat.component';
 import { AlertComponent } from './alert/alert/alert.component';
 import {AlertService} from "./alert/alert.service";
+import { DayOffComponent } from './resource/day-off/day-off.component';
 
 
 
@@ -65,7 +66,8 @@ import {AlertService} from "./alert/alert.service";
       RequestComponent,
       MessagesComponent,
       ChatComponent,
-      AlertComponent],
+      AlertComponent,
+      DayOffComponent],
 
 
   
