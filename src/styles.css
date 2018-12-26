@@ -1,3 +1,5 @@
-/*@import 'app/private/project/details-project/OrgStyle.css';*/
-/*@import '~angular-tree-component/dist/angular-tree-component.css';*/
+/* You can add global styles to this file, and also import other style files */
+@import 'app/private/project/details-project/OrgStyle.css';
+@import '~angular-tree-component/dist/angular-tree-component.css';
+@import 'app/private/ng-organization-chart/ng-organization-chart.component.css';
 

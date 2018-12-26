@@ -1,0 +1,174 @@
+<aside class="right-side">
+  <section class="content-header">
+    <h1>Add client</h1>
+    <ol class="breadcrumb">
+      <li>
+        <a href="index.html">
+          <i class="livicon" data-name="home" data-size="16" data-color="#000"></i> Dashboard
+        </a>
+      </li>
+      <li>
+        <a href="#">Home</a>
+      </li>
+      <li class="active">Add client</li>
+    </ol>
+  </section>
+  <section class="content paddingleft_right15">
+
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <i class="livicon" data-name="doc-portrait" data-c="#fff" data-hc="#fff" data-size="18" data-loop="true"></i> Form Add Client
+        </h3>
+        <span class="pull-right">
+           <i class="fa fa-fw fa-chevron-up clickable"></i>
+          <i class="fa fa-fw fa-times removepanel clickable"></i>
+         </span>
+      </div>
+      <div class="panel-body">
+        <form (submit)="AddClient(firstName,lastName,clientType,nameSociety,address,clientCategory,logo)" class="form-horizontal">
+          <div class="form-body">
+            <div class="form-group">
+              <label for="inputFirstName" class="col-md-3 control-label">
+                First name
+              </label>
+              <div class="col-md-9">
+                <div class="input-group">
+                   <span class="input-group-addon">
+                    <i class="livicon" data-name="user" data-size="18" data-c="#000" data-hc="#000" data-loop="true"></i>
+                   </span>
+                  <input type="text" class="form-control " id="inputFirstName" placeholder="First name" #firstName>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <label for="inputLastName" class="col-md-3 control-label">
+                Last name
+              </label>
+              <div class="col-md-9">
+                <div class="input-group">
+                   <span class="input-group-addon">
+                    <i class="livicon" data-name="user" data-size="18" data-c="#000" data-hc="#000" data-loop="true"></i>
+                   </span>
+                  <input type="text" class="form-control " id="inputLastName" placeholder="Last name" #lastName>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label  class="col-md-3 control-label">
+                Client type
+              </label>
+              <div class="col-md-9">
+                <div class="input-group">
+
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="optionsRadios" class="custom-radio" id="optionsRadios1" [value]="'privateClient'"  (click)="model.sex='privateClient'" #clientCategory>&nbsp; Private Client</label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="optionsRadios" class="custom-radio" id="optionsRadios2" [value]="'publicClient'"  (click)="model.sex='publicClient'" #clientCategory>&nbsp; Public Client</label>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="inputClientType" class="col-md-3 control-label">
+                Client type
+              </label>
+              <div class="col-md-9">
+                <div class="input-group">
+                   <span class="input-group-addon">
+                    <i class="livicon" data-name="user" data-size="18" data-c="#000" data-hc="#000" data-loop="true"></i>
+                   </span>
+                  <select class="form-control" id="inputClientType" #clientType>
+                    <option [value]="o.value" *ngFor="let o of clientTypeOption">{{o.name}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="inputNameSociety" class="col-md-3 control-label">
+                Name Society
+              </label>
+              <div class="col-md-9">
+                <div class="input-group">
+                   <span class="input-group-addon">
+                    <i class="livicon" data-name="user" data-size="18" data-c="#000" data-hc="#000" data-loop="true"></i>
+                   </span>
+                  <input type="text" class="form-control " id="inputNameSociety" placeholder="Name society" #nameSociety>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="inputNameSociety" class="col-md-3 control-label">
+                Logo Society
+              </label>
+              <div class="col-md-9">
+            <div class="fileinput fileinput-new" data-provides="fileinput">
+              <div>
+                 <span class="btn btn-default btn-file">
+                 <span class="fileinput-new">Select image</span>
+                 <input type="file" (change)="detectFiles($event)" #logo></span>
+              </div>
+            </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="inputAddress" id="inputAddress" class="col-md-3 control-label">
+                Address
+              </label>
+              <div class="col-md-9">
+                <div class="input-group">
+                  <span class="input-group-addon">
+                     <i class="livicon" data-name="doc-portrait" data-c="#000" data-hc="#000" data-size="18" data-loop="true"></i>
+                  </span>
+                  <input type="text" class="form-control" placeholder=" Address" #address/>
+                </div>
+              </div>
+            </div>
+
+            <!--<div class="form-group">-->
+              <!--<label for="inputEmail" id="inputEmail"  class="col-md-3 control-label">-->
+                <!--Email-->
+              <!--</label>-->
+              <!--<div class="col-md-9">-->
+                <!--<div class="input-group">-->
+                 <!--<span class="input-group-addon">-->
+                  <!--<i class="livicon" data-name="mail" data-size="18" data-c="#000" data-hc="#000" data-loop="true"></i>-->
+                 <!--</span>-->
+                  <!--<input type="text" placeholder="Email Address" class="form-control" #email/>-->
+                <!--</div>-->
+              <!--</div>-->
+            <!--</div>-->
+
+          </div>
+          <div class="form-actions">
+            <div class="col-md-offset-3 col-md-9">
+              <button type="submit" class="btn btn-primary">Submit</button>
+              &nbsp;
+              <!--<button type="button" class="btn btn-danger">Cancel</button>-->
+              &nbsp;
+              <input type="reset" class="btn btn-default hidden-xs" value="Reset">
+              <!--<form (submit)="AddClient()" >-->
+                <!--<button type="submit" class="btn btn-responsive ">Submit</button>-->
+              <!--</form>-->
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!--<form (submit)="AddClient()" >-->
+      <!--<button type="submit" class="btn btn-responsive ">Submit</button>-->
+    <!--</form>-->
+
+  </section>
+</aside>
