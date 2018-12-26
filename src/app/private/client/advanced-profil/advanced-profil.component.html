@@ -1,0 +1,19 @@
+<aside class="right-side">
+  <section class="content-header">
+    <h1>List Projects</h1>
+    <ol class="breadcrumb">
+      <li>
+        <a href="index.html">
+          <i class="livicon" data-name="home" data-size="16" data-color="#000"></i> Dashboard
+        </a>
+      </li>
+      <li>
+        <a href="#">Home</a>
+      </li>
+      <li class="active">Project Details</li>
+    </ol>
+  </section>
+  <section class="content paddingleft_right15">
+    <ng-organization-chart [data]="data" (onClickNode)="clickNode($event)" (onDragNode)="dragNode($event)" style="width: 250px"></ng-organization-chart>
+  </section>
+</aside>
