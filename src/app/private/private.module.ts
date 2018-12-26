@@ -44,6 +44,7 @@ import {AlertService} from "./alert/alert.service";
   ],
 
 
+
   declarations: [LayoutComponent,
       TestPassComponent,
       JobrequestComponent,
@@ -67,6 +68,7 @@ import {AlertService} from "./alert/alert.service";
       AlertComponent],
 
 
+  
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: AddAuthenticationHeaderInterceptor,
