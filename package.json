@@ -26,6 +26,7 @@
     "core-js": "^2.4.1",
     "jquery": "^3.3.1",
     "ng-circle-progress": "^1.0.0",
+    "ng-organization-chart": "0.0.3",
     "ng2-drag-drop": "^3.0.2",
     "ngx-pagination": "^3.2.1",
     "rxjs": "^5.5.6",
