@@ -29,42 +29,41 @@
           </thead>
           <tbody>
 <!--for-->
-          <tr>
-            <td>java</td>
-            <td>10</td>
+          <tr *ngFor="let l of listRequest">
+            <td>{{l.requestedProfil}}</td>
+            <td>{{l.experienceYear}}</td>
             <td>
-              esprit
+              {{l.educationScolarity}}
             </td>
-            <td>10/10/2018</td>
+            <td>{{l.startDateMondate}}</td>
             <td>
-              12/10/2018
-            </td>
-            <td>
-              karim
+              {{l.endDateMondate}}
             </td>
             <td>
-              2
+              {{l.manager}}
             </td>
             <td>
-              <!--si refuser
+              {{l.daysMondate}}
+            </td>
+            <td *ngIf="l.accept==0">
               <button type="button" class="btn btn-labeled btn-success">
-                <a class="btn-label pull-left" href="@Url.Action("AcceptRequest", "Request",new { id=item.id })">
+                <a class="btn-label pull-left" href="">
                 <i class="livicon" data-name="thumbs-up" data-size="16" data-loop="true" data-c="#fff"
                    data-hc="white"></i>
                 </a>
                 <span class="label-text">A</span>
-              </button>-->
-
-              <!--si accepter
+              </button>
+            </td>
+            <td *ngIf="l.accept==1">
               <button type="button" class="btn btn-labeled btn-danger">
-                <a class="btn-label pull-left" href="@Url.Action("RefuseRequest", "Request",new { id=item.id })">
+                <a class="btn-label pull-left" href="">
                 <i class="livicon" data-name="thumbs-down" data-size="16" data-loop="true" data-c="#fff"
                    data-hc="white"></i>
                 </a>
                 <span class="label-text">R</span>
-              </button>-->
-
+              </button>
             </td>
+
           </tr>
 
           </tbody>

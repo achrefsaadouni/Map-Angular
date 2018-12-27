@@ -25,9 +25,10 @@ import { ListSkillsComponent } from './skill/list-skills/list-skills.component';
 import { SkillsByResourceComponent } from './skill/skills-by-resource/skills-by-resource.component';
 
 import { TestPassComponent } from './test-pass/test-pass.component';
-import { RequestComponent } from './request/request.component';
+import { RequestComponent } from './request/all-Request/request.component';
 import { MessagesComponent } from './messages/messages.component';
 import { ChatComponent } from './chat/chat.component';
+import { AddRequestComponent } from './request/add-request/add-request.component';
 
 
 
@@ -60,7 +61,8 @@ import { ChatComponent } from './chat/chat.component';
       TestPassComponent,
       RequestComponent,
       MessagesComponent,
-      ChatComponent],
+      ChatComponent,
+      AddRequestComponent],
 
 
   providers: [{

@@ -1,0 +1,83 @@
+<aside class="right-side">
+
+  <section class="content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              <i class="livicon" data-name="user-add" data-size="18" data-c="#fff" data-hc="#fff" data-loop="true" id="livicon-46" style="width: 18px; height: 18px;"></i> Add New User
+            </h3>
+            <span class="pull-right clickable">
+                                    <i class="glyphicon glyphicon-chevron-up"></i>
+                                </span>
+          </div>
+          <div class="panel-body">
+            <!-- errors -->
+            <!--main content-->
+            <form id="commentForm" method="POST" (ngSubmit)="addRequest()" enctype="multipart/form-data" class="form-horizontal bv-form" novalidate="novalidate">
+
+              <!-- CSRF Token -->
+              <input type="hidden" name="_token">
+              <div id="rootwizard">
+                <div class="tab-content">
+                  <div class="tab-pane active" id="tab1">
+
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Requested Profil *</label>
+                      <div class="col-sm-10">
+                        <input id="requestedProfil" name="requestedProfil" type="text" placeholder="Developper,Designer..." class="form-control required" data-bv-field="requestedProfil" [(ngModel)]="newRequest.requestedProfil">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Experience Year *</label>
+                      <div class="col-sm-10">
+                        <input id="experienceYear" name="experienceYear" type="number" placeholder="10 or 20 .." class="form-control required" data-bv-field="experienceYear" [(ngModel)]="newRequest.experienceYear">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Education Scolarity *</label>
+                      <div class="col-sm-10">
+                        <input id="educationScolarity" name="educationScolarity" placeholder="Esprit,Harvard..." type="email" class="form-control required email" data-bv-field="educationScolarity" [(ngModel)]="newRequest.educationScolarity">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label  class="col-sm-2 control-label">Start Date Mandate *</label>
+                      <div class="col-sm-10">
+                        <input id="startDate" name="startDate" type="date" placeholder="startDate" class="form-control required" data-bv-field="startDate" [(ngModel)]="newRequest.startDateMondate">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label  class="col-sm-2 control-label">End Date Mondate *</label>
+                      <div class="col-sm-10">
+                        <input id="endDate" name="endDate" type="date" placeholder="endDate " class="form-control required" data-bv-field="endDate" [(ngModel)]="newRequest.endDateMondate">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                    <label  class="col-sm-2 control-label">Deposit Date *</label>
+                    <div class="col-sm-10">
+                      <input id="depositDate" name="depositDate" type="date" placeholder="depositDate" class="form-control required" data-bv-field="depositDate" [(ngModel)]="newRequest.depositDate">
+                    </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Manager *</label>
+                      <div class="col-sm-10">
+                        <input id="manager" name="manager" type="text" placeholder="manager " class="form-control required" [(ngModel)]="newRequest.manager">
+                      </div>
+                    </div>
+                  </div>
+                  <input type="submit" class="col-md-12 btn btn-primary btn_sizes" value="Send">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--row end-->
+  </section>
+</aside>
+
+

@@ -11,10 +11,10 @@ import {QuestionComponent} from '../private/question/question.component';
 import {ListJobrequestComponent} from '../private/list-jobrequest/list-jobrequest.component';
 import {TestComponent} from '../private/test/test.component';
 import {TestPassComponent} from '../private/test-pass/test-pass.component';
-import {RequestComponent} from '../private/request/request.component';
+import {RequestComponent} from '../private/request/all-Request/request.component';
 import {MessagesComponent} from '../private/messages/messages.component';
 import {ChatComponent} from '../private/chat/chat.component';
-
+import {AddRequestComponent} from '../private/request/add-request/add-request.component';
 
 
 const routes: Routes = [
@@ -35,7 +35,7 @@ const routes: Routes = [
       {path: 'messages' , component: MessagesComponent},
       {path: 'chat' , component: ChatComponent},
       {path: 'list/:idc' , component: TestComponent},
-      {path: 'request' , component: AllRequestComponent}
+      {path: 'addRequest' , component: AddRequestComponent}
 
     ]}
 ];
