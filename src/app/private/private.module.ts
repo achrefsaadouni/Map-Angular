@@ -15,7 +15,10 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { ChoicesComponent } from './question/choices/choices.component';
 import { ListJobrequestComponent } from './list-jobrequest/list-jobrequest.component';
 import { TestComponent } from './test/test.component';
-
+import {ProjectModule} from './project/project.module';
+import {ProjectService} from './project/service/project.service';
+import {ClientModule} from './client/client.module';
+import {NgOrganizationChartModule} from './ng-organization-chart/ng-organization-chart.module';
 import { ResourceComponent } from './resource/resource/resource.component';
 import { AddResourceComponent } from './resource/resource/add-resource/add-resource.component';
 import { DetailsResourceComponent } from './resource/resource/details-resource/details-resource.component';
@@ -29,6 +32,11 @@ import { RequestComponent } from './request/all-Request/request.component';
 import { MessagesComponent } from './messages/messages.component';
 import { ChatComponent } from './chat/chat.component';
 import { AddRequestComponent } from './request/add-request/add-request.component';
+import { AlertComponent } from './alert/alert/alert.component';
+import {AlertService} from "./alert/alert.service";
+
+import { DayOffComponent } from './resource/day-off/day-off.component';
+
 
 
 
@@ -39,11 +47,14 @@ import { AddRequestComponent } from './request/add-request/add-request.component
     FormsModule,
     ReactiveFormsModule,
     MandateModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    ProjectModule,
+    ClientModule,
+    NgOrganizationChartModule
   ],
-
-
   declarations: [LayoutComponent,
+
+      TestPassComponent,
       JobrequestComponent,
       TestCategoryComponent,
       ModulesComponent,
@@ -62,13 +73,15 @@ import { AddRequestComponent } from './request/add-request/add-request.component
       RequestComponent,
       MessagesComponent,
       ChatComponent,
-      AddRequestComponent],
+      AddRequestComponent,
+      AlertComponent,
+      DayOffComponent],
 
 
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: AddAuthenticationHeaderInterceptor,
     multi: true
-  }, MandateService]
+  }, MandateService , ProjectService]
 })
 export class PrivateModule { }

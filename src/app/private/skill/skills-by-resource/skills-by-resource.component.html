@@ -16,7 +16,7 @@
           <div class="panel-heading">
             <div id="btnDeleteSkill">
               <form>
-                <button class="btn btn-danger" (click)="deleteSkillResource(x.skill.idSkill)"><i
+                <button style="background-color: transparent; border: none;" (click)="deleteSkillResource(x.skill.idSkill)"><i
                         class="fa fa-close"></i></button>
               </form>
             </div>
@@ -46,7 +46,7 @@
           </div>
           <div id="rate" *ngIf="x.rateSkill === 0">
             <input placeholder="note" class="form-control" style="width:100px;" [(ngModel)]="RateValue" name="RateValue"/>
-            <button class="btn btn-outline-danger" style="width: 35px; height: 35px;" (click)="noter(x.skill.idSkill)"> <i class="glyphicon glyphicon-heart-empty" style="font-size:24px; color: red; margin-left: -10px;"></i></button>
+            <button class="btn btn-outline-danger" style="width: 35px; height: 35px;" (click)="noter(x.skill.idSkill)"> <i class="glyphicon glyphicon-heart" style="font-size:24px; color: red; margin-left: -10px;"></i></button>
           </div>
 
         </div>

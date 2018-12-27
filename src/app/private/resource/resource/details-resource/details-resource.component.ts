@@ -15,13 +15,18 @@ export class DetailsResourceComponent implements OnInit {
     resourceChoisi:Resource;
     resourceid:number;
     bol: boolean=false;
+    moyenne:number;
 
     constructor(private route: ActivatedRoute,
                 private rs:ResourceService,
                 private ss:SkillService,
                 private router: Router) {
         this.route.params.subscribe(params=>this.resourceid = params.id);
+        console.log("id connectééééééééééééééééééééééééééééééé" +this.resourceid);
+        this.rs.moyenneResource(this.resourceid).subscribe(data =>console.log("done"));
         this.rs.GetResourceById(this.resourceid).subscribe(data =>this.resourceChoisi=data);
+
+
     }
 
     onDetails(id:number){
@@ -33,6 +38,7 @@ export class DetailsResourceComponent implements OnInit {
         this.bol = this.bol !== true;
     }
     ngOnInit() {
+
 
 
     }

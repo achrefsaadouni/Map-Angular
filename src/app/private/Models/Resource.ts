@@ -1,4 +1,6 @@
 import {Resourceskill} from './Resourceskill';
+import {Project} from "./Project";
+import {DayOff} from "./DayOff";
 
 export class Resource {
     id: number;
@@ -7,6 +9,7 @@ export class Resource {
     salary: number;
     picture: string;
     moyenneSkill: number;
+    login:string;
     password: string;
     nombreAlerte: number;
     nombreConge: number;
@@ -19,4 +22,6 @@ export class Resource {
     email: string;
     archived: boolean;
     resourceSkills: Resourceskill[];
+    projet:Project;
+    DayOffs:DayOff[];
 }

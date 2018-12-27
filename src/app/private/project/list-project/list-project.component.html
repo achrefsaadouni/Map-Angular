@@ -1,0 +1,50 @@
+<aside class="right-side">
+  <section class="content-header">
+    <h1>List Projects</h1>
+    <ol class="breadcrumb">
+      <li>
+        <a href="index.html">
+          <i class="livicon" data-name="home" data-size="16" data-color="#000"></i> Dashboard
+        </a>
+      </li>
+      <li>
+        <a href="#">Home</a>
+      </li>
+      <li class="active">List Projects</li>
+    </ol>
+  </section>
+  <section class="content paddingleft_right15">
+    <div class="row ui-sortable" id="sortable_portlets">
+      <div *ngFor="let p of projects">
+        <div class="col-md-4 column sortable">
+          <!-- BEGIN Portlet PORTLET-->
+          <div class=" portlet box primary">
+            <div class="portlet-title">
+              <div class="caption">
+                <i class="livicon" data-c="#fff" data-hc="#fff" data-name="gift" data-size="18" data-loop="true"></i> Portlet
+              </div>
+              <div class="actions">
+                <a href="http://localhost:4200/auth/detailsProject/{{p.id}}" class="btn btn-default btn-sm">
+                  <i class="fa fa-info"></i> Details
+                </a>
+                <a href="#" class="btn btn-default btn-sm">
+                  <i class="fa fa-pencil"></i> Edit
+                </a>
+              </div>
+            </div>
+            <div class="portlet-body">
+              <div>
+                <div class="row">
+                  <div class="col-md-4"><img src="https://scontent.ftun3-1.fna.fbcdn.net/v/t1.15752-9/46104335_566236880469066_7613629109041627136_n.png?_nc_cat=110&_nc_ht=scontent.ftun3-1.fna&oh=02f8768cb9204d29522938df0c7f2f8c&oe=5CA436DA" width="200" class="img-responsive" height="150" alt="Image" /></div>
+                  <div class="col-md-8">
+                    {{p.projectName}} , {{p.address}} , {{p.endDate}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</aside>

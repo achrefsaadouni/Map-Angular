@@ -12,30 +12,34 @@
 
         <div class="panel-body">
           <div class="table-responsive">
-
-            <form (ngSubmit)="addResource()">
+            <alert></alert>
+            <form (ngSubmit)="addResource()" id="inscriptionForm">
               <div class="form-group draggable">
-                <label>First Name</label>
+                <label >First Name</label>
                 <input type="text" class="form-control" name="firstName"
-                       [(ngModel)]="newResource.firstName" >
+                       [(ngModel)]="newResource.firstName" placeholder="First Name">
               </div>
               <div class="form-group draggable">
                 <label >Last Name</label>
-                <input type="text" class="form-control" name="lastName" [(ngModel)]="newResource.lastName" >
+                <input type="text" class="form-control" name="lastName" [(ngModel)]="newResource.lastName" placeholder="Last Name">
               </div>
               <div class="form-group draggable">
                 <label>Email</label>
-                <input type="email" class="form-control" name="email" [(ngModel)]="newResource.email">
+                <input type="email" class="form-control" name="email" [(ngModel)]="newResource.email" placeholder="Email">
 
               </div>
               <div class="form-group draggable">
-                <label>Password</label>
-                <input type="password" class="form-control" name="password" [(ngModel)]="newResource.password">
+                <label>Login</label>
+                <input type="text" class="form-control" name="login" [(ngModel)]="newResource.login" placeholder="Login">
               </div>
               <div class="form-group draggable">
-                <label>seniority</label>
-                <select id="seniority" class="form-control select2" name="seniority" required [(ngModel)]="newResource.seniority">
-                  <option value="">Select value...</option>
+                <label class="label">Password</label>
+                <input type="password" class="form-control" name="password" [(ngModel)]="newResource.password" placeholder="Password">
+              </div>
+              <div class="form-group draggable">
+                <label >seniority</label>
+                <select id="seniority" class="form-control select2" name="seniority" required [(ngModel)]="newResource.seniority" placeholder="Seniority">
+                  <option value="" selected>Select value...</option>
                   <option value="Senior">Senior</option>
                   <option value="Junior">Junior</option>
 
@@ -45,8 +49,8 @@
 
               <div class="form-group draggable">
                 <label >Work Profile</label>
-                <select id="workProfile" class="form-control" required name="workProfil" [(ngModel)]="newResource.workProfil">
-                  <option value="">Select value...</option>
+                <select id="workProfile" class="form-control" required name="workProfil" [(ngModel)]="newResource.workProfil" placeholder="Work Profile">
+                  <option value="" selected>Select value...</option>
                   <option value="Developper">Developper</option>
                   <option value="Designer">Designer</option>
                   <option value="Chef">Chef</option>
@@ -54,13 +58,13 @@
 
               </div>
               <div class="form-group draggable">
-                <label>Salary</label>
-                <input type="text" class="form-control" #salary>
+                <label >Salary</label>
+                <input type="number" class="form-control" name="salary" [(ngModel)]="newResource.salary" placeholder="Salary" >
               </div>
               <div class="form-group draggable">
-                <label>Job Type</label>
-                <select id="jobType" class="form-control select2" name="jobType" required [(ngModel)]="newResource.jobType">
-                  <option value="">Select value...</option>
+                <label >Job Type</label>
+                <select id="jobType" class="form-control select2" name="jobType" required [(ngModel)]="newResource.jobType" placeholder="Job Type">
+                  <option value="" selected>Select value...</option>
                   <option value="Freelancer">Freelancer</option>
                   <option value="LevioResource">Levio Resource</option>
 
@@ -70,7 +74,7 @@
               <div class="form-group draggable">
                 <label>My Cv</label>
                 <input type="text" class="form-control" id="cv" placeholder="cv" name="cv"
-                       required [(ngModel)]="newResource.cv">
+                       required [(ngModel)]="newResource.cv" placeholder="CV">
               </div>
               <div class="form-group draggable">
                 <label>Business Sector</label>
@@ -79,11 +83,11 @@
               </div>
               <div class="form-group draggable">
                 <label>My photo</label>
-                <input type="file" id="photo" name="file" required (change)="onFileChanged($event)">
+                <input type="file" class="form-control" id="photo" name="file" required (change)="onFileChanged($event)">
               </div>
 
               <div class="form-group draggable pd-right">
-                <button type="submit"  class="btn btn-primary btn-lg btn-block">Add</button>
+                <button type="submit"   class="btn btn-light"><i class="glyphicon glyphicon-plus" style="color: forestgreen"></i></button>
               </div>
             </form>
 

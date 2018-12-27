@@ -1,0 +1,187 @@
+<aside class="right-side">
+  <section class="content-header">
+    <h1>User profil</h1>
+    <ol class="breadcrumb">
+      <li>
+        <a href="index.html">
+          <i class="livicon" data-name="home" data-size="16" data-color="#000"></i> Dashboard
+        </a>
+      </li>
+      <li>
+        <a href="#">Home</a>
+      </li>
+      <li class="active">User profil</li>
+    </ol>
+  </section>
+  <section class="content paddingleft_right15">
+    <div class="table-responsive">
+      <div class="nav-tabs-custom">
+        <ul class="nav nav-tabs">
+          <li class="active">
+            <a href="#tab_1" data-toggle="tab">User Profil</a>
+          </li>
+          <li>
+            <a href="#tab_2" data-toggle="tab">Change Password</a>
+          </li>
+          <li>
+            <a href="#tab_3" data-toggle="tab">Advanced user profil</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active gallery-padding" id="tab_1">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="panel">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">
+                      User Profile
+                    </h3>
+                  </div>
+                  <div class="panel-body">
+                    <div class="col-md-4">
+                      <div class="text-center">
+                        <div class="fileinput fileinput-new" data-provides="fileinput">
+                          <div class="fileinput fileinput-new" data-provides="fileinput">
+                            <div class="fileinput-new thumbnail img-file">
+                              <img [src]="'assets/img/football.png'"
+                              width="200" class="img-responsive" height="150" alt="riot">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="panel-body">
+                        <div class="table-responsive">
+                          <table class="table table-bordered table-striped" id="users">
+                            <tr>
+                              <td>Fisrt name</td>
+                              <td>
+                                <p>{{client.firstName}}</p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>Last name</td>
+                              <td>
+                                <p>{{client.lastName}}</p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>E-mail</td>
+                              <td>
+                                <p>{{client.email}}</p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>Name society</td>
+                              <td>
+                                <p>{{client.nameSociety}}</p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>Address</td>
+                              <td>
+                                <p>{{client.address}}</p>>
+                              </td>
+                            </tr>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane gallery-padding" id="tab_2">
+            <div class="row">
+              <div class="col-md-12 pd-top">
+                <form (submit)="ChangePassword(oldPassword , newPassword , confirmPassword)" class="form-horizontal"
+                      [formGroup]="passwordForm">
+                  <div class="form-body">
+
+
+                    <div class="form-group">
+                      <label for="inputoldpassword" class="col-md-3 control-label">
+                        Old Password
+                        <span class='require'>*</span>
+                      </label>
+                      <div class="col-md-9">
+                        <div class="input-group">
+                           <span class="input-group-addon">
+                             <i class="livicon" data-name="key" data-size="16" data-loop="true" data-c="#000"
+                                data-hc="#000"></i>
+                            </span>
+                          <input type="password" id="inputoldpassword" placeholder="Old Password" class="form-control"
+                                 #oldPassword formControlName="oldPassword"/>
+                        </div>
+                      </div>
+                      <div class="col-md-9 padding" style="margin-left: 252px"
+                           *ngIf="!(oldPassword.value == client.password)">
+                        <span id="8char" class="glyphicon glyphicon-remove color-pwd" style="color: red"></span>Incorrect
+                        old Password
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="inputnewpassword" class="col-md-3 control-label">
+                        New Password
+                        <span class='require'>*</span>
+                      </label>
+                      <div class="col-md-9">
+                        <div class="input-group">
+                           <span class="input-group-addon">
+                             <i class="livicon" data-name="key" data-size="16" data-loop="true" data-c="#000"
+                                data-hc="#000"></i>
+                            </span>
+                          <input type="password" id="inputnewpassword" placeholder="New Password" class="form-control"
+                                 #newPassword formControlName="newPassword"/>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div class="form-group">
+                      <label for="inputnumber" class="col-md-3 control-label">
+                        Confirm Password
+                        <span class='require'>*</span>
+                      </label>
+                      <div class="col-md-9">
+                        <div class="input-group">
+                           <span class="input-group-addon">
+                            <i class="livicon" data-name="key" data-size="16" data-loop="true" data-c="#000"
+                               data-hc="#000"></i>
+                           </span>
+                          <input type="password" id="inputnumber" placeholder="Confirm Password" class="form-control"
+                                 #confirmPassword formControlName="confirmPassword"/>
+                        </div>
+                      </div>
+                      <div class="col-md-9 padding" style="margin-left: 252px"
+                           *ngIf="!(confirmPassword.value == newPassword.value)">
+                        <span id="ucase" class="glyphicon glyphicon-remove color-pwd" style="color: red"> </span>Incorrect
+                        confirm Password
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="form-actions">
+                    <div class="col-md-offset-3 col-md-9">
+                      <button type="submit" class="btn btn-primary"
+                              [disabled]="passwordForm.invalid || !(confirmPassword.value == newPassword.value) || !(oldPassword.value == client.password)">
+                        Submit
+                      </button>
+                      &nbsp;
+                      <input type="reset" class="btn btn-default hidden-xs" value="Reset">
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</aside>
+

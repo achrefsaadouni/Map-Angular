@@ -15,10 +15,13 @@ import {RequestComponent} from '../private/request/all-Request/request.component
 import {MessagesComponent} from '../private/messages/messages.component';
 import {ChatComponent} from '../private/chat/chat.component';
 import {AddRequestComponent} from '../private/request/add-request/add-request.component';
-
+import {ListProjectComponent} from '../private/project/list-project/list-project.component';
+import {DetailsProjectComponent} from '../private/project/details-project/details-project.component';
+import {AddClientComponent} from '../private/client/add-client/add-client.component';
+import {ProfilClientComponent} from '../private/client/profil-client/profil-client.component';
+import {AdvancedProfilComponent} from '../private/client/advanced-profil/advanced-profil.component';
 
 const routes: Routes = [
-
   {path: '' , redirectTo: 'login' , pathMatch: 'full' },
   {path: 'login' , component: LoginComponent},
 
@@ -26,7 +29,6 @@ const routes: Routes = [
       {path: 'mandate' , component: AllMandateComponent},
       {path: 'request' , component: AllRequestComponent},
       {path : 'jobrequest' , component: JobrequestComponent},
-      {path : 'jobrequest/test/:idc' , component: TestPassComponent},
       {path : 'category' , component: TestCategoryComponent},
       {path : 'category/:id' , component: ModulesComponent},
       {path : 'category/:id/:idm' , component: QuestionComponent},
@@ -35,8 +37,14 @@ const routes: Routes = [
       {path: 'messages' , component: MessagesComponent},
       {path: 'chat' , component: ChatComponent},
       {path: 'list/:idc' , component: TestComponent},
-      {path: 'addRequest' , component: AddRequestComponent}
-
+      {path: 'addRequest' , component: AddRequestComponent},
+      {path: 'jrlist' , component: ListJobrequestComponent},
+      {path: 'jrlist/:idc' , component: TestComponent},
+      {path: 'listProject', component: ListProjectComponent},
+      {path: 'detailsProject/:idProject', component: DetailsProjectComponent},
+      {path: 'addClient', component: AddClientComponent},
+      {path: 'profilClient/:idClient', component: ProfilClientComponent},
+      {path: 'advancedProfilClient', component: AdvancedProfilComponent}
     ]}
 ];
 
