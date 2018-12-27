@@ -1,0 +1,9 @@
+@import '~assets/css/app.css';
+@import '~assets/vendors/jasny-bootstrap/css/jasny-bootstrap.css';
+@import "~assets/vendors/select2/css/select2.min.css";
+@import "~assets/vendors/select2/css/select2-bootstrap.css";
+@import "~assets/vendors/bootstrapvalidator/css/bootstrapValidator.min.css";
+@import "~assets/vendors/datetimepicker/css/bootstrap-datetimepicker.min.css";
+@import "~assets/vendors/iCheck/css/all.css";
+@import "~assets/css/pages/wizard.css";
+

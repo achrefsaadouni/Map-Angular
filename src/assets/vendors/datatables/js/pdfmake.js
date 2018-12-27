@@ -24590,7 +24590,7 @@
 	exports.deflateSetHeader = deflateSetHeader;
 	exports.deflate = deflate;
 	exports.deflateEnd = deflateEnd;
-	exports.deflateInfo = 'pako deflate (from Nodeca project)';
+	exports.deflateInfo = 'pako deflate (from Nodeca listProject)';
 
 	/* Not implemented
 	exports.deflateBound = deflateBound;
@@ -27496,7 +27496,7 @@
 	exports.inflate = inflate;
 	exports.inflateEnd = inflateEnd;
 	exports.inflateGetHeader = inflateGetHeader;
-	exports.inflateInfo = 'pako inflate (from Nodeca project)';
+	exports.inflateInfo = 'pako inflate (from Nodeca listProject)';
 
 	/* Not implemented
 	exports.inflateCopy = inflateCopy;

@@ -1,0 +1,36 @@
+<aside class="right-side">
+
+  <section class="content paddingleft_right15">
+
+
+
+
+
+
+    <div class="table-responsive" >
+<alert></alert>
+      <form (ngSubmit)="AffectSkillToResource()">
+        <div id="formulaire">
+
+          <select id="workProfile" class="form-control" required name="workProfil" [(ngModel)]="skillSelectedId">
+            <option value="" selected>Select value...</option>
+
+            <option *ngFor="let x of skills"  [value]="x.idSkill"> {{x.nameSkill}}</option>
+
+          </select>
+
+          <button type="submit" class="btn btn-primary mb-2"><i class="glyphicon glyphicon-plus"></i></button>
+        </div>
+
+
+      </form>
+
+
+    </div>
+
+
+
+
+  </section>
+</aside>
+
