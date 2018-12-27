@@ -16,7 +16,6 @@ mandates: Mandate[];
         this.mandates = data;
       });
   }
-
   ngOnInit() {
 
   }
