@@ -10,12 +10,14 @@ import {RouteModuleRoutingModule} from './route-module/route-module-routing.modu
 import {PublicModule} from './Public/public.module';
 import {PrivateModule} from './private/private.module';
 import {HttpModule} from '@angular/http';
+import { AllGpsComponent } from './private/mandate/all-gps/all-gps.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AllGpsComponent
   ],
   imports: [
     BrowserModule,

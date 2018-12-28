@@ -4,6 +4,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Mandate} from '../../Models/Mandate';
 import {Observable} from 'rxjs/Observable';
 import {of} from 'rxjs/observable/of';
+import {RequestA} from '../../Models/RequestA';
 @Injectable()
 export class MandateService {
   uri: string;
@@ -11,6 +12,19 @@ export class MandateService {
   getAllMandates() {
     return this.http.get<Mandate[]>(ApiUri.URI + 'mandate');
   }
+  getAllRequests() {
+    return this.http.get<RequestA[]>(ApiUri.URI + 'mandate/request');
+  }
+
+
+
+
+
+
+
+
+
+
 
 
   private handleError<T> (operation = 'operation', result?: T) {
