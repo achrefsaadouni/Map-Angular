@@ -13,13 +13,10 @@ export class AddRequestComponent implements OnInit {
 
   newRequest:Request = new Request();
 
-
   constructor(private lr: ListRequestService) { }
 
   ngOnInit() {
 
-    console.log("test");
-    console.log(localStorage);
   }
 
   addRequest()
