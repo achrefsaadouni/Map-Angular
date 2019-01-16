@@ -31,7 +31,7 @@ export class TestComponent implements OnInit {
   this.NewTest = {
     'id': null,
     'testDeadLine': deadline.value,
-    'module' : null
+    'modules' : null
   };
     this.ts.AddTest(this.NewTest , this.CandidateId).subscribe(
       data => {

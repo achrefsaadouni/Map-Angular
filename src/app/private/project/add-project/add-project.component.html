@@ -1,0 +1,209 @@
+<aside class="right-side">
+  <section class="content-header">
+    <h1>Add project</h1>
+    <ol class="breadcrumb">
+      <li>
+        <a href="index.html">
+          <i class="livicon" data-name="home" data-size="16" data-color="#000"></i> Dashboard
+        </a>
+      </li>
+      <li>
+        <a href="#">Home</a>
+      </li>
+      <li class="active">Add project</li>
+    </ol>
+  </section>
+  <section class="content paddingleft_right15">
+    <div *ngIf="!(role == 'Admin')">
+      <h1 style="color: red;">Access denied</h1>
+    </div>
+    <div *ngIf="role == 'Admin'">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <i class="livicon" data-name="doc-portrait" data-c="#fff" data-hc="#fff" data-size="18" data-loop="true"></i>
+          Form Add Project
+        </h3>
+        <span class="pull-right">
+           <i class="fa fa-fw fa-chevron-up clickable"></i>
+          <i class="fa fa-fw fa-times removepanel clickable"></i>
+         </span>
+      </div>
+      <div class="panel-body">
+        <form (submit)="AddProject(name , startDate , endDate , address , projectType , picture , client)" class="form-horizontal">
+          <div class="form-body">
+
+            <div class="form-group">
+              <label for="inputName" class="col-md-3 control-label">
+                Name
+              </label>
+              <div class="col-md-6">
+                <!--<div class="input-group">-->
+                   <!--<span class="input-group-addon">-->
+                    <!--<i class="livicon" data-name="user" data-size="18" data-c="#000" data-hc="#000"-->
+                       <!--data-loop="true"></i>-->
+                   <!--</span>-->
+                  <input type="text" class="form-control " id="inputName" placeholder="Project name" #name>
+                <!--</div>-->
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <label for="inputStartDate" class="col-md-3 control-label">
+                Start date
+              </label>
+              <div class="col-md-6">
+                <!--<div class="input-group">-->
+                   <!--<span class="input-group-addon">-->
+                    <!--<i class="livicon" data-name="user" data-size="18" data-c="#000" data-hc="#000"-->
+                       <!--data-loop="true"></i>-->
+                   <!--</span>-->
+                  <input type="date" class="form-control " id="inputStartDate" placeholder="Start date" #startDate>
+                <!--</div>-->
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="inputEndDate" class="col-md-3 control-label">
+                End date
+              </label>
+              <div class="col-md-6">
+                <!--<div class="input-group">-->
+                   <!--<span class="input-group-addon">-->
+                    <!--<i class="livicon" data-name="user" data-size="18" data-c="#000" data-hc="#000"-->
+                       <!--data-loop="true"></i>-->
+                   <!--</span>-->
+                  <input type="date" class="form-control " id="inputEndDate" placeholder="End date" #endDate>
+                <!--</div>-->
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="inputAddress" class="col-md-3 control-label">
+                Address
+              </label>
+              <div class="col-md-6">
+                <!--<div class="input-group">-->
+                   <!--<span class="input-group-addon">-->
+                    <!--<i class="livicon" data-name="user" data-size="18" data-c="#000" data-hc="#000"-->
+                       <!--data-loop="true"></i>-->
+                   <!--</span>-->
+                  <input type="text" class="form-control " id="inputAddress" placeholder="Address" #address>
+                <!--</div>-->
+              </div>
+            </div>
+
+
+
+            <div class="form-group">
+              <label for="inputProjectType" class="col-md-3 control-label">
+                Project type
+              </label>
+              <div class="col-md-6">
+                <!--<div class="input-group">-->
+            <!--<span class="input-group-addon">-->
+            <!--<i class="livicon" data-name="user" data-size="18" data-c="#000" data-hc="#000" data-loop="true"></i>-->
+            <!--</span>-->
+                  <select class="form-control" id="inputProjectType" #projectType>
+                    <option [value]="o.value" *ngFor="let o of projectTypeOption">{{o.name}}</option>
+                  </select>
+                <!--</div>-->
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="inputClient" class="col-md-3 control-label">
+                Client
+              </label>
+              <div class="col-md-6">
+                <!--<div class="input-group">-->
+            <!--<span class="input-group-addon">-->
+            <!--<i class="livicon" data-name="user" data-size="18" data-c="#000" data-hc="#000" data-loop="true"></i>-->
+            <!--</span>-->
+                  <select class="form-control" id="inputClient" #client>
+                    <option [value]="o.id" *ngFor="let o of clients">{{o.nameSociety}}</option>
+                  </select>
+                <!--</div>-->
+              </div>
+            </div>
+
+
+
+            <div class="form-group">
+              <label class="col-md-3 control-label">
+                Skills
+              </label>
+              <div class="col-md-6">
+                <!--<div class="input-group">-->
+            <!--<span class="input-group-addon">-->
+            <!--<i class="livicon" data-name="user" data-size="18" data-c="#000" data-hc="#000" data-loop="true"></i>-->
+            <!--</span>-->
+                  <tag-input (onAdd)="getElem(tags)" [(ngModel)]="tags" name="tags"></tag-input>
+                <!--</div>-->
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label  class="col-md-3 control-label">
+                Picture
+              </label>
+              <div class="col-md-9">
+                <div class="fileinput fileinput-new" data-provides="fileinput">
+                  <div>
+            <span class="btn btn-default btn-file">
+            <span class="fileinput-new">Select picture</span>
+            <input type="file" (change)="detectFiles($event)" #picture></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+          <div class="form-actions">
+            <div class="col-md-offset-3 col-md-9">
+              <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Next Step</button>&nbsp;&nbsp;
+
+              <input type="reset" class="btn btn-default hidden-xs" value="Reset">
+            </div>
+          </div>
+        </form>
+
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add percentage to skills</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <form>
+                <div class="modal-body">
+
+                  <label >Enter Your percentage</label>
+                  <div *ngFor="let s of listSkills">
+                  <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon3">{{s.NameSkill}}</span>
+                    <input type="text" class="form-control" aria-describedby="basic-addon3" placeholder="Percentage %" name="percentage" [(ngModel)]="percentage[s.IdSkill]" #percentage="ngModel"  (blur)="AddSkillProject(percentage,idSKill)">
+                    <input type="hidden" value="{{ s.IdSkill }}" #idSKill>
+                  </div>
+                  </div>
+
+                </div>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-primary" (click)="backToList()">Submit</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+    </div>
+  </section>
+</aside>

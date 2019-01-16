@@ -12,12 +12,21 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class ListProjectComponent implements OnInit {
 
   projects: ProjectR[];
+  role: string = localStorage.getItem('role');
   constructor(private httpService: ProjectService ) {
     this.httpService.getAllProjects().subscribe(
       data => {
         this.projects = data;
       });
-
+  }
+  getClass(projectType) {
+    if(projectType = 'projectInProgress') {
+    return 'label label-sm label-danger';}
+    else if (projectType = 'newProject'){
+      return 'label label-sm label-success';}
+    //   else {newProject
+    //   return 'label label-sm label-info';
+    // }
   }
 
   ngOnInit() {

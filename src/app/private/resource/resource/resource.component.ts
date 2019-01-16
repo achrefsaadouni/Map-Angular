@@ -10,7 +10,7 @@ import {Resource} from "../../Models/Resource";
 })
 export class ResourceComponent implements OnInit {
     resourceNoArchived:Resource[];
-
+    motachercher="";
     constructor(private rs : ResourceService) { }
 
     ngOnInit() {

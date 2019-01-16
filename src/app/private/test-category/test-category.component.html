@@ -8,9 +8,9 @@
         </a>
       </li>
       <li>
-        <a href="#">Mandates</a>
+        <a href="#">Categories</a>
       </li>
-      <li class="active">All Mandates</li>
+      <li class="active">All Categories</li>
     </ol>
   </section>
 
@@ -35,7 +35,7 @@
               <form [formGroup]="FormValidtation" (ngSubmit)="AddNewCategory()">
               <div class="modal-body">
 
-                <label for="basic-url">Enter Your Category</label>
+                <label>Enter Your Category</label>
                 <div class="input-group">
                   <span class="input-group-addon" id="basic-addon3">Example : French Test</span>
                   <input type="text" class="form-control" name="name" [(ngModel)]="AddedCategorie.name" formControlName="name" aria-describedby="basic-addon3">
@@ -56,9 +56,15 @@
           </div>
         </div>
 
-      </div>
+      </div> <div class="alert alert-warning alert-dismissible" role="alert" *ngIf="categories.length == 0">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <strong>Warning!</strong> You haven't added any test category yet !
+    </div>
 
-      <div  *ngFor="let cat of categories " class="col-md-6">
+      <div>
+
+
+      <div  *ngFor="let cat of categories " class="col-md-6" >
 
       <div class="panel panel-primary">
         <div class="panel-heading">
@@ -67,16 +73,16 @@
           </h3>
 
         </div>
-        <div class="panel-body " style="height: 130px">
-          <div class="row">
+        <div class="panel-body " style="heght: 130px">
+          <div class="row" >
             <div *ngFor="let module of cat.modules | slice :0 :6" class="col-md-3" style="margin-top: 3px">
 
-              <button type="button" class="btn btn-warning"><a href="auth/category/{{cat.id}}">#{{module.title}}</a></button>
+              <button type="button" class="btn btn-warning"><a routerLink="/auth/category/{{cat.id}}" routerLinkActive="active">#{{module.title}}</a></button>
 
             </div>
           </div>
           <div class="row" style="margin-top: 5px">
-          <button type="button" class="btn " ><a href="auth/category/{{cat.id}}" >
+          <button type="button" class="btn " ><a routerLink="/auth/category/{{cat.id}}" routerLinkActive="active">
             Add a new Module
           </a></button>
 
@@ -89,6 +95,7 @@
     </div>
 
 
+    </div>
     </div>
 
 

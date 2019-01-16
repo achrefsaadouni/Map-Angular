@@ -59,7 +59,7 @@
                   <div class="col-lg-12">
                     <div class="panel">
                       <div class="panel-heading">
-                        <div class="alert alert-info">
+                        <div class="alert alert-info" >
                           <p>
                             You have Submitted you request Correctly
                           </p>
@@ -85,13 +85,13 @@
                                 <tr>
                                   <td> Name</td>
                                   <td>
-                                    <a href="#" data-pk="1" class="editable" data-title="Edit User Name">{{MyName}}</a>
+                                    <a  data-pk="1" class="editable" data-title="Edit User Name">{{MyName}}</a>
                                   </td>
                                 </tr>
                                 <tr>
                                   <td> Speciality</td>
                                   <td>
-                                    <a href="" data-pk="1" class="editable" data-title="Edit User Name">{{mine.speciality}}</a>
+                                    <a  data-pk="1" class="editable" data-title="Edit User Name">{{mine.speciality}}</a>
                                   </td>
                                 </tr>
 
@@ -100,7 +100,7 @@
                                   <td>
 
                                     <a href="auth/jobrequest/test/{{CurrentId}}" *ngIf="mine.stateType === 'accepted'" data-type="select" data-pk="1" data-value="1" data-title="Status"><i class="fa fa-check-circle" style="color: green"></i> Checkout Your Test</a>
-                                    <a href="#" *ngIf="mine.stateType !== 'accepted'" data-type="select" data-pk="1" data-value="1" data-title="Status">{{mine.stateType}}</a>
+                                    <a  *ngIf="mine.stateType !== 'accepted'" data-type="select" data-pk="1" data-value="1" data-title="Status">{{mine.stateType}}</a>
                                   </td>
 
                                 </tr>

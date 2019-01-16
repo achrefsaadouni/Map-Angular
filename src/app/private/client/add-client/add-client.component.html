@@ -14,7 +14,10 @@
     </ol>
   </section>
   <section class="content paddingleft_right15">
-
+    <div *ngIf="!(role == 'Admin')">
+      <h1 style="color: red;">Access denied</h1>
+    </div>
+    <div *ngIf="role == 'Admin'">
     <div class="panel panel-success">
       <div class="panel-heading">
         <h3 class="panel-title">
@@ -26,19 +29,19 @@
          </span>
       </div>
       <div class="panel-body">
-        <form (submit)="AddClient(firstName,lastName,clientType,nameSociety,address,clientCategory,logo)" class="form-horizontal">
+        <form (submit)="AddClient(firstName,lastName,clientType,nameSociety,address,clientCategory,logo,email)" class="form-horizontal">
           <div class="form-body">
             <div class="form-group">
               <label for="inputFirstName" class="col-md-3 control-label">
                 First name
               </label>
-              <div class="col-md-9">
-                <div class="input-group">
-                   <span class="input-group-addon">
-                    <i class="livicon" data-name="user" data-size="18" data-c="#000" data-hc="#000" data-loop="true"></i>
-                   </span>
+              <div class="col-md-6">
+                <!--<div class="input-group">-->
+                   <!--<span class="input-group-addon">-->
+                    <!--<i class="livicon" data-name="user" data-size="18" data-c="#000" data-hc="#000" data-loop="true"></i>-->
+                   <!--</span>-->
                   <input type="text" class="form-control " id="inputFirstName" placeholder="First name" #firstName>
-                </div>
+                <!--</div>-->
               </div>
             </div>
 
@@ -47,19 +50,33 @@
               <label for="inputLastName" class="col-md-3 control-label">
                 Last name
               </label>
-              <div class="col-md-9">
-                <div class="input-group">
-                   <span class="input-group-addon">
-                    <i class="livicon" data-name="user" data-size="18" data-c="#000" data-hc="#000" data-loop="true"></i>
-                   </span>
+              <div class="col-md-6">
+                <!--<div class="input-group">-->
+                   <!--<span class="input-group-addon">-->
+                    <!--<i class="livicon" data-name="user" data-size="18" data-c="#000" data-hc="#000" data-loop="true"></i>-->
+                   <!--</span>-->
                   <input type="text" class="form-control " id="inputLastName" placeholder="Last name" #lastName>
-                </div>
+                <!--</div>-->
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="inputEmail" id="inputEmail"  class="col-md-3 control-label">
+                Email
+              </label>
+              <div class="col-md-6">
+                <!--<div class="input-group">-->
+                <!--<span class="input-group-addon">-->
+                <!--<i class="livicon" data-name="mail" data-size="18" data-c="#000" data-hc="#000" data-loop="true"></i>-->
+                <!--</span>-->
+                <input type="text" placeholder="Email Address" class="form-control" #email/>
+                <!--</div>-->
               </div>
             </div>
 
             <div class="form-group">
               <label  class="col-md-3 control-label">
-                Client type
+                Client category
               </label>
               <div class="col-md-9">
                 <div class="input-group">
@@ -81,15 +98,15 @@
               <label for="inputClientType" class="col-md-3 control-label">
                 Client type
               </label>
-              <div class="col-md-9">
-                <div class="input-group">
-                   <span class="input-group-addon">
-                    <i class="livicon" data-name="user" data-size="18" data-c="#000" data-hc="#000" data-loop="true"></i>
-                   </span>
+              <div class="col-md-6">
+                <!--<div class="input-group">-->
+                   <!--<span class="input-group-addon">-->
+                    <!--<i class="livicon" data-name="user" data-size="18" data-c="#000" data-hc="#000" data-loop="true"></i>-->
+                   <!--</span>-->
                   <select class="form-control" id="inputClientType" #clientType>
                     <option [value]="o.value" *ngFor="let o of clientTypeOption">{{o.name}}</option>
                   </select>
-                </div>
+                <!--</div>-->
               </div>
             </div>
 
@@ -97,14 +114,14 @@
               <label for="inputNameSociety" class="col-md-3 control-label">
                 Name Society
               </label>
-              <div class="col-md-9">
-                <div class="input-group">
-                   <span class="input-group-addon">
-                    <i class="livicon" data-name="user" data-size="18" data-c="#000" data-hc="#000" data-loop="true"></i>
-                   </span>
+              <div class="col-md-6">
+                <!--<div class="input-group">-->
+                   <!--<span class="input-group-addon">-->
+                    <!--<i class="livicon" data-name="user" data-size="18" data-c="#000" data-hc="#000" data-loop="true"></i>-->
+                   <!--</span>-->
                   <input type="text" class="form-control " id="inputNameSociety" placeholder="Name society" #nameSociety>
                 </div>
-              </div>
+              <!--</div>-->
             </div>
 
             <div class="form-group">
@@ -126,29 +143,17 @@
               <label for="inputAddress" id="inputAddress" class="col-md-3 control-label">
                 Address
               </label>
-              <div class="col-md-9">
-                <div class="input-group">
-                  <span class="input-group-addon">
-                     <i class="livicon" data-name="doc-portrait" data-c="#000" data-hc="#000" data-size="18" data-loop="true"></i>
-                  </span>
+              <div class="col-md-6">
+                <!--<div class="input-group">-->
+                  <!--<span class="input-group-addon">-->
+                     <!--<i class="livicon" data-name="map-marker" data-c="#000" data-hc="#000" data-size="18" data-loop="true"></i>-->
+                  <!--</span>-->
                   <input type="text" class="form-control" placeholder=" Address" #address/>
-                </div>
+                <!--</div>-->
               </div>
             </div>
 
-            <!--<div class="form-group">-->
-              <!--<label for="inputEmail" id="inputEmail"  class="col-md-3 control-label">-->
-                <!--Email-->
-              <!--</label>-->
-              <!--<div class="col-md-9">-->
-                <!--<div class="input-group">-->
-                 <!--<span class="input-group-addon">-->
-                  <!--<i class="livicon" data-name="mail" data-size="18" data-c="#000" data-hc="#000" data-loop="true"></i>-->
-                 <!--</span>-->
-                  <!--<input type="text" placeholder="Email Address" class="form-control" #email/>-->
-                <!--</div>-->
-              <!--</div>-->
-            <!--</div>-->
+
 
           </div>
           <div class="form-actions">
@@ -165,6 +170,7 @@
           </div>
         </form>
       </div>
+    </div>
     </div>
     <!--<form (submit)="AddClient()" >-->
       <!--<button type="submit" class="btn btn-responsive ">Submit</button>-->

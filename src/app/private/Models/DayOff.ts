@@ -8,5 +8,6 @@ export class DayOff {
     stateType:string;
     typeDayOff:string;
     Resources:Resource[];
+    color:string;
 
 }

@@ -10,6 +10,7 @@ import {MClient} from '../../Models/MClient';
 })
 export class AddClientComponent implements OnInit {
    client: MClient = new MClient();
+  role: string = localStorage.getItem('role');
    clientTypeOption = [
     { name: 'new client', value: 'newClient' },
     { name: 'current client', value: 'currentClient' },
@@ -22,18 +23,9 @@ export class AddClientComponent implements OnInit {
   selectedFiles: FileList;
   fileName: string;
   model;
-  // client = {
-  //       firstName: 'TTTESSSST',
-  //       lastName: 'TEEESTTS',
-  //      // clientCategory: 'newClient',
-  //       nameSociety: 'OORORORJOGRJ',
-  //       logo: 'dlfdlloggo',
-  //       address: 'ariana',
-  //       email: 'baslybilel@gmail.com',
-  //       clientType: 'privateClient',
-  // }
+
   clients: any[] ;
-  constructor(private httpService: ClientService) {
+  constructor(private httpService: ClientService ) {
     this.model = { sex : 'publicClient'};
   }
   detectFiles(event) {
@@ -42,8 +34,7 @@ export class AddClientComponent implements OnInit {
     console.log('selectedFiles: ' + this.fileName );
   }
 
-  AddClient(firstName, lastName, clientType , nameSociety, address , clientCategory , logo) {
-    console.log('Clienenet : IPJZJEZJEJOOKEEEY');
+  AddClient(firstName, lastName, clientType , nameSociety, address , clientCategory , logo,email) {
     this.client = {
       id: 159,
       firstName: firstName.value,
@@ -52,28 +43,27 @@ export class AddClientComponent implements OnInit {
       nameSociety: nameSociety.value,
       logo: this.fileName,
       address: address.value,
-      email: 'baslybilel@gmail.com',
+      email: email.value,
       clientType: clientType.value,
       latitude: 0,
       longitude: 0,
       password: this.client.password
     };
-    console.log('Clienenet : '  + this.client);
     this.httpService.AddClient(this.client).subscribe(
       value => {
-        window.location.replace('/auth/addClient');
+         window.location.replace('/auth/listClients');
+       // this.route.redirectTo('/auth/listClients');
       },
       error1 => {
         if (error1.status === 200) {
-          window.location.replace('/auth/addClient');
+           window.location.replace('/auth/listClients');
+         // this.route.navigateByUrl('/auth/listClients');
+
         }
       }
     );
   }
-  // AddClient() {
-  //   this.httpService.AAddClient(this.client).subscribe(client =>
-  //   this.clients.unshift(this.client));
-  // }
+
 
   ngOnInit() {
   }

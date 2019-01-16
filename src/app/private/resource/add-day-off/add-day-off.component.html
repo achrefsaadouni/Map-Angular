@@ -1,0 +1,75 @@
+<aside class="right-side">
+  <section class="content-header">
+
+  </section>
+
+
+  <section class="content paddingleft_right15">
+
+
+    <div class="row">
+      <div class="panel panel-warning ">
+
+        <div class="panel-body">
+          <div class="table-responsive">
+            <notifier-container></notifier-container>
+            <form (ngSubmit)="addDate()">
+              <div class="form-group draggable">
+                <label>Reason</label>
+                <input type="text" class="form-control" name="reason"
+                       [(ngModel)]="dayOff.reason"  ngModel >
+              </div>
+
+
+              <div class="form-group draggable">
+                <label >Start Date</label>
+                <input type="date" class="form-control" name="startDate"
+                       [(ngModel)]="dayOff.startDate"  ngModel>
+              </div>
+              <div class="form-group draggable">
+                <label >End Date</label>
+                <input type="date" class="form-control" name="endDate"
+                       [(ngModel)]="dayOff.endDate"  ngModel>
+              </div>
+
+              <div class="form-group draggable">
+                <label >Type day off</label>
+                <select id="typeDayOff" class="form-control select2" name="typeDayOff"  [(ngModel)]="dayOff.typeDayOff"
+                       >
+                  <option value="vacancy">vacancy</option>
+                  <option value="maternity">maternity</option>
+                  <option value="illness">illness</option>
+                  <option value="other">other</option>
+
+                </select>
+
+              </div>
+
+
+
+              <div class="form-group draggable">
+                <label >State typpe</label>
+                <select id="stateType" class="form-control"  name="stateType"
+                        [(ngModel)]="dayOff.stateType">
+                  <option value="" selected>Select value...</option>
+                  <option value="onHold">on Hold</option>
+                  <option value="refused">refused</option>
+                  <option value="accepted">accepted</option>
+                </select>
+
+              </div>
+              <div class="form-group draggable pd-right">
+                <button type="submit"   class="btn btn-light"><i class="glyphicon glyphicon-plus" style="color: forestgreen"></i></button>
+              </div>
+            </form>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </section>
+</aside>
+

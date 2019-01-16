@@ -13,15 +13,11 @@ import {ModuleService} from '../modules/service/module.service';
 })
 export class TestCategoryComponent implements OnInit {
 
-  categories: Category[];
+  categories: Category[] = [];
   ErrorCnx = true;
   FormValidtation: FormGroup;
   AddedCategorie: Category = new Category();
   constructor( private testservice: TestserviceService , private route: Router , private fb: FormBuilder , private ms: ModuleService) {
-    this.testservice.getCategories().subscribe(
-      data => {
-        this.categories = data;
-      });
 
 
   }
@@ -29,12 +25,10 @@ export class TestCategoryComponent implements OnInit {
   AddNewCategory() {
 
     this.testservice.AddCategory(this.AddedCategorie).subscribe(
-      category => this.categories.push(this.AddedCategorie),
+      category => this.categories.push(category),
       error => {
         if (error.status === 200) {
-          setTimeout(() => {
-            this.route.navigate([this.route.url]);
-          }, 2000);
+
         } else {
           this.ErrorCnx = false;
         }
@@ -44,6 +38,12 @@ export class TestCategoryComponent implements OnInit {
 
 
   ngOnInit() {
+    this.testservice.getCategories().subscribe(
+      data => {
+        this.categories = data;
+
+      });
+
     this.FormValidtation = this.fb.group({
       name: ['', Validators.required]
     });

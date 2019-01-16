@@ -1,0 +1,77 @@
+<aside class="right-side">
+  <section class="content-header">
+    <h1>Mandates</h1>
+    <ol class="breadcrumb">
+      <li>
+        <a href="index.html">
+          <i class="livicon" data-name="home" data-size="16" data-color="#000"></i> Dashboard
+        </a>
+      </li>
+      <li>
+        <a href="#">Mandates</a>
+      </li>
+      <li class="active">All Requests</li>
+    </ol>
+  </section>
+
+
+  <section class="content paddingleft_right15">
+
+
+    <div class="row">
+      <div class="panel panel-success ">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <i class="livicon" data-name="users-remove" data-size="18" data-c="#ffffff" data-hc="#ffffff"></i> All Requests
+          </h4>
+        </div>
+        <div class="panel-body">
+          <div style="width: 200px">
+            <input type="text" class="form-control" name="mot" placeholder="Search" [(ngModel)]="mot"><br><br>
+          </div>
+          <div class="table-responsive">
+
+
+
+            <table class="table table-bordered">
+              <thead>
+              <tr>
+                <th>Company Name</th>
+                <th>Project Name</th>
+                <th>Requested Profil</th>
+                <th>Experience Year</th>
+                <th>Deposit Date</th>
+                <th>Status</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let m of requests | filtre : mot | paginate: { itemsPerPage: 2, currentPage: p }">
+                <td>{{ m.Client.nameSociety }}</td>
+                <td>{{ m.project.projectName }}</td>
+                <td>{{ m.requestedProfil }}</td>
+                <td>{{ m.experienceYear }}</td>
+                <td>{{ m.depositDate }}</td>
+
+                <td *ngIf="m.suggessedResource"><button  (click)="validate(m)" class = "button button-pill button-success">Validate Request</button></td>
+
+
+                <td *ngIf="!m.suggessedResource"><button disabled class="button button-pill button-success">Not Traited Yet</button></td>
+
+              </tr>
+              </tbody>
+            </table>
+            <div style="text-align: center">
+              <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </section>
+</aside>
+

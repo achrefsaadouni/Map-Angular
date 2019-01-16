@@ -26,13 +26,13 @@
             </li>
             <li>
               <a href="#tab2" data-toggle="tab">
-                <i class="livicon" data-name="spinner-two" data-size="16" data-c="#000" data-hc="#000"
+                <i class="livicon" data-name="spinner-five" data-size="16" data-c="#000" data-hc="#000"
                    data-loop="true"></i> Project skills</a>
             </li>
             <li>
               <a href="#tab3" data-toggle="tab">
                 <i class="livicon" data-name="sitemap" data-size="16" data-loop="true" data-c="#000" data-hc="#000"></i>
-                Advanced User Profile</a>
+                Org Chart</a>
             </li>
           </ul>
           <div class="tab-content mar-top">
@@ -50,9 +50,7 @@
                         <div class="text-center">
                           <div class="fileinput fileinput-new" data-provides="fileinput">
                             <div class="fileinput-new thumbnail img-file">
-                              <img
-                                src="https://scontent.ftun3-1.fna.fbcdn.net/v/t1.15752-9/46104335_566236880469066_7613629109041627136_n.png?_nc_cat=110&_nc_ht=scontent.ftun3-1.fna&oh=02f8768cb9204d29522938df0c7f2f8c&oe=5CA436DA"
-                                width="200" class="img-responsive" height="150" alt="riot">
+                              <img [src]="'assets/img/map/'+project.picture" width="200" class="img-responsive" height="150" alt="riot">
                             </div>
                           </div>
                         </div>
@@ -64,31 +62,31 @@
                               <tr>
                                 <td>Name</td>
                                 <td>
-                                  <!--<p>{{project.projectName}}</p>-->
+                                  <p>{{project.projectName}}</p>
                                 </td>
                               </tr>
                               <tr>
                                 <td>Address</td>
                                 <td>
-                                  <!--<p>{{project.address}}</p>-->
+                                  <p>{{project.address}}</p>
                                 </td>
                               </tr>
                               <tr>
                                 <td>Start date</td>
                                 <td>
-                                  <!--<p>{{project.startDate}}</p>-->
+                                  <p>{{project.startDate}}</p>
                                 </td>
                               </tr>
                               <tr>
                                 <td>End date</td>
                                 <td>
-                                  <!--<p>{{project.endDate}}</p>-->
+                                  <p>{{project.endDate}}</p>
                                 </td>
                               </tr>
                               <tr>
                                 <td>Type</td>
                                 <td>
-                                  <!--<p>{{project.projectType}}</p>-->
+                                  <p>{{project.projectType}}</p>
                                 </td>
                               </tr>
                             </table>
@@ -134,13 +132,13 @@
             </div>
             <div id="tab3" class="tab-pane fade">
               <div class="row">
-                <div class="col-lg-4">
+
+                <div class="col-lg-8">
+                  <ng-organization-chart [data]="showSkills()" (onClickNode)="clickNode($event)" (onDragNode)="dragNode($event)" style="width: 250px"></ng-organization-chart>
                 </div>
                 <div class="col-lg-4">
                   <tree-root [nodes]="nodes" [options]="options"></tree-root>
-                  <!--<ng2-org-chart [topEmployee]="topEmployee"></ng2-org-chart>-->
-                </div>
-                <div class="col-lg-4">
+
                 </div>
               </div>
             </div>

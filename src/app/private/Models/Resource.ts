@@ -20,8 +20,10 @@ export class Resource {
     firstName: string;
     lastName: string;
     email: string;
-    archived: boolean;
+    archived: number;
     resourceSkills: Resourceskill[];
     projet:Project;
     DayOffs:DayOff[];
+    roleT:string;
+    firstVisit:number;
 }

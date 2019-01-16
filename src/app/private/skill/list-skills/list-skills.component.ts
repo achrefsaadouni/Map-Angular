@@ -4,12 +4,18 @@ import {Router} from "@angular/router";
 import {SkillService} from "../service/skill.service";
 import {Skill} from "../Skill";
 
+import {ResourceService} from "../../resource/resource/service/resource.service";
+import {Resource} from "../../Models/Resource";
+import {PushNotificationsService} from "../../resource/service/notification.service";
+
+
 
 @Component({
     selector: 'app-list-skills',
     templateUrl: './list-skills.component.html',
     styleUrls: ['./list-skills.component.css'],
-    providers:[SkillService]
+    providers:[SkillService , PushNotificationsService ,ResourceService]
+
 })
 export class ListSkillsComponent implements OnInit {
     listSkills:Skill[];
@@ -17,9 +23,22 @@ export class ListSkillsComponent implements OnInit {
     afficherModif:boolean = false;
     skillToUpdate:Skill;
 
-    constructor(private ss:SkillService, private router: Router ) {
+    resourceCo:Resource;
+    idResourceCon:number;
+
+
+    constructor(private rs: ResourceService ,private ss:SkillService, private router: Router, private notifier:PushNotificationsService ) {
+        if (localStorage.length === 0) {
+            this.router.navigate(['login']); }
+        this.idResourceCon = Number(localStorage.getItem('id'));
+
         this.ss.getAllSkills().subscribe(data =>{this.listSkills = data;
-        console.log(data)});
+            console.log(data)});
+        this.notifier.requestPermission();
+        this.rs.GetResourceById(this.idResourceCon).subscribe(data=>{
+            this.resourceCo=data;
+        });
+
 
     }
 
@@ -27,16 +46,31 @@ export class ListSkillsComponent implements OnInit {
 
     }
     DeleteSkill(id){
-        this.ss.DeleteSkill(id).subscribe(
-            skill => console.log("done"),
-            error => {
-                if (error.status === 200) {
-                    setTimeout(() => {
-                        this.router.navigate(['/auth/listSkills']);
-                    }, 2000);
-                }
-            });
-    }
+        if(this.resourceCo.roleT==="Admin"){
+            this.ss.DeleteSkill(id).subscribe(
+                skill => console.log("done"),
+                error => {
+                    if (error.status === 200) {
+                        setTimeout(() => {
+                            let data: Array < any >= [];
+                            data.push({
+                                'title': 'Deleted',
+                                'alertContent': 'skill has been deleted'
+                            });
+                            this.notifier.generateNotification(data);
+                            this.ss.getAllSkills().subscribe(data =>{this.listSkills = data;
+                                console.log(data)});
+                        }, 2000);
+                    }
+                });}
+                else{
+        let data: Array < any >= [];
+        data.push({
+            'title': 'Error',
+            'alertContent': 'Access denied'
+        });
+        this.notifier.generateNotification(data);
+    }}
 
     ShowModif(x){
         this.afficherModif = this.afficherModif !== true;
@@ -47,17 +81,33 @@ export class ListSkillsComponent implements OnInit {
 
 
     UpdateSkill(){
-        console.log(this.skillToUpdate.idSkill);
-        console.log(this.skillToUpdate.nameSkill);
-        this.ss.UpdateSkill(this.skillToUpdate).subscribe(
-            skill => console.log("done"),
-            error => {
-                if (error.status === 200) {
-                    setTimeout(() => {
-                        this.router.navigate(['/auth/listSkills']);
-                    }, 2000);
-                }
-            });
-    }
+        if(this.resourceCo.roleT==="Admin"){
+            console.log(this.skillToUpdate.idSkill);
+            console.log(this.skillToUpdate.nameSkill);
+            this.ss.UpdateSkill(this.skillToUpdate).subscribe(
+                skill => console.log("done"),
+                error => {
+                    if (error.status === 200) {
+                        setTimeout(() => {
+                            let data: Array < any >= [];
+                            data.push({
+                                'title': 'Updated',
+                                'alertContent': 'Updated with success'
+                            });
+                            this.notifier.generateNotification(data);
+                            this.ss.getAllSkills().subscribe(data =>{this.listSkills = data;
+                                console.log(data)});
+                        }, 2000);
+                    }
+                });
+        }
+        else{
+        let data: Array < any >= [];
+        data.push({
+            'title': 'Error',
+            'alertContent': 'Access denied'
+        });
+        this.notifier.generateNotification(data);
+    }}
 
 }

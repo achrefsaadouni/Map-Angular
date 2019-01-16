@@ -10,12 +10,13 @@
       <li>
         <a href="#">Questions</a>
       </li>
-      <li class="active">Questions</li>
+      <li class="active"><a routerLink="/auth/category/{{idc}}" routerLinkActive="active">back</a></li>
     </ol>
   </section>
 
 
   <section class="content paddingleft_right15">
+    <div>
     <div class="row" [hidden]="showadd">
     <div class="panel panel-success" id="hidepanel2">
       <div class="panel-heading">
@@ -66,12 +67,17 @@
               <i class="livicon" data-name="responsive" data-size="16" data-loop="true" data-c="#fff" data-hc="white"></i> Question List
             </h3>
             <span class="pull-right">
+
         <button (click)="showSection()"><i class="glyphicon glyphicon-plus  "></i></button>
 
         </span>
           </div>
+          <div class="alert alert-warning alert-dismissible" role="alert" *ngIf="questions.length == 0" style="margin-top: 10px">
+            <strong>Warning!</strong> You haven't added any question yet to this module !
+          </div>
 
           <div class="panel-body table-responsive">
+
             <table class="table table-striped table-bordered" id="table1">
               <thead>
               <tr>
@@ -82,10 +88,11 @@
               </tr>
               </thead>
               <tbody>
+
               <tr *ngFor="let question of questions | paginate: { itemsPerPage: 5, currentPage: p }">
                 <td>{{question.title}}</td>
                 <td>{{question.description}}</td>
-                <td><button class="btn btn-block" (click)="setCurrent(question.id)" > view Choices</button></td>
+                <td><button class="btn btn-block" > <a routerLink="/auth/category/{{idc}}/{{idm}}/{{question.id}}" routerLinkActive="active">view Choices</a></button></td>
               </tr>
               <tr>
                 <td></td>
@@ -103,8 +110,7 @@
         </div>
       </div>
     </div>
-
-<app-choices [idQuestion]="CurrentId" [ShowMe]="Showchild"></app-choices>
+</div>
 
   </section>
 </aside>

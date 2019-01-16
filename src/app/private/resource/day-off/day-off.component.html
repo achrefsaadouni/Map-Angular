@@ -1,3 +1,27 @@
-<p>
-  day-off works!
-</p>
+<aside class="right-side">
+<section class="content">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="tab-content mar-top">
+                <div id="tab1" class="tab-pane fade active in">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel">
+                                <div *ngIf="calendarOptions">
+                                    <ng-fullcalendar #ucCalendar [options]="calendarOptions"
+                                                     (eventClick)="eventClick($event.detail)"
+                                                     (eventDrop)="updateEvent($event.detail)"
+                                                     (eventResize)="updateEvent($event.detail)"
+                                                     (dayClick)="dayClick($event.detail)"
+                                                     (clickButton)="clickButton($event.detail)"
+                                                     [(eventsModel)]="events"></ng-fullcalendar>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</aside>

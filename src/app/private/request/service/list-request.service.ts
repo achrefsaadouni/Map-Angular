@@ -23,4 +23,8 @@ export class ListRequestService {
     return this.http.post<Request>(ApiUri.URI + 'requestss/addRequest/'+idClient, request)
   }
 
+  acceptRequest (idRequest:number): Observable<any> {
+    return this.http.put<any>(ApiUri.URI + 'requestss/updateRequest/'+idRequest,null)
+  }
+
 }

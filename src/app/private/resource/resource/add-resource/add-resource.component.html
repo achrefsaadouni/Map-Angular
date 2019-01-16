@@ -12,33 +12,67 @@
 
         <div class="panel-body">
           <div class="table-responsive">
-            <alert></alert>
-            <form (ngSubmit)="addResource()" id="inscriptionForm">
+            <notifier-container></notifier-container>
+            <form (ngSubmit)="addResource()" id="inscriptionForm" [formGroup]="ClientForm">
               <div class="form-group draggable">
-                <label >First Name</label>
+                <label for="firstName" >First Name</label>
                 <input type="text" class="form-control" name="firstName"
-                       [(ngModel)]="newResource.firstName" placeholder="First Name">
+                       [(ngModel)]="newResource.firstName" placeholder="First Name" ngModel
+                       name="firstName" id="firstName"
+                       formControlName="firstName">
               </div>
+
+              <div class="alert alert-danger"
+                   *ngIf="ClientForm.controls['firstName']?.invalid && ClientForm.controls['firstName']?.touched ">
+                Verify first name
+              </div>
+
               <div class="form-group draggable">
                 <label >Last Name</label>
-                <input type="text" class="form-control" name="lastName" [(ngModel)]="newResource.lastName" placeholder="Last Name">
+                <input type="text" class="form-control" name="lastName"
+                       [(ngModel)]="newResource.lastName" placeholder="Last Name"
+
+                       formControlName="lastName">
+              </div>
+              <div class="alert alert-danger"
+                   *ngIf="ClientForm.controls['lastName']?.invalid && ClientForm.controls['lastName']?.touched ">
+                Verify last name
               </div>
               <div class="form-group draggable">
                 <label>Email</label>
-                <input type="email" class="form-control" name="email" [(ngModel)]="newResource.email" placeholder="Email">
+                <input type="email" class="form-control" name="email"
+                       [(ngModel)]="newResource.email" placeholder="Email"
+                       formControlName="email">
 
+              </div>
+              <div class="alert alert-danger"
+                   *ngIf="ClientForm.controls['email'].errors?.email && ClientForm.controls['email']?.touched ">
+                Verify email
               </div>
               <div class="form-group draggable">
                 <label>Login</label>
-                <input type="text" class="form-control" name="login" [(ngModel)]="newResource.login" placeholder="Login">
+                <input type="text" class="form-control" name="login" [(ngModel)]="newResource.login"
+                       placeholder="Login" formControlName="login">
+              </div>
+              <div class="alert alert-danger"
+                   *ngIf="ClientForm.controls['login']?.invalid && ClientForm.controls['login']?.touched ">
+                Verify login
               </div>
               <div class="form-group draggable">
-                <label class="label">Password</label>
-                <input type="password" class="form-control" name="password" [(ngModel)]="newResource.password" placeholder="Password">
+                <label>Password</label>
+                <input type="password" class="form-control" name="password"
+                       [(ngModel)]="newResource.password" placeholder="Password" formControlName="password">
               </div>
+
+              <div class="alert alert-danger"
+                   *ngIf="ClientForm.controls['password']?.invalid && ClientForm.controls['password']?.touched ">
+                Verify password
+              </div>
+
               <div class="form-group draggable">
                 <label >seniority</label>
-                <select id="seniority" class="form-control select2" name="seniority" required [(ngModel)]="newResource.seniority" placeholder="Seniority">
+                <select id="seniority" class="form-control select2" name="seniority"  [(ngModel)]="newResource.seniority"
+                        placeholder="Seniority" formControlName="seniority">
                   <option value="" selected>Select value...</option>
                   <option value="Senior">Senior</option>
                   <option value="Junior">Junior</option>
@@ -47,9 +81,15 @@
 
               </div>
 
+              <div class="alert alert-danger"
+                   *ngIf="ClientForm.controls['seniority']?.invalid && ClientForm.controls['seniority']?.touched ">
+                Verify seniority
+              </div>
+
               <div class="form-group draggable">
                 <label >Work Profile</label>
-                <select id="workProfile" class="form-control" required name="workProfil" [(ngModel)]="newResource.workProfil" placeholder="Work Profile">
+                <select id="workProfile" class="form-control"  name="workProfil"
+                        [(ngModel)]="newResource.workProfil" placeholder="Work Profile" formControlName="workProfil">
                   <option value="" selected>Select value...</option>
                   <option value="Developper">Developper</option>
                   <option value="Designer">Designer</option>
@@ -57,13 +97,24 @@
                 </select>
 
               </div>
+
+          <div class="alert alert-danger"
+               *ngIf="ClientForm.controls['workProfil']?.invalid && ClientForm.controls['workProfil']?.touched ">
+            Verify work profil
+          </div>
               <div class="form-group draggable">
                 <label >Salary</label>
-                <input type="number" class="form-control" name="salary" [(ngModel)]="newResource.salary" placeholder="Salary" >
+                <input type="number" class="form-control" name="salary" [(ngModel)]="newResource.salary"
+                       placeholder="Salary" formControlName="salary" >
               </div>
+          <div class="alert alert-danger"
+               *ngIf="ClientForm.controls['salary']?.invalid && ClientForm.controls['salary']?.touched ">
+            Verify salary
+          </div>
               <div class="form-group draggable">
                 <label >Job Type</label>
-                <select id="jobType" class="form-control select2" name="jobType" required [(ngModel)]="newResource.jobType" placeholder="Job Type">
+                <select id="jobType" class="form-control select2" name="jobType"
+                        formControlName="jobType" [(ngModel)]="newResource.jobType" placeholder="Job Type">
                   <option value="" selected>Select value...</option>
                   <option value="Freelancer">Freelancer</option>
                   <option value="LevioResource">Levio Resource</option>
@@ -71,20 +122,43 @@
                 </select>
 
               </div>
+
+          <div class="alert alert-danger"
+               *ngIf="ClientForm.controls['jobType']?.invalid && ClientForm.controls['jobType']?.touched ">
+            Verify job type
+          </div>
               <div class="form-group draggable">
                 <label>My Cv</label>
                 <input type="text" class="form-control" id="cv" placeholder="cv" name="cv"
-                       required [(ngModel)]="newResource.cv" placeholder="CV">
+                        [(ngModel)]="newResource.cv" placeholder="CV" formControlName="cv">
               </div>
+
+          <div class="alert alert-danger"
+               *ngIf="ClientForm.controls['cv']?.invalid && ClientForm.controls['cv']?.touched ">
+            Verify CV
+          </div>
+
               <div class="form-group draggable">
                 <label>Business Sector</label>
                 <input type="text" class="form-control" id="bussinessSector" placeholder="Business Sector"
-                       name="businessSector" required [(ngModel)]="newResource.businessSector">
+                       name="businessSector"  [(ngModel)]="newResource.businessSector"
+                       formControlName="bussinessSector">
+              </div>
+
+              <div class="alert alert-danger"
+                   *ngIf="ClientForm.controls['bussinessSector']?.invalid && ClientForm.controls['bussinessSector']?.touched ">
+                Verify bussiness sector
               </div>
               <div class="form-group draggable">
                 <label>My photo</label>
-                <input type="file" class="form-control" id="photo" name="file" required (change)="onFileChanged($event)">
+                <input type="file" class="form-control" id="photo" name="file"
+                       formControlName="photo" (change)="onFileChanged($event)" required>
               </div>
+
+          <div class="alert alert-danger"
+               *ngIf="ClientForm.controls['photo']?.invalid && ClientForm.controls['photo']?.touched ">
+            Verify photo
+          </div>
 
               <div class="form-group draggable pd-right">
                 <button type="submit"   class="btn btn-light"><i class="glyphicon glyphicon-plus" style="color: forestgreen"></i></button>

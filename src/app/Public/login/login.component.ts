@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
 
        localStorage.setItem('lastName', data.lastName);
      localStorage.setItem('role', data.roleT);
-     window.location.replace('/auth/mandate');
+     window.location.replace('/auth');
     }, err => {
       if (err.status === 200) {
           this.route.navigate(['auth/jobrequest']);

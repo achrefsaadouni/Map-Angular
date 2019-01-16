@@ -10,14 +10,9 @@ import {User} from '../Models/User';
   providers: [ListService]
 })
 export class ListJobrequestComponent implements OnInit {
-  listcandidate: Jobrequest[];
+  listcandidate: Jobrequest[] = [];
   constructor( private ls: ListService) {
-    this.ls.getalljobRequest().subscribe(
-      data => {
-        this.listcandidate = data;
-        console.log(this.listcandidate['candidate']) ;
-      }
-    );
+
 
 
 
@@ -27,6 +22,12 @@ export class ListJobrequestComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.ls.getalljobRequest().subscribe(
+      data => {
+        this.listcandidate = data;
+        console.log(this.listcandidate['candidate']) ;
+      }
+    );
 
   }
 

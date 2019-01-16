@@ -14,6 +14,7 @@ export class RequestComponent implements OnInit {
 
 
   listRequest:Request[];
+  updateRequest:Request;
 
 
   constructor(private lr: ListRequestService) {
@@ -28,11 +29,15 @@ export class RequestComponent implements OnInit {
   }
 
 
-
-
-
-
   ngOnInit() {
+  }
+
+  acceptRequest(l)
+  {
+    this.updateRequest=l;
+    this.updateRequest.accept=1;
+    console.log(this.updateRequest);
+    this.lr.acceptRequest(this.updateRequest.id).subscribe();
   }
 
 }

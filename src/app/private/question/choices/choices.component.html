@@ -1,74 +1,107 @@
 
-  <div class="row" [hidden]="ShowMe">
+  <aside class="right-side">
 
-    <div class="panel panel-info">
-      </div>
-      <div class="panel-body">
+    <section class="content-header">
+      <h1>Set You choice</h1>
+      <ol class="breadcrumb">
+        <li>
+          <a href="index.html">
+            <i class="livicon" data-name="home" data-size="16" data-color="#000"></i> Dashboard
+          </a>
+        </li>
+        <li>
+          <a href="#">Questions</a>
+        </li>
+        <li class="active"> <a href="auth/category/{{id}}/{{idm}}">back</a></li>
+      </ol>
+    </section>
 
 
-      <div class="panel panel-warning">
-        <div class="panel-heading">
-          <h3 class="panel-title">
-            <i class="livicon" data-name="help" data-size="16" data-loop="true" data-c="#fff" data-hc="white"></i> List of Choices
-          </h3>
-          <span class="pull-right clickable">
+    <section class="content paddingleft_right15" >
 
-                                    <i class="glyphicon glyphicon-remove" ></i>
-                                </span>
+      <div class="row">
+
+        <div class="panel panel-info">
         </div>
         <div class="panel-body">
-          <div class="row">
-            <div class="alert alert-warning"  [hidden]="Error">
-              <p>
-                You have no choices
-              </p>
+
+
+          <div class="panel panel-warning">
+            <div class="panel-heading">
+              <h3 class="panel-title">
+                <i class="livicon" data-name="help" data-size="16" data-loop="true" data-c="#fff" data-hc="white"></i> List of Choices
+              </h3>
+              <span class="pull-right  ">
+
+                <a routerLink="/auth/category/{{id}}/{{idm}}" routerLinkActive="active"> <i class="glyphicon glyphicon-backward" ></i></a>
+                                </span>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div *ngFor="let choice of choices">
-                <div class="row ">
-                  <div class="alert alert-success" *ngIf="choice.correct == true">
-                    <p>
-                      {{choice.title}}
-                    </p>
+            <div class="panel-body">
+              <div class="media">
+                <div class="media-left media-middle">
+                  <a href="#">
+                    <span style="font-size: 40px">{{Question.id}}</span>
+                  </a>
+                </div>
+                <div class="media-body">
+                  <h4 class="media-heading">{{Question.title}}</h4>
+                  {{Question.description}}
+                </div>
+              </div>
+              <div class="row" style="margin-top: 20px">
+                <div class="col-md-6">
+                  <div class="alert alert-warning alert-dismissible" role="alert" *ngIf="choices.length == 0" style="margin-top: 10px">
+                    <strong>Warning!</strong> You haven't added any choice yet to this question !
                   </div>
-                  <div class="alert alert-danger" *ngIf="choice.correct == false" >
-                    <p>
-                      {{choice.title}}
-                    </p>
+                  <div *ngFor="let choice of choices">
+                    <div class="row ">
+                      <div class="alert alert-success" *ngIf="choice.correct == true">
+                        <p>
+                          {{choice.title}}
+                        </p>
+                      </div>
+                      <div class="alert alert-danger" *ngIf="choice.correct == false" >
+                        <p>
+                          {{choice.title}}
+                        </p>
+                      </div>
+                    </div>
+
                   </div>
                 </div>
-
+                <div class="col-md-6">
+                  <form class="form-horizontal" (submit)="Addchoice(title,correct)">
+                    <fieldset>
+                      <!-- Name input-->
+                      <div class="form-group">
+                        <label class="col-md-3 control-label">Choice</label>
+                        <div class="col-md-9">
+                          <input  name="title" type="text" placeholder="Enter your Choice" class="form-control" #title></div>
+                      </div>
+                      <div class="checkbox" style="margin-left:130px;">
+                        <label>
+                          <input type="checkbox" [(ngModel)]="ischecked" [ngModelOptions]="{standalone: true}" name="correct" #correct>&nbsp; Correct</label>
+                      </div>
+                      <div class="form-group">
+                        <div class="col-md-12 text-right">
+                          <button type="submit" class="btn btn-responsive btn-success ">Add Choice</button>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </form>
+                </div>
               </div>
-            </div>
-            <div class="col-md-6">
-              <form class="form-horizontal" (submit)="Addchoice(title,correct)">
-                <fieldset>
-                  <!-- Name input-->
-                  <div class="form-group">
-                    <label class="col-md-3 control-label">Choice</label>
-                    <div class="col-md-9">
-                      <input  name="title" type="text" placeholder="Enter your Choice" class="form-control" #title></div>
-                  </div>
-                  <div class="checkbox" style="margin-left:130px;">
-                    <label>
-                      <input type="checkbox" [(ngModel)]="ischecked" [ngModelOptions]="{standalone: true}" name="correct" #correct>&nbsp; Correct</label>
-                  </div>
-                  <div class="form-group">
-                    <div class="col-md-12 text-right">
-                      <button type="submit" class="btn btn-responsive btn-success ">Add Choice</button>
-                    </div>
-                  </div>
-                </fieldset>
-              </form>
+
             </div>
           </div>
-
         </div>
-      </div>
-    </div>
 
-  </div>
+      </div>
+
+
+
+    </section>
+  </aside>
+
 
 

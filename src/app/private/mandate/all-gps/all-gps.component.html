@@ -1,4 +1,4 @@
-a<aside class="right-side">
+<aside class="right-side">
   <section class="content-header">
     <h1>Mandates</h1>
     <ol class="breadcrumb">
@@ -26,6 +26,9 @@ a<aside class="right-side">
           </h4>
         </div>
         <div class="panel-body">
+          <div style="width: 200px">
+            <input type="text" class="form-control" name="mot" placeholder="Search" [(ngModel)]="mot"><br><br>
+          </div>
           <div class="table-responsive">
 
 
@@ -44,17 +47,28 @@ a<aside class="right-side">
               </tr>
               </thead>
               <tbody>
-              <tr *ngFor="let m of requests">
-                <td>{{ m.Client.lastName }} {{ m.Client.firstName }}</td>
-                <td>{{ m.Client.nameSociety }}</td>
-                <td>{{ m.project.projectName }}</td>
-                <td>{{ m.depositDate }}</td>
-                <td>{{ m.requestedProfil }}</td>
-                <td></td>
+              <tr *ngFor="let m of AllGps  | filtre : mot | paginate: { itemsPerPage: 2, currentPage: p }">
+                <td>{{ m.firstName }}</td>
+                <td>{{ m.lastName }} </td>
+                <td>{{ m.email }}</td>
+                <td>{{ m.workProfil }}</td>
+                <td>{{ m.seniority }}</td>
+                <td>{{ m.jobType }}</td>
+                <td>
+                  <div *ngFor="let i of m.resourceSkills">
+                    <span class="tag label label-info">{{ i.skill.nameSkill}}</span>
+                  </div>
+                </td>
+                <td>
+                  <button (click)="add(m)" class="button button-pill button-success">Add</button>
+                </td>
               </tr>
               </tbody>
             </table>
+            <div style="text-align: center">
+              <pagination-controls (pageChange)="p = $event"></pagination-controls>
 
+            </div>
 
           </div>
         </div>

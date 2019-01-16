@@ -167,7 +167,7 @@
 
 
 	/**
-	 * @Models  Sortable
+	 * @class  Sortable
 	 * @param  {HTMLElement}  el
 	 * @param  {Object}       [options]
 	 */
@@ -761,7 +761,7 @@
 
 					_disableDraggable(dragEl);
 
-					// Remove Models's
+					// Remove class's
 					_toggleClass(dragEl, this.options.ghostClass, false);
 					_toggleClass(dragEl, this.options.chosenClass, false);
 

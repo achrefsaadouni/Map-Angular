@@ -14,37 +14,68 @@
     </ol>
   </section>
   <section class="content paddingleft_right15">
+    <div *ngIf="!(role == 'Admin')">
+      <h1 style="color: red;">Access denied</h1>
+    </div>
+    <div *ngIf="role == 'Admin'">
     <div class="row ui-sortable" id="sortable_portlets">
       <div *ngFor="let p of projects">
         <div class="col-md-4 column sortable">
-          <!-- BEGIN Portlet PORTLET-->
           <div class=" portlet box primary">
             <div class="portlet-title">
               <div class="caption">
-                <i class="livicon" data-c="#fff" data-hc="#fff" data-name="gift" data-size="18" data-loop="true"></i> Portlet
+                <i class="livicon" data-c="#fff" data-hc="#fff" data-name="gift" data-size="18" data-loop="true"></i> {{p.projectName}} Project
               </div>
               <div class="actions">
-                <a href="http://localhost:4200/auth/detailsProject/{{p.id}}" class="btn btn-default btn-sm">
+                <a routerLink="/auth/detailsProject/{{p.id}}" class="btn btn-default btn-sm">
                   <i class="fa fa-info"></i> Details
-                </a>
-                <a href="#" class="btn btn-default btn-sm">
-                  <i class="fa fa-pencil"></i> Edit
                 </a>
               </div>
             </div>
             <div class="portlet-body">
               <div>
                 <div class="row">
-                  <div class="col-md-4"><img src="https://scontent.ftun3-1.fna.fbcdn.net/v/t1.15752-9/46104335_566236880469066_7613629109041627136_n.png?_nc_cat=110&_nc_ht=scontent.ftun3-1.fna&oh=02f8768cb9204d29522938df0c7f2f8c&oe=5CA436DA" width="200" class="img-responsive" height="150" alt="Image" /></div>
-                  <div class="col-md-8">
-                    {{p.projectName}} , {{p.address}} , {{p.endDate}}
-                  </div>
+                <div class="col-md-4"><img [src]="'assets/img/map/'+p.picture" width="200" class="img-responsive" height="150" alt="Image" /></div>
                 </div>
+                <div class="row">
+                    <div class="row">
+                      <div class="col-md-6"><strong>Address</strong></div>
+                      <div class="col-md-6">{{p.address}}</div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6"><strong>Start date</strong></div>
+                      <div class="col-md-6">{{p.startDate}}</div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6"><strong>End date</strong></div>
+                      <div class="col-md-6">{{p.endDate}}</div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-6"><strong>Project type</strong></div>
+                      <!--<div class="col-md-6"><span class="label label-sm label-success">{{p.projectType}}</span></div>-->
+                      <!--[ngClass]="{'label label-sm label-success': p.projectType == 'newProject' , 'label label-sm label-warning': p.projectType == 'projectInProgress' , 'label label-sm label-info': p.projectType == 'completedProject'}"-->
+                      <div class="col-md-6">
+                        <div *ngIf="p.projectType == 'newProject'">
+                        <span class="label label-sm label-success">{{p.projectType}}</span>
+                        </div>
+                        <div *ngIf="p.projectType == 'projectInProgress'">
+                          <span class="label label-sm label-warning">{{p.projectType}}</span>
+                        </div>
+                        <div *ngIf="p.projectType == 'completedProject'">
+                          <span class="label label-sm label-danger">{{p.projectType}}</span>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
     </div>
   </section>
 </aside>

@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {ApiUri} from '../../shared/api-uri';
 import {Resourceskill} from "../Resourceskill";
 import {Skill} from "../skill";
+import {Resource} from "../../Models/Resource";
 
 @Injectable()
 export class SkillService {
@@ -24,7 +25,7 @@ export class SkillService {
     }
 
     getResourcesOfSkill(skillId:number){
-        return this.http.get<Skill[]>(ApiUri.URI + 'skill/orderResourcesOfSkill?skillId='+skillId);
+        return this.http.get<Resource[]>(ApiUri.URI + 'skill/orderResourcesOfSkill?skillId='+skillId);
     }
 
     AddSkill(s:Skill){

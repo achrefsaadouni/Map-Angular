@@ -2,4 +2,7 @@
 @import 'app/private/project/details-project/OrgStyle.css';
 @import '~angular-tree-component/dist/angular-tree-component.css';
 @import 'app/private/ng-organization-chart/ng-organization-chart.component.css';
+@import "~fullcalendar/dist/fullcalendar.min.css";
+
+
 

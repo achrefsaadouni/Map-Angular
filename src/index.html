@@ -5,19 +5,47 @@
   <title>Application</title>
   <base href="/">
 
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
-
+  <link rel="stylesheet" type="text/css" href="assets/vendors/datatables/css/dataTables.bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="assets/vendors/datatables/css/buttons.bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="assets/vendors/datatables/css/colReorder.bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="assets/vendors/datatables/css/dataTables.bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="assets/vendors/datatables/css/rowReorder.bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="assets/vendors/datatables/css/buttons.bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="assets/vendors/datatables/css/scroller.bootstrap.css" />
+  <link href="assets/css/pages/tables.css" rel="stylesheet" type="text/css">
+  <link href="assets/css/pages/sortable_list.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="assets/vendors/Buttons/css/buttons.css" />
+  <link rel="stylesheet" href="assets/css/pages/advbuttons.css" />
+  <link rel="stylesheet" type="assets/vendors/sweetalert/css/sweetalert.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+        integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+        crossorigin="" />
+  <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
 </head>
 <body>
   <app-root></app-root>
+  <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+          integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+          crossorigin=""></script>
+<script>
+
+  function map(firstName, LastName, workProfil, picture, seniority, jobType,email) {
+    $('#boutonModal').trigger('click');
+    $("#img_r").attr("src", picture);
+    $("#name_r").html(LastName + ' ' + firstName);
+    $("#work_r").html(workProfil);
+    $("#senior_r").html(seniority);
+    $("#job_r").html(jobType);
+    $("#email_r").html(email);
+  }
 
 
-  <script id="s1" src="assets/js/jquery-3.3.1.min.js"></script>
-  <script id="s2" src="assets/js/jquery-ui.min.js"></script>
-  <script id="s3" src="assets/js/app.js"></script>
 
 
+</script>
 </body>
 </html>

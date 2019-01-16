@@ -1,4 +1,4 @@
-<aside class="right-side">
+<aside class="right-side" xmlns="">
 
   <section class="content-header">
     <h1>Set Your job Request</h1>
@@ -18,9 +18,74 @@
 
   <section class="content paddingleft_right15" >
 
+<div style="text-align: center  ">
+  <button type="button" (click)="start()" class="btn btn-success btn-lg btn-block" [hidden]="hideTestButton">{{ hideTestButton ? 'Start Test ' : ' Test Started'}}</button>
+
+
+</div>
+    <div class="row" [hidden]="hidden" >
+      <div class="col-md-12">
+        <div class="panel panel-warning">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              <i class="livicon" data-name="shuffle" data-size="16" data-loop="true" data-c="#fff" data-hc="white"></i> Good luck !!
+            </h3>
+          </div>
+
+          <div class="panel-body" >
+            <div style="text-align: center; font-size: 75px ; font-family: Lato; color:red;">
+              {{timeLeft}}s
+            </div>
+            <ul *ngFor="let question of QuestionList | paginate: { itemsPerPage: 1, currentPage: p }">
+                <div class="row">
+                  <div class="col-md-10">
+                    <li>
+
+                      {{question.title}} {{question.clicked}}
+
+
+                    </li>
+                    <span>
+                {{question.description}}
+              </span>
+
+                    <ul *ngFor="let choice of question.choices">
 
 
 
+                      <div>
+                        <input type="radio" id="huey" name="choix" (change)="scoreChange(choice.correct)" value="{{choice.correct}}"  #choix>
+                        <label for="huey">{{choice.title}}</label>
+                      </div>
+
+
+
+
+                    </ul>
+                    <div>
+                      <button class="btn btn-success" [disabled]="question.clicked" (click)="setscore(question)" style="margin-left: 600px;"> Do you Confirm your choice? </button>
+
+                    </div>
+
+                  </div>
+                </div>
+
+              <div style="text-align: center ; size: 40px; margin-top: 100px" >
+
+
+              </div>
+            </ul>
+
+            <progress-bar [progress]="TestState.score" [color]="'#488aff'">
+            </progress-bar>
+            <div >
+            </div>
+          </div>
+          </div>
+        </div>
+
+
+    </div>
 
   </section>
 </aside>

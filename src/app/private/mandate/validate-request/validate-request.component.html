@@ -1,0 +1,270 @@
+<aside class="right-side">
+  <section class="content-header">
+    <h1>Mandates</h1>
+    <ol class="breadcrumb">
+      <li>
+        <a href="Mandate/index">
+          <i class="livicon" data-name="home" data-size="16" data-color="#000"></i> Dashboard
+        </a>
+      </li>
+      <li>
+        <a href="#">Mandates</a>
+      </li>
+      <li class="active">Validate My Request</li>
+    </ol>
+  </section>
+
+  <section class="content">
+
+    <div class="row">
+
+      <div class="col-lg-offset-4">
+
+        <span class="button-wrap" *ngIf="s.traiter">
+            <button (click)="accept(s)" class="button button-pill button-success">Accept Application</button>
+        </span>
+        <span class="button-wrap" *ngIf="s.traiter">
+            <button (click)="cancel(s)" class="button button-pill button-danger">Refuse Condidate</button>
+        </span>
+
+        <span class="button-wrap" *ngIf="!s.traiter">
+            <button (click)="summon(s)" class="button button-pill button-primary" >Summon For Review</button>
+        </span>
+        <span class="button-wrap" *ngIf="!s.traiter">
+            <button (click)="cancel(s)" class="button button-pill button-danger">Refuse Candidate</button>
+        </span>
+
+
+
+      </div>
+    </div>
+
+
+    <div class="row">
+
+
+      <div class="col-lg-6">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              <i class="livicon" data-name="doc-portrait" data-c="#fff" data-hc="#fff" data-size="18" data-loop="true"></i> Request
+            </h3>
+          </div>
+          <div class="panel-body" style="display: block;">
+
+
+
+            <div class="row">
+              <div >
+
+                <form action="#" class="form-horizontal">
+                  <div class="form-body">
+
+                    <div class="form-group pad-top40">
+                      <label for="inputUsername" class="col-md-3 control-label">
+                        Deposit Date:
+                      </label>
+                      <div class="col-md-9">
+                        <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                        <i class="livicon" data-name="user" data-size="18" data-c="#000" data-hc="#000" data-loop="true"></i>
+                                                    </span>
+                          <span class="form-control">{{ s.depositDate }}</span>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div class="form-group pad-top40">
+                      <label for="inputUsername" class="col-md-3 control-label">
+                        Project Name:
+                      </label>
+                      <div class="col-md-9">
+                        <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                        <i class="livicon" data-name="briefcase" data-size="18" data-c="#000" data-hc="#000" data-loop="true"></i>
+                                                    </span>
+                          <span class="form-control">{{s.project.projectName }}</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group pad-top40">
+                      <label for="inputUsername" class="col-md-3 control-label">
+                        Requested Profil:
+                      </label>
+                      <div class="col-md-9">
+                        <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                        <i class="livicon" data-name="address-book" data-size="18" data-c="#000" data-hc="#000" data-loop="true"></i>
+                                                    </span>
+                          <span class="form-control">{{ s.requestedProfil }}</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group pad-top40">
+                      <label for="inputUsername" class="col-md-3 control-label">
+                        Experience Year:
+                      </label>
+                      <div class="col-md-9">
+                        <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                        <i class="livicon" data-name="timer" data-size="18" data-c="#000" data-hc="#000" data-loop="true"></i>
+                                                    </span>
+                          <span class="form-control">{{s.experienceYear}} Years</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group pad-top40">
+                      <label for="inputUsername" class="col-md-3 control-label">
+                        Mandate Start Date:
+                      </label>
+                      <div class="col-md-9">
+                        <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                        <i class="livicon" data-name="calendar" data-size="18" data-c="#000" data-hc="#000" data-loop="true"></i>
+                                                    </span>
+                          <span class="form-control">{{s.startDateMondate}}</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group pad-top40">
+                      <label for="inputUsername" class="col-md-3 control-label">
+                        Mandate End Date:
+                      </label>
+                      <div class="col-md-9">
+                        <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                        <i class="livicon" data-name="calendar" data-size="18" data-c="#000" data-hc="#000" data-loop="true"></i>
+                                                    </span>
+                          <span class="form-control">{{s.endDateMondate}}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+
+              </div>
+
+
+              <form action="#" class="form-horizontal">
+                <div class="form-body">
+                  <div class="form-group pad-top40">
+                    <h4 style="color :#418BCA">Skills Required</h4>
+
+                    <div *ngFor="let t of s.project.projectSkills">
+
+                    <div class="col-md-3  control-label">
+                      <span style="padding-right: 700px">{{t.skill.nameSkill}}</span>
+                      <progress-bar [progress]="t.percentage" [color]="'#488aff'">
+                      </progress-bar>
+                    </div>
+                  </div>
+
+                  </div>
+
+
+
+
+
+                </div>
+              </form>
+
+
+
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+
+
+
+      <div class="col-lg-6">
+        <div class="panel panel-success">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              <i class="livicon" data-name="users" data-c="#fff" data-hc="#fff" data-size="18" data-loop="true"></i> Resource Suggesed
+            </h3>
+          </div>
+          <div class="panel-body" style="display: block;">
+
+            <div class="col-md-3">
+              <div class="text-center">
+                <div class="fileinput fileinput-new" data-provides="fileinput">
+                  <div class="fileinput-new thumbnail img-file">
+                    <div *ngIf="s.suggessedResource.picture!=''" >
+                    <img  src="{{s.suggessedResource.picture}}" width="200" class="img-responsive" height="150" alt="riot">
+
+                    </div>
+                    <div *ngIf="s.suggessedResource.picture ==''">
+                    <img style="background-color : black"  src="../../../../assets/img/authors/user.png" width="200" class="img-responsive" height="150" alt="riot">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-9">
+              <div class="panel-body">
+                <div class="table-responsive">
+                  <table class="table table-bordered table-striped" id="users">
+                    <tr>
+                      <td>Name</td>
+                      <td>
+                        {{s.suggessedResource.lastName}} {{s.suggessedResource.firstName}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Job Type</td>
+                      <td>
+                        {{s.suggessedResource.jobType}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Work Profil</td>
+                      <td>
+                        {{s.suggessedResource.workProfil}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Email</td>
+                      <td>
+                        {{s.suggessedResource.email}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Seniority</td>
+                      <td>
+                        {{s.suggessedResource.seniority}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Skills</td>
+                      <td>
+
+                        <div *ngFor="let i of s.suggessedResource.resourceSkills">
+                        <span style="color :#01BC8C">{{i.skill.nameSkill}}</span>
+                        </div>
+                      </td>
+                    </tr>
+
+                  </table>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+  <!-- content -->
+</aside>

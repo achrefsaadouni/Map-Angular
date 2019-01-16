@@ -26,6 +26,9 @@
           </h4>
         </div>
         <div class="panel-body">
+          <div style="width: 200px">
+            <input type="text" class="form-control" name="mot" placeholder="Search" [(ngModel)]="mot"><br><br>
+          </div>
           <div class="table-responsive">
 
 
@@ -42,17 +45,23 @@
               </tr>
               </thead>
               <tbody>
-              <tr *ngFor="let m of requests">
+              <tr *ngFor="let m of requests | filtre : mot | paginate: { itemsPerPage: 2, currentPage: p }">
                 <td>{{ m.Client.lastName }} {{ m.Client.firstName }}</td>
                 <td>{{ m.Client.nameSociety }}</td>
                 <td>{{ m.project.projectName }}</td>
                 <td>{{ m.depositDate }}</td>
                 <td>{{ m.requestedProfil }}</td>
-                <td></td>
+
+                <td *ngIf="m.suggessedResource"><button disabled class="button button-pill button-success">Traited</button></td>
+                <td *ngIf="!m.suggessedResource"><button  (click)="trait(m)" class="button button-pill button-success">Trait</button></td>
+
               </tr>
               </tbody>
             </table>
+            <div style="text-align: center">
+              <pagination-controls (pageChange)="p = $event"></pagination-controls>
 
+            </div>
 
           </div>
         </div>

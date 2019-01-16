@@ -7,8 +7,8 @@
 
 
 
-    <div class="table-responsive" >
-<alert></alert>
+    <div class="table-responsive"  *ngIf="resourceCo.roleT==='Admin'" >
+<notifier-container></notifier-container>
       <form (ngSubmit)="AffectSkillToResource()">
         <div id="formulaire">
 

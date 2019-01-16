@@ -17,7 +17,6 @@ import { AllGpsComponent } from './private/mandate/all-gps/all-gps.component';
 @NgModule({
   declarations: [
     AppComponent,
-    AllGpsComponent
   ],
   imports: [
     BrowserModule,

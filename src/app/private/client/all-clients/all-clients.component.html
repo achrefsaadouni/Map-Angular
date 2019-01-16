@@ -1,0 +1,123 @@
+<aside class="right-side">
+  <section class="content-header">
+    <h1>List Clients</h1>
+    <ol class="breadcrumb">
+      <li>
+        <a href="index.html">
+          <i class="livicon" data-name="home" data-size="16" data-color="#000"></i> Dashboard
+        </a>
+      </li>
+      <li>
+        <a href="#">Home</a>
+      </li>
+      <li class="active">List Clients</li>
+    </ol>
+  </section>
+  <section class="content paddingleft_right15">
+    <div class="row ui-sortable" id="sortable_portlets">
+     <div *ngIf="!(role == 'Admin')">
+       <h1 style="color: red;">Access denied</h1>
+     </div>
+      <div *ngIf="role == 'Admin'">
+      <div *ngFor="let client of clients">
+        <div class="col-md-5 column sortable">
+          <div class=" portlet box primary">
+            <div class="portlet-title">
+              <div class="caption">
+                <i class="livicon" data-c="#fff" data-hc="#fff" data-name="gift" data-size="18" data-loop="true"></i> {{client.firstName}} {{client.lastName}}
+              </div>
+              <div class="actions">
+                <a href="#" (click)="getProjects(client.id)" data-toggle="modal" data-target="#exampleModalProjects" class="btn btn-default btn-sm">
+                  <i class="fa fa-list"></i> Projects
+                </a>
+              </div>
+            </div>
+            <div class="portlet-body">
+                <div class="row">
+                  <div class="col-md-4"><img [src]="'assets/img/map/'+client.logo"  class="img-responsive" height="90" width="90" alt="Image" /></div>
+                </div>
+                <div class="row">
+                  <div class="row">
+                    <div class="col-md-6"><strong>Email</strong></div>
+                    <div class="col-md-6">{{client.email}}</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6"><strong>Name Society</strong></div>
+                    <div class="col-md-6">{{client.nameSociety}}</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6"><strong>Client type</strong></div>
+                    <div class="col-md-6">
+                      <div *ngIf="client.clientType == 'newClient'">
+                        <span class="label label-sm label-success">{{client.clientType}}</span>
+                      </div>
+                      <div *ngIf="client.clientType == 'currentClient'">
+                        <span class="label label-sm label-warning">{{client.clientType}}</span>
+                      </div>
+                      <div *ngIf="client.clientType == 'endContract'">
+                        <span class="label label-sm label-danger">{{client.clientType}}</span>
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+
+      <div class="modal fade" id="exampleModalProjects" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabelSkill">Skills of project</h5>
+            </div>
+            <div class="modal-body">
+              <!--<ng-organization-chart [data]="data" (onClickNode)="clickNode($event)" (onDragNode)="dragNode($event)" style="width: 250px"></ng-organization-chart>-->
+              <div class="portlet box primary">
+                <div class="portlet-title">
+                  <div class="caption">
+                    <i class="livicon" data-name="camera" data-size="16" data-loop="true" data-c="#fff" data-hc="white"></i> Simple Table
+                  </div>
+                </div>
+                <div class="portlet-body">
+                  <div class="table-scrollable">
+                    <table class="table table-hover">
+                      <thead>
+                      <tr>
+                        <th>Project name</th>
+                        <th>Start date</th>
+                        <th>End date</th>
+                        <th>Address</th>
+                        <th>Project type</th>
+                      </tr>
+                      </thead>
+                      <tbody *ngFor="let p of listProject">
+                      <tr>
+                        <td>{{p.projectName}}</td>
+                        <td>{{p.startDate}}</td>
+                        <td>{{p.endDate}}</td>
+                        <td>{{p.address}}</td>
+                        <td>
+                          <span class="label label-sm label-success">{{p.projectType}}</span>
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</aside>

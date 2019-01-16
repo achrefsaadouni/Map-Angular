@@ -17,6 +17,9 @@ export class ResourceService {
     GetAllResourcesNoArchived() {
         return this.http.get<Resource[]>(ApiUri.URI + 'Resources/listeResourceNoArchivedParMoyenne');
     }
+    GetAllResourcesArchived(){
+        return this.http.get<Resource[]>(ApiUri.URI + 'Resources/listeResourceArchive');
+    }
 
     GetResourceById(id:number){
         return this.http.get<Resource>(ApiUri.URI + 'Resources/resourceById?resourceId='+id);
@@ -49,6 +52,17 @@ export class ResourceService {
     ArchiverResource(resourceid:number){
         return this.http.put<Resource>(ApiUri.URI+'Resources/archive?resourceId='+resourceid,null);
 
+
+    }
+
+    unarchive(resourceid:number){
+        return this.http.put<Resource>(ApiUri.URI+'Resources/Unarchive?resourceId='+resourceid,null);
+
+
+    }
+
+    vu(resourceid:number){
+        return this.http.put<Resource>(ApiUri.URI+'Resources/vu?resourceId='+resourceid,null);
 
     }
 

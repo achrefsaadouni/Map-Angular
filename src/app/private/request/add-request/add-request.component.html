@@ -1,21 +1,35 @@
 <aside class="right-side">
+  <section class="content-header">
+    <h1>Request</h1>
+    <ol class="breadcrumb">
+      <li>
+        <a href="index.html">
+          <i class="livicon" data-name="home" data-size="16" data-color="#000"></i> Dashboard
+        </a>
+      </li>
+      <li>
+        <a href="#">Requests</a>
+      </li>
+      <li class="active">Add Request</li>
+    </ol>
+  </section>
 
-  <section class="content">
+  <section class="content" *ngIf="alert==0">
     <div class="row">
       <div class="col-md-12">
         <div class="panel panel-primary">
           <div class="panel-heading">
             <h3 class="panel-title">
-              <i class="livicon" data-name="user-add" data-size="18" data-c="#fff" data-hc="#fff" data-loop="true" id="livicon-46" style="width: 18px; height: 18px;"></i> Add New User
+              <i class="livicon" data-name="user-add" data-size="18" data-c="#fff" data-hc="#fff" data-loop="true" id="livicon-46" style="width: 18px; height: 18px;"></i> Add Request
             </h3>
             <span class="pull-right clickable">
-                                    <i class="glyphicon glyphicon-chevron-up"></i>
-                                </span>
+              <i class="glyphicon glyphicon-chevron-up"></i>
+            </span>
           </div>
           <div class="panel-body">
             <!-- errors -->
             <!--main content-->
-            <form id="commentForm" method="POST" (ngSubmit)="addRequest()" enctype="multipart/form-data" class="form-horizontal bv-form" novalidate="novalidate">
+            <form (ngSubmit)="addRequest()" class="form-horizontal bv-form" novalidate >
 
               <!-- CSRF Token -->
               <input type="hidden" name="_token">
@@ -26,50 +40,88 @@
                     <div class="form-group">
                       <label class="col-sm-2 control-label">Requested Profil *</label>
                       <div class="col-sm-10">
-                        <input id="requestedProfil" name="requestedProfil" type="text" placeholder="Developper,Designer..." class="form-control required" data-bv-field="requestedProfil" [(ngModel)]="newRequest.requestedProfil">
+                        <input id="requestedProfil" name="requestedProfil" #requestedProfil="ngModel" type="text" placeholder="Developper,Designer..." class="form-control required"  [(ngModel)]="newRequest.requestedProfil" required>
                       </div>
+                    </div>
+                    <div class="alert alert-danger" *ngIf="(!requestedProfil.valid&&requestedProfil.touched)">
+                      field required
+                    </div>
+                    <div class="alert alert-danger" *ngIf="rP==1">
+                      Must be Developper or Designer
                     </div>
                     <div class="form-group">
                       <label class="col-sm-2 control-label">Experience Year *</label>
                       <div class="col-sm-10">
-                        <input id="experienceYear" name="experienceYear" type="number" placeholder="10 or 20 .." class="form-control required" data-bv-field="experienceYear" [(ngModel)]="newRequest.experienceYear">
+                        <input id="experienceYear" name="experienceYear" #experienceYear="ngModel" type="number" placeholder="10 or 20 .." class="form-control required" data-bv-field="experienceYear" [(ngModel)]="newRequest.experienceYear" required>
                       </div>
+                    </div>
+                    <div class="alert alert-danger" *ngIf="!experienceYear.valid&&experienceYear.touched">
+                      champs adultes obligatoire
+                    </div>
+                    <div class="alert alert-danger" *ngIf="eY==1">
+                      error number
                     </div>
                     <div class="form-group">
                       <label class="col-sm-2 control-label">Education Scolarity *</label>
                       <div class="col-sm-10">
-                        <input id="educationScolarity" name="educationScolarity" placeholder="Esprit,Harvard..." type="email" class="form-control required email" data-bv-field="educationScolarity" [(ngModel)]="newRequest.educationScolarity">
+                        <input id="educationScolarity" name="educationScolarity" #educationScolarity="ngModel" placeholder="Esprit,Harvard..." type="email" class="form-control required email" data-bv-field="educationScolarity" [(ngModel)]="newRequest.educationScolarity" required>
                       </div>
+                    </div>
+                    <div class="alert alert-danger" *ngIf="!educationScolarity.valid&&educationScolarity.touched">
+                      champs adultes obligatoire
+                    </div>
+                    <div class="alert alert-danger" *ngIf="eS==1">
+                      error length
                     </div>
 
                     <div class="form-group">
                       <label  class="col-sm-2 control-label">Start Date Mandate *</label>
                       <div class="col-sm-10">
-                        <input id="startDate" name="startDate" type="date" placeholder="startDate" class="form-control required" data-bv-field="startDate" [(ngModel)]="newRequest.startDateMondate">
+                        <input id="startDate" name="startDate" type="date"  #startDate="ngModel" placeholder="startDate" class="form-control required" data-bv-field="startDate" [(ngModel)]="newRequest.startDateMondate" required>
                       </div>
+                    </div>
+                    <div class="alert alert-danger" *ngIf="!startDate.valid&&startDate.touched">
+                      champs adultes obligatoire
+                    </div>
+                    <div class="alert alert-danger" *ngIf="sD==1">
+                      error date
                     </div>
 
                     <div class="form-group">
                       <label  class="col-sm-2 control-label">End Date Mondate *</label>
                       <div class="col-sm-10">
-                        <input id="endDate" name="endDate" type="date" placeholder="endDate " class="form-control required" data-bv-field="endDate" [(ngModel)]="newRequest.endDateMondate">
+                        <input id="endDate" name="endDate" type="date" #endDate="ngModel" placeholder="endDate " class="form-control required" data-bv-field="endDate" [(ngModel)]="newRequest.endDateMondate" required>
                       </div>
+                    </div>
+                    <div class="alert alert-danger" *ngIf="!endDate.valid&&endDate.touched">
+                      champs adultes obligatoire
+                    </div>
+                    <div class="alert alert-danger" *ngIf="dE==1">
+                      error date
                     </div>
                     <div class="form-group">
                     <label  class="col-sm-2 control-label">Deposit Date *</label>
                     <div class="col-sm-10">
-                      <input id="depositDate" name="depositDate" type="date" placeholder="depositDate" class="form-control required" data-bv-field="depositDate" [(ngModel)]="newRequest.depositDate">
+                      <input id="depositDate" name="depositDate"  #depositDate="ngModel" type="date" placeholder="depositDate" class="form-control required" data-bv-field="depositDate" [(ngModel)]="newRequest.depositDate" required>
                     </div>
+                    </div>
+                    <div class="alert alert-danger" *ngIf="!depositDate.valid&&depositDate.touched">
+                      champs adultes obligatoire
                     </div>
                     <div class="form-group">
                       <label class="col-sm-2 control-label">Manager *</label>
                       <div class="col-sm-10">
-                        <input id="manager" name="manager" type="text" placeholder="manager " class="form-control required" [(ngModel)]="newRequest.manager">
+                        <input id="manager" name="manager" #manager="ngModel" type="text" placeholder="manager " class="form-control required" [(ngModel)]="newRequest.manager" required>
                       </div>
                     </div>
                   </div>
-                  <input type="submit" class="col-md-12 btn btn-primary btn_sizes" value="Send">
-                </div>
+                  <div class="alert alert-danger" *ngIf="!manager.valid&&manager.touched">
+                    champs adultes obligatoire
+                  </div>
+                  <div class="form-group">
+                  <button style="margin-left: 200px" type="submit" class="btn btn-responsive button-alignment btn-info" id="btn3">Add</button>
+                  </div>
+                  </div>
               </div>
             </form>
           </div>
@@ -78,6 +130,13 @@
     </div>
     <!--row end-->
   </section>
+  <div *ngIf="alert==1">
+  <app-msg-alert></app-msg-alert>
+  </div>
+
+
 </aside>
+
+
 
 

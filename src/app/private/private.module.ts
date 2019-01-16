@@ -36,7 +36,20 @@ import { AlertComponent } from './alert/alert/alert.component';
 import {AlertService} from "./alert/alert.service";
 
 import { DayOffComponent } from './resource/day-off/day-off.component';
-
+import {ShareDataService} from './mandate/Services/share-data.service';
+import { RoomComponent } from './room/room.component';
+import { MsgAlertComponent } from './request/add-request/msg-alert/msg-alert.component';
+import {FinalComponent} from './final/final.component';
+import {ProgressBarModule} from "angular-progress-bar";
+import {StatistiquesModule} from './statistiques/statistiques.module';
+import {FiltreResourcePipe} from './resource/resource/filtre-resource.pipe';
+import {NotifierModule} from 'angular-notifier';
+import {FullCalendarModule} from 'ng-fullcalendar';
+import {FiltrePipe} from './skill/list-skills/filtre.pipe';
+import {ListResourceNoArchivedComponent} from './resource/list-resource-no-archived/list-resource-no-archived.component';
+import {ResourcesOfSkillComponent} from './resource/resources-of-skill/resources-of-skill.component';
+import {AddDayOffComponent} from './resource/add-day-off/add-day-off.component';
+import {UserProfileComponent} from './resource/user-profile/user-profile.component';
 
 
 
@@ -50,7 +63,11 @@ import { DayOffComponent } from './resource/day-off/day-off.component';
     NgxPaginationModule,
     ProjectModule,
     ClientModule,
-    NgOrganizationChartModule
+    NgOrganizationChartModule,
+    ProgressBarModule,
+    StatistiquesModule,
+    NotifierModule,
+    FullCalendarModule,
   ],
   declarations: [LayoutComponent,
 
@@ -75,13 +92,24 @@ import { DayOffComponent } from './resource/day-off/day-off.component';
       ChatComponent,
       AddRequestComponent,
       AlertComponent,
-      DayOffComponent],
+      DayOffComponent,
+      RoomComponent,
+    FinalComponent,
+      MsgAlertComponent,
+    DayOffComponent,
+    ListResourceNoArchivedComponent,
+    ResourcesOfSkillComponent,
+    AddDayOffComponent,
+    FiltrePipe,
+    FiltreResourcePipe,
+    UserProfileComponent,
+  ],
 
 
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: AddAuthenticationHeaderInterceptor,
     multi: true
-  }, MandateService , ProjectService]
+  }, MandateService , ProjectService,ShareDataService]
 })
 export class PrivateModule { }

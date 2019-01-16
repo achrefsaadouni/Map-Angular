@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {ApiUri} from '../../../Public/shared/api-uri';
 import {MClient} from '../../Models/MClient';
+import {ProjectR} from '../../Models/ProjectR';
 
 @Injectable()
 export class ClientService {
@@ -26,6 +27,9 @@ export class ClientService {
   getClientById(id) {
     return this.http.get<MClient>(ApiUri.URI + 'clients/getById?idClient=' + id);
   }
+  getProjectsOfClient(id) {
+    return this.http.get<ProjectR[]>(ApiUri.URI + 'projects?idClient=' + id);
+  }
 
   updatePasswordClient(client: MClient) {
     const body = {
@@ -33,6 +37,10 @@ export class ClientService {
       password: client.password
     };
     return this.http.put(ApiUri.URI + 'clients/updatePassword' , body);
+  }
+
+  getAllClient(){
+    return this.http.get<MClient[]>(ApiUri.URI + 'clients/getClients');
   }
 
 }

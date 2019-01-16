@@ -5,6 +5,7 @@ import {ActivatedRoute} from '@angular/router';
 import {ProjectSkillR} from '../../Models/ProjectSkillR';
 import {Http} from '@angular/http';
 import {TestR} from '../../Models/TestR';
+import {NgOrganizationChartHelper} from '../../ng-organization-chart/ng-organization-chart-helper';
 
 @Component({
   selector: 'app-details-project',
@@ -14,6 +15,7 @@ import {TestR} from '../../Models/TestR';
 })
 export class DetailsProjectComponent implements OnInit {
   id: number;
+  data = [];
   project: ProjectR;
   projectSkills: ProjectSkillR[];
   projectSkillsTest: ProjectSkillR[] = [];
@@ -23,6 +25,8 @@ export class DetailsProjectComponent implements OnInit {
   nodes = [];
   options = {};
   projectx: ProjectR;
+  listSkills = [];
+
   // s: TestOrgR [] = [];
 
 
@@ -41,6 +45,36 @@ export class DetailsProjectComponent implements OnInit {
         this.projectSkills = data;
       });
   }
+
+  clickNode(node) {
+
+    alert('Node \'' + node.id + '\' was clicked!');
+  }
+
+  dragNode(transfer) {
+    const helper = new NgOrganizationChartHelper(this.data);
+    helper.moveNode(transfer.node.id, transfer.destination.id);
+    const data = helper.getData();
+    this.data = data;
+  }
+
+  showSkills() {
+
+
+    this.listSkills = this.projectSkills.map(o => {
+      return {id: o.skillName, children: []}
+    });
+
+
+    this.data = [
+      {
+        id: this.project.projectName,
+        children: this.listSkills
+      }
+    ];
+    return this.data;
+  }
+
 
   ngOnInit() {
     this.httpService.getAllProjectSkills(this.id).subscribe(
@@ -63,6 +97,8 @@ export class DetailsProjectComponent implements OnInit {
             ];
           });
       });
+
+
   }
 }
 

@@ -2,25 +2,37 @@ import {Component, OnInit} from '@angular/core';
 import {ClientService} from '../service/client.service';
 import {MClient} from '../../Models/MClient';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ProjectService} from '../../project/service/project.service';
+import {ProjectSkillR} from '../../Models/ProjectSkillR';
+import {NgOrganizationChartHelper} from '../../ng-organization-chart/ng-organization-chart-helper';
 
 @Component({
   selector: 'app-profil-client',
   templateUrl: './profil-client.component.html',
   styleUrls: ['./profil-client.component.css'],
-  providers: [ClientService]
+  providers: [ClientService,ProjectService]
 })
 export class ProfilClientComponent implements OnInit {
   CurrentId = localStorage.getItem('id');
   client: MClient;
   passwordForm: FormGroup;
-  msgError1;
-  msgError2;
+  projects = [] ;
+  data = [];
+  projectSkills: ProjectSkillR[] = [] ;
+  role: string = localStorage.getItem('role');
+  listSkills = [] ;
 
-  constructor(private httpService: ClientService, private formBuilder: FormBuilder) {
+  constructor(private httpService: ClientService, private  httpServiceProject: ProjectService, private formBuilder: FormBuilder) {
     this.httpService.getClientById(this.CurrentId).subscribe(
       data => {
         this.client = data;
       });
+
+    this.httpService.getProjectsOfClient(this.CurrentId).subscribe(
+      data => {
+        this.projects = data;
+      });
+
   }
 
   verifyOldPassword(group: FormGroup) {
@@ -35,6 +47,9 @@ export class ProfilClientComponent implements OnInit {
       oldPassword: ['', Validators.required]
     });
   }
+
+
+
 
   ChangePassword(oldPassword, newPassword, confirmPassword) {
     this.client = {
@@ -61,6 +76,15 @@ export class ProfilClientComponent implements OnInit {
         }
       }
     );
+  }
+
+
+  getSkills(id) {
+    this.httpServiceProject.getAllProjectSkills(id).subscribe(
+      data => {
+        this.projectSkills = data;
+      });
+    return   this.projectSkills ;
   }
 
 

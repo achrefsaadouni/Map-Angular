@@ -46,7 +46,7 @@
               {{l.daysMondate}}
             </td>
             <td *ngIf="l.accept==0">
-              <button type="button" class="btn btn-labeled btn-success">
+              <button type="button" class="btn btn-labeled btn-success" (click)="acceptRequest(l)">
                 <a class="btn-label pull-left" href="">
                 <i class="livicon" data-name="thumbs-up" data-size="16" data-loop="true" data-c="#fff"
                    data-hc="white"></i>
@@ -55,8 +55,8 @@
               </button>
             </td>
             <td *ngIf="l.accept==1">
-              <button type="button" class="btn btn-labeled btn-danger">
-                <a class="btn-label pull-left" href="">
+              <button type="submit" class="btn btn-labeled btn-danger" >
+                <a class="btn-label pull-left" href="" >
                 <i class="livicon" data-name="thumbs-down" data-size="16" data-loop="true" data-c="#fff"
                    data-hc="white"></i>
                 </a>

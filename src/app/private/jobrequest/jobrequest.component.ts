@@ -17,20 +17,7 @@ export class JobrequestComponent implements OnInit {
     NewJobRequest: Jobrequest = new Jobrequest();
     MyJobRequest: Jobrequest[];
   constructor(private js: JobrequestService) {
-  this.js.showMyrequest(this.CurrentId).subscribe(
-    data => {
-      this.MyJobRequest = data;
-      if (this.MyJobRequest.length === 0) {
-       this.Request = false;
-      }
-    }
 
-  );
-  this.js.getCategories().subscribe(
-      data => {
-        this.Specialities = data;
-      }
-    );
   }
   Set(speciality) {
     this.NewJobRequest = {
@@ -55,6 +42,21 @@ export class JobrequestComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.js.getCategories().subscribe(
+      data => {
+        this.Specialities = data;
+      }
+    );
+    this.js.showMyrequest(this.CurrentId).subscribe(
+      data => {
+        this.MyJobRequest = data;
+        if (this.MyJobRequest.length === 0) {
+          this.Request = false;
+        }
+      }
+
+    );
 
   }
 

@@ -1,0 +1,51 @@
+<aside class="right-side">
+  <section class="content-header">
+    <h1>About Client</h1>
+    <ol class="breadcrumb">
+      <li>
+        <a href="index.html">
+          <i class="livicon" data-name="home" data-size="16" data-color="#000"></i> Dashboard
+        </a>
+      </li>
+      <li>
+        <a href="#">Stat Admin</a>
+      </li>
+      <li class="active">About Client</li>
+    </ol>
+  </section>
+
+
+  <section class="content paddingleft_right15">
+    <div id="obrz">
+      <div class="row"  id="content" #content>
+        <!-- TestResult -->
+
+
+        <div class="col-lg-6">
+          <!-- Stack charts strats here-->
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">
+                <i class="livicon" data-name="barchart" data-size="16" data-loop="true" data-c="#fff" data-hc="#fff"></i>Benefice By Client
+              </h3>
+              <span class="pull-right">
+                        <i class="glyphicon glyphicon-chevron-up showhide clickable"></i>
+                        <i class="glyphicon glyphicon-remove removepanel clickable"></i>
+                    </span>
+            </div>
+            <div class="panel-body">
+              <canvas id="canvas4">{{chart5}} </canvas>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button  class="btn btn-success btn-lg" (click)="download()"> <span class="glyphicon glyphicon-print"></span>
+      Download Report Page as PDF
+    </button>
+  </section>
+</aside>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.1/jspdf.debug.js" integrity="sha384-THVO/sM0mFD9h7dfSndI6TS0PgAGavwKvB5hAxRRvc0o9cPLohB0wb/PTA7LdUHs" crossorigin="anonymous"></script>
+

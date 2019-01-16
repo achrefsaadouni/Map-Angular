@@ -4,7 +4,14 @@ import { ListProjectComponent } from './list-project/list-project.component';
 import { DetailsProjectComponent } from './details-project/details-project.component';
 import {NgCircleProgressModule} from 'ng-circle-progress';
 import { TreeModule } from 'angular-tree-component';
-
+import { AddProjectComponent } from './add-project/add-project.component';
+import {TagInputModule} from 'ngx-chips';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {NgOrganizationChartModule} from '../ng-organization-chart/ng-organization-chart.module';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {ScModalModule} from 'angular-5-popup';
+import { AddPercentageSkillsComponent } from './add-percentage-skills/add-percentage-skills.component';
+import {RouteModuleRoutingModule} from '../../route-module/route-module-routing.module';
 @NgModule({
   imports: [
     CommonModule,
@@ -17,8 +24,15 @@ import { TreeModule } from 'angular-tree-component';
       innerStrokeColor: '#C7E596',
       animationDuration: 300
     }),
-    TreeModule.forRoot()
+    TreeModule.forRoot(),
+    TagInputModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ScModalModule,
+    NgOrganizationChartModule,
+    RouteModuleRoutingModule
   ],
-  declarations: [ListProjectComponent, DetailsProjectComponent]
+  declarations: [ListProjectComponent, DetailsProjectComponent, AddProjectComponent, AddPercentageSkillsComponent]
 })
 export class ProjectModule { }

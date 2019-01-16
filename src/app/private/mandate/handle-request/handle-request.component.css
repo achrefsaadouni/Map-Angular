@@ -1,0 +1,60 @@
+.dnd {
+  min-height: 200px;
+  min-width: 200px;
+}
+
+.glyphicon-lgg
+{
+  width:100px;min-height:110px;margin-right:22px;text-align:center!important;padding:20px 0
+}
+
+.glyphicon-lg
+{
+  font-size:4em
+}
+
+.info-block
+{
+  border-right:5px solid #E6E6E6;margin-bottom:25px
+}
+.info-block .square-box
+{
+  width:100px;min-height:110px;margin-right:22px;text-align:center!important;background-color:#676767;padding:20px 0
+}
+.info-block.block-info
+{
+  border-color:#20819e
+}
+.info-block.block-info .square-box
+{
+  background-color:#20819e;color:#FFF
+}
+
+
+/* in-flight clone */
+.gu-mirror {
+  position: fixed !important;
+  margin: 0 !important;
+  z-index: 9999 !important;
+  opacity: 0.8;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter: alpha(opacity=80);
+  pointer-events: none;
+}
+/* high-performance display:none; helper */
+.gu-hide {
+  left: -9999px !important;
+}
+/* added to mirrorContainer (default = body) while dragging */
+.gu-unselectable {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+}
+/* added to the source element while its mirror is dragged */
+.gu-transit {
+  opacity: 0.2;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+  filter: alpha(opacity=20);
+}

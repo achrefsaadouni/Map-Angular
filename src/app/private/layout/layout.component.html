@@ -1,7 +1,7 @@
 <body class="skin-josh">
 <header class="header">
     <a href="index.html" class="logo">
-        <img width="214px" height="42px" src="assets/img/logo.png" alt="logo">
+        <img width="214px" height="42px" src="assets/img/logo.svg" alt="logo">
     </a>
     <nav class="navbar navbar-static-top" role="navigation">
         <!-- Sidebar toggle button-->
@@ -249,85 +249,100 @@
                             <span class="title">Dashboard</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
-                            <i class="livicon" data-name="notebook" data-size="18" data-c="#418BCA" data-hc="#418BCA"
-                               data-loop="true"></i>
-                            <span class="title">Projects</span>
-                            <span class="fa arrow"></span>
+                  <li>
+                    <a href="#">
+                      <i class="livicon" data-name="notebook" data-size="18" data-c="#418BCA" data-hc="#418BCA"
+                         data-loop="true"></i>
+                      <span class="title">Projects</span>
+                      <span class="fa arrow"></span>
+                    </a>
+
+                    <ul class="sub-menu">
+                      <li>
+                        <a routerLink="/auth/listProject">
+                          <i class="fa fa-angle-double-right"></i> All Projects
                         </a>
-
-                        <ul class="sub-menu">
-                            <li>
-                                <a href="/Project/Index">
-                                    <i class="fa fa-angle-double-right"></i> All Projects
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/Project/CompletedProject">
-                                    <i class="fa fa-angle-double-right"></i> Completed Projects
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/Project/calculBenefice">
-                                    <i class="fa fa-angle-double-right"></i> Benefice
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/Project/listArchivedProject">
-                                    <i class="fa fa-angle-double-right"></i> Archived Projects
-                                </a>
-                            </li>
-
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="livicon" data-name="notebook" data-size="18" data-c="#418BCA" data-hc="#418BCA"
-                               data-loop="true"></i>
-                            <span class="title">Recruitment</span>
-                            <span class="fa arrow"></span>
+                      </li>
+                      <li>
+                        <a routerLink="/auth/addProject">
+                          <i class="fa fa-angle-double-right"></i> Add project
                         </a>
+                      </li>
 
-                        <ul class="sub-menu">
-                            <li>
-                                <a routerLink="category">
-                                    <i class="fa fa-angle-double-right"></i> Test Category
-                                </a>
-                            </li>
-                            <li>
-                                <a routerLink="list">
-                                    <i class="fa fa-angle-double-right"></i> Candidate List
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/Project/CompletedProject">
-                                    <i class="fa fa-angle-double-right"></i> Modules
-                                </a>
-                            </li>
+                    </ul>
+                  </li>
 
-                            <li>
-                                <a href="/Project/calculBenefice">
-                                    <i class="fa fa-angle-double-right"></i> Set Test
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/Project/listArchivedProject">
-                                    <i class="fa fa-angle-double-right"></i> Show Requested
-                                </a>
-                            </li>
+                  <li>
+                    <a href="#">
+                      <i class="livicon" data-name="users" data-size="18" data-c="#418BCA" data-hc="#418BCA"
+                         data-loop="true"></i>
+                      <span class="title">Clients</span>
+                      <span class="fa arrow"></span>
+                    </a>
 
-            </ul>
-          </li>
-          <li>
+                    <ul class="sub-menu">
+                      <li>
+                        <a routerLink="/auth/listClients">
+                          <i class="fa fa-angle-double-right"></i> All Clients
+                        </a>
+                      </li>
+                      <li>
+                        <a routerLink="/auth/addClient">
+                          <i class="fa fa-angle-double-right"></i> Add Client
+                        </a>
+                      </li>
+
+                    </ul>
+                  </li>
+
+                  <li>
+                    <a routerLink="/auth/profilClient/{{id}}">
+                      <i class="livicon" data-name="users" data-size="18" data-c="#418BCA" data-hc="#418BCA"
+                         data-loop="true"></i>
+                      <span class="title">My Profil</span>
+                      <span class="fa arrow"></span>
+                    </a>
+
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="livicon" data-name="notebook" data-size="18" data-c="#418BCA" data-hc="#418BCA"
+                         data-loop="true"></i>
+                      <span class="title">Recruitment</span>
+                      <span class="fa arrow"></span>
+                    </a>
+
+                    <ul class="sub-menu">
+                      <li *ngIf="role === 'Admin'">
+                        <a routerLink="category">
+                          <i class="fa fa-angle-double-right"></i> Test Category
+                        </a>
+                      </li>
+                      <li>
+                        <a routerLink="list" *ngIf="role === 'Admin'">
+                          <i class="fa fa-angle-double-right"></i> Candidate List
+                        </a>
+                      </li>
+                      <li>
+                        <a  >
+                          <i class="fa fa-angle-double-right"></i> Candidate
+                        </a>
+                      </li>
+
+
+
+                    </ul>
+                  </li>
+                   <li>
             <a href="#">
               <i class="livicon" data-name="list-ul" data-size="18" data-c="#EF6F6C" data-hc="#EF6F6C" data-loop="true"></i>
               <span class="title">Mandates</span>
               <span class="fa arrow"></span>
             </a>
             <ul class="sub-menu">
+              <div *ngIf="role==='Admin'">
               <li>
-                <a routerLink="/auth/mandate" routerLinkActive="active">
+                <a routerLink="/auth/allMandate" routerLinkActive="active">
                   <i class="fa fa-angle-double-right"></i> All Mandates
                 </a>
               </li>
@@ -336,9 +351,40 @@
                   <i class="fa fa-angle-double-right"></i> All Requests
                 </a>
               </li>
+              <li>
+                <a routerLink="/auth/archived" routerLinkActive="active">
+                  <i class="fa fa-angle-double-right"></i> Archive
+                </a>
+              </li>
+              <li>
+                <a routerLink="/auth/map" routerLinkActive="active">
+                  <i class="fa fa-angle-double-right"></i> Tracking
+                </a>
+              </li>
+              </div>
+              <div *ngIf="role==='Client'">
+                <li>
+                  <a routerLink="/auth/myMandate" routerLinkActive="active">
+                    <i class="fa fa-angle-double-right"></i> My Mandates
+                  </a>
+                </li>
+                <li>
+                  <a routerLink="/auth/myRequest" routerLinkActive="active">
+                    <i class="fa fa-angle-double-right"></i> My Requests
+                  </a>
+                </li>
+              </div>
+              <div *ngIf="role==='Resource'">
+                <li>
+                  <a routerLink="/auth/Mandate" routerLinkActive="active">
+                    <i class="fa fa-angle-double-right"></i> My Current Mandate
+                  </a>
+                </li>
+
+              </div>
             </ul>
           </li>
-          <li>
+                    <li>
             <a href="#">
               <i class="livicon" data-name="doc-portrait" data-c="#5bc0de" data-hc="#5bc0de" data-size="18" data-loop="true"></i>
               <span class="title">Requests</span>
@@ -357,35 +403,78 @@
               </li>
             </ul>
           </li>
-          
 
-                    <li>
-                        <a href="#">
-                            <i class="livicon" data-name="notebook" data-size="18" data-c="#418BCA" data-hc="#418BCA"
-                               data-loop="true"></i>
-                            <span class="title">Resources</span>
-                            <span class="fa arrow"></span>
+
+
+                  <li>
+                    <a href="#">
+                      <i class="livicon" data-name="barchart" data-size="18" data-c="#00bc8c" data-hc="#00bc8c" data-loop="true"></i>
+                      <span class="title">Stats</span>
+                      <span class="fa arrow"></span>
+                    </a>
+                    <ul class="sub-menu">
+                      <li>
+                        <a routerLink="/auth/StatAdmin">
+                          <i class="fa fa-angle-double-right"></i> General Informations
                         </a>
-                        <ul class="sub-menu">
-                            <li>
-                                <a routerLink="/auth/resource">
-                                    <i class="fa fa-angle-double-right"></i> All Resources No Archived
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/Project/CompletedProject">
-                                    <i class="fa fa-angle-double-right"></i> All Resources Archived
-                                </a>
-                            </li>
-                            <li>
-                                <a routerLink="/auth/listSkills">
-                                    <i class="fa fa-angle-double-right"></i> Skills
-                                </a>
+                      </li>
+                      <li>
+                        <a routerLink="/auth/StatCandidate">
+                          <i class="fa fa-angle-double-right"></i> About Candidate
+                        </a>
+                      </li>
+                      <li>
+                        <a routerLink="/auth/StatRh">
+                          <i class="fa fa-angle-double-right"></i> About RH
+                        </a>
+                      </li>
+                      <li>
+                        <a routerLink="/auth/StatClient">
+                          <i class="fa fa-angle-double-right"></i> About Client
+                        </a>
+                      </li>
+                      <li>
+                        <a routerLink="/auth/StatProject">
+                          <i class="fa fa-angle-double-right"></i> About Project
+                        </a>
+                      </li>
+                      <li>
+                        <a routerLink="/auth/Rec">
+                          <i class="fa fa-angle-double-right"></i> Recommandations
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
 
-                            </li>
 
-                        </ul>
-                    </li>
+
+                  <li>
+                    <a href="#">
+                      <i class="livicon" data-name="users" title="Users List" data-size="25" data-c="#01bc8c" data-hc="#01bc8c" data-loop="true"></i>
+                      <span class="title">Resources</span>
+                      <span class="fa arrow"></span>
+                    </a>
+                    <ul class="sub-menu">
+                      <li>
+                        <a routerLink="/auth/resource">
+                          <i class="fa fa-angle-double-right"></i> All Resources No Archived
+                        </a>
+                      </li>
+                      <li>
+                        <a routerLink="/auth/resourceArchive">
+                          <i class="fa fa-angle-double-right"></i> All Resources Archived
+                        </a>
+                      </li>
+                      <li>
+                        <a routerLink="/auth/listSkills">
+                          <i class="fa fa-angle-double-right"></i> Skills
+                        </a>
+
+                      </li>
+
+
+                    </ul>
+                  </li>
                     <ul class="sub-menu">
                         <li>
                             <a routerLink="category">

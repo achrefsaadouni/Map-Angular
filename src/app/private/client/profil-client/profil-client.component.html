@@ -14,6 +14,10 @@
     </ol>
   </section>
   <section class="content paddingleft_right15">
+    <div *ngIf="!(role == 'Client')">
+      <h1 style="color: red;">Access denied</h1>
+    </div>
+    <div *ngIf="role == 'Client'">
     <div class="table-responsive">
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
@@ -43,7 +47,7 @@
                         <div class="fileinput fileinput-new" data-provides="fileinput">
                           <div class="fileinput fileinput-new" data-provides="fileinput">
                             <div class="fileinput-new thumbnail img-file">
-                              <img [src]="'assets/img/football.png'"
+                              <img [src]="'assets/img/map/'+client.logo"
                               width="200" class="img-responsive" height="150" alt="riot">
                             </div>
                           </div>
@@ -81,7 +85,7 @@
                             <tr>
                               <td>Address</td>
                               <td>
-                                <p>{{client.address}}</p>>
+                                <p>{{client.address}}</p>
                               </td>
                             </tr>
                           </table>
@@ -179,8 +183,110 @@
               </div>
             </div>
           </div>
+          <div class="tab-pane gallery-padding" id="tab_3">
+
+                <div class="row ui-sortable" id="sortable_portlets">
+                  <div *ngFor="let p of projects">
+                    <div class="col-md-4 column sortable">
+                      <div class=" portlet box primary">
+                        <div class="portlet-title">
+                          <div class="caption">
+                            <i class="livicon" data-c="#fff" data-hc="#fff" data-name="gift" data-size="18" data-loop="true"></i> {{p.projectName}} Project
+                          </div>
+                          <div class="actions">
+                            <a href="#"  (click)="getSkills(p.id)" data-toggle="modal" data-target="#exampleModalSkill" class="btn btn-default btn-sm">
+                              <i class="fa fa-bullseye"></i> Skills
+                            </a>
+                          </div>
+                        </div>
+                        <div class="portlet-body">
+                          <div>
+                            <div class="row">
+                              <div class="col-md-4"><img [src]="'assets/img/map/'+p.picture" width="200" class="img-responsive" height="150" alt="Image" /></div>
+                            </div>
+                            <div class="row">
+                              <div class="row">
+                                <div class="col-md-6"><strong>Address</strong></div>
+                                <div class="col-md-6">{{p.address}}</div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-6"><strong>Start date</strong></div>
+                                <div class="col-md-6">{{p.startDate}}</div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-6"><strong>End date</strong></div>
+                                <div class="col-md-6">{{p.endDate}}</div>
+                              </div>
+
+                              <div class="row">
+                                <div class="col-md-6"><strong>Project type</strong></div>
+                                <div class="col-md-6">
+                                  <div *ngIf="p.projectType == 'newProject'">
+                                    <span class="label label-sm label-success">{{p.projectType}}</span>
+                                  </div>
+                                  <div *ngIf="p.projectType == 'projectInProgress'">
+                                    <span class="label label-sm label-warning">{{p.projectType}}</span>
+                                  </div>
+                                  <div *ngIf="p.projectType == 'completedProject'">
+                                    <span class="label label-sm label-danger">{{p.projectType}}</span>
+                                  </div>
+                                </div>
+
+                              </div>
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+            <div class="modal fade" id="exampleModalSkill" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabelSkill">Skills of project</h5>
+                  </div>
+                    <div class="modal-body">
+                      <div *ngFor="let ps of projectSkills">
+                        <div class="col-md-4 column sortable">
+                          <div class="portlet box success ui-sortable-handle">
+                            <div class="portlet-title">
+                              <div class="caption">
+                                {{ps.skillName}}
+                              </div>
+                            </div>
+                            <div class="portlet-body">
+                              <div>
+                                <div class="row">
+                                  <circle-progress
+                                    [percent]="ps.percentage"
+                                    [radius]="50"
+                                    [outerStrokeWidth]="8"
+                                    [innerStrokeWidth]="4"
+                                    [outerStrokeColor]="'#78C000'"
+                                    [innerStrokeColor]="'#C7E596'"
+                                    [animation]="true"
+                                    [animationDuration]="300"
+                                  ></circle-progress>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
     </div>
   </section>
 </aside>

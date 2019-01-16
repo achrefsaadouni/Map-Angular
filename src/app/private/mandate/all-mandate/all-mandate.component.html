@@ -19,18 +19,22 @@
 
 
     <div class="row">
-      <div class="panel panel-warning ">
+      <div class="panel panel-success ">
         <div class="panel-heading">
           <h4 class="panel-title">
-            <i class="livicon" data-name="users-remove" data-size="18" data-c="#ffffff" data-hc="#ffffff"></i> Deleted Users List
+            <i class="livicon" data-name="users-remove" data-size="18" data-c="#ffffff" data-hc="#ffffff"></i> All Mandates
           </h4>
         </div>
         <div class="panel-body">
+          <div style="width: 200px">
+          <input type="text" class="form-control" name="mot" placeholder="Search" [(ngModel)]="mot"><br><br>
+          </div>
           <div class="table-responsive">
 
 
 
             <table class="table table-bordered">
+
               <thead>
               <tr>
                 <th>Start Date</th>
@@ -38,20 +42,27 @@
                 <th>Project Name</th>
                 <th>Resource Name</th>
                 <th>Fees</th>
+                <th>Gps</th>
               </tr>
               </thead>
               <tbody>
-              <tr *ngFor="let m of mandates">
+              <tr *ngFor="let m of mandates | filtre : mot | paginate: { itemsPerPage: 2, currentPage: p }">
                 <td>{{ m.mandateId.dateDebut }}</td>
                 <td>{{ m.mandateId.dateFin }}</td>
                 <td>{{ m.projet.projectName }}</td>
                 <td>{{ m.ressource.firstName }} {{ m.ressource.lastName }}</td>
                 <td>{{ m.montant }}</td>
+                <td *ngIf="m.gps">{{m.gps.lastName}} {{m.gps.firstName}} <button (click)="remove(m)" style="border: 0px;background-color: white">
+                  <img src="../../../../assets/img/cross.png" alt="" width="20px" height="20px"></button></td>
+                <td *ngIf="!m.gps"><button (click)="add(m)" class="button button-pill button-success">Add Gps</button></td>
               </tr>
+
               </tbody>
             </table>
+            <div style="text-align: center">
+              <pagination-controls (pageChange)="p = $event"></pagination-controls>
 
-
+            </div>
           </div>
         </div>
       </div>

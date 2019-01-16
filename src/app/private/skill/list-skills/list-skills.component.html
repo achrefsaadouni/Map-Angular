@@ -1,5 +1,5 @@
 <aside class="right-side">
-
+<notifier-container></notifier-container>
   <section class="content paddingleft_right15">
     <div id="contenu">
       <div *ngIf="!afficherModif">
@@ -9,10 +9,6 @@
         <aside class="right-side">
 
           <section class="content paddingleft_right15">
-
-
-
-
 
 
             <div class="table-responsive" >
@@ -46,7 +42,7 @@
               <div class="panel-title pull-left">
                 <div class="caption" id="recherche">
                   <p> Skills list</p>
-                  <div><input type="text" class="form-control"  id="nom"  name="motachercher" [(ngModel)]="motachercher"></div>
+                  <div><input type="text" class="form-control"  id="nom" name="motachercher" [(ngModel)]=motachercher></div>
                 </div>
 
               </div>
@@ -66,13 +62,13 @@
                   </thead>
 
 
-                  <tbody  *ngFor="let x of listSkills ">
+                  <tbody  *ngFor="let x of listSkills | filtre:motachercher">
 
                   <tr>
 
                     <td>{{x.idSkill}}</td>
                     <td>{{x.nameSkill}}</td>
-                    <td><button class="btn btn-info">Check Resources</button></td>
+                    <td><button class="btn btn-info" routerLink="/auth/resourcesSkill/{{x.idSkill}}">Check Resources</button></td>
                     <td><button class="btn btn-warning" (click)="ShowModif(x)">Update Skill</button></td>
 
                     <td><button class="btn btn-danger" (click)="DeleteSkill(x.idSkill)">Delete Skill</button></td>

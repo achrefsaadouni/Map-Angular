@@ -1,0 +1,158 @@
+<aside class="right-side">
+  <section class="content-header">
+    <h1>Mandates</h1>
+    <ol class="breadcrumb">
+      <li>
+        <a href="index.html">
+          <i class="livicon" data-name="home" data-size="16" data-color="#000"></i> Dashboard
+        </a>
+      </li>
+      <li>
+        <a href="#">Mandates</a>
+      </li>
+      <li class="active">Tracking</li>
+    </ol>
+  </section>
+  <section class="content">
+
+
+
+
+    <div class="row">
+
+
+      <div class="col-lg-7">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              <i class="livicon" data-name="doc-portrait" data-c="#fff" data-hc="#fff" data-size="18" data-loop="true"></i> Map
+            </h3>
+          </div>
+          <div class="panel-body" style="display: block;">
+
+
+            <div id="mapid" style="height: 500px;"></div>
+
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-lg-5">
+        <div class="panel panel-success">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              <i class="livicon" data-name="doc-portrait" data-c="#fff" data-hc="#fff" data-size="18" data-loop="true"></i> Client List With  Mandates in progress
+            </h3>
+          </div>
+          <div class="panel-body">
+
+            <div class="table-responsive">
+              <table class="table table-bordered" id="table">
+                <thead>
+                <tr class="filters">
+
+                  <th hidden>longitude</th>
+                  <th hidden>latitude</th>
+                  <th hidden>id</th>
+                  <th>Logo</th>
+                  <th>Company Name</th>
+                  <th>Project Name</th>
+                  <th>View</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr *ngFor="let r of projects">
+
+                  <td hidden>{{r.Client.longitude}}</td>
+                  <td hidden>{{r.Client.latitude}}</td>
+                  <td hidden>{{r.idProject}}</td>
+                  <td><img src="{{r.Client.logo}}" width="80px" height="50px" /></td>
+                  <td>{{r.Client.nameSociety}}</td>
+                  <td>{{r.projectName}}</td>
+                  <td>
+                    <button (click)="redirect($event)" style="border:0px;background-color: white" class="linkmap"><img src="../../../../assets/img/map.png" alt="" width="20px" height="30px"></button>
+                  </td>
+                </tr>
+
+                </tbody>
+              </table>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <button style="display : none" id="boutonModal" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Launch demo modal
+      </button>
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Resource Profil</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+
+
+              <div class="text-center">
+                <div class="fileinput fileinput-new" data-provides="fileinput">
+                  <div class="fileinput-new thumbnail img-file">
+
+
+                    <img id="img_r" style="background-color : black" src="../../../../assets/img/authors/user.png" width="200" class="img-responsive" height="150" alt="riot">
+
+
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="table-responsive">
+                <table class="table table-bordered table-striped" id="users">
+                  <tr>
+                    <td style="color : #418BCA">Name</td>
+                    <td id="name_r"></td>
+                  </tr>
+                  <tr>
+                    <td style="color : #418BCA">Job Type</td>
+                    <td id="job_r"></td>
+                  </tr>
+                  <tr>
+                    <td style="color : #418BCA">Work Profil</td>
+                    <td id="work_r"></td>
+                  </tr>
+                  <tr>
+                    <td style="color : #418BCA">Email</td>
+                    <td id="email_r"></td>
+                  </tr>
+                  <tr>
+                    <td style="color : #418BCA">Seniority</td>
+                    <td id="senior_r"></td>
+                  </tr>
+
+                </table>
+              </div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+  </section>
+</aside>
